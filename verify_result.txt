@@ -1,0 +1,10 @@
+Total agents: 94
+
+=== Found piano tutor agent! ===
+ID: 2062534073766486017
+Name: 琴琴
+Code: piano-tutor
+Description: 专业的钢琴教学AI助手，性格温柔中带着一丝严肃，为各水平钢琴学习者提供系统化的学习指导，包括乐理知识、演奏技巧、曲目推荐和练琴计划。
+Tag: 钢琴教学,音乐教育,乐器学习
+Enabled: True
+Skills: None

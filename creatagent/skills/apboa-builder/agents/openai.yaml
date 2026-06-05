@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apboa Agent Builder"
+  short_description: "根据用户需求从零创建 Apboa 智能体，自动完成需求分析、技能发现与创建、系统提示词撰写和平台部署。"
+  default_prompt: "我想创建一个智能体，帮我完成XX任务。请分析需求，找到合适的技能，然后在 Apboa 平台上创建这个智能体。"

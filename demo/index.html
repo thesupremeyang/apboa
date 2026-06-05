@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI智能体场景方案库</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#4F46E5',
+        'primary-dark': '#3730A3',
+        accent: '#06B6D4',
+        surface: '#FFFFFF',
+        background: '#F8FAFC',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+    },
+  },
+}
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.8s ease-out forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+.card-hover:hover::before {
+  left: 100%;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25);
+}
+
+/* Button hover */
+.btn-primary {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.btn-primary:hover::after {
+  width: 300px;
+  height: 300px;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+}
+
+/* Video modal */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.video-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-modal video {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+.video-modal.active video {
+  transform: scale(1);
+}
+
+/* Filter buttons */
+.filter-btn {
+  transition: all 0.3s ease;
+  position: relative;
+}
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4F46E5, #06B6D4);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.filter-btn.active::after,
+.filter-btn:hover::after {
+  width: 80%;
+}
+
+/* Badge */
+.badge-new {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Stats counter */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hero background animation */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-bg .circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1));
+  animation: float 8s ease-in-out infinite;
+}
+.hero-bg .circle:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -200px;
+  animation-delay: 0s;
+}
+.hero-bg .circle:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -2s;
+}
+.hero-bg .circle:nth-child(3) {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -4s;
+}
+
+/* Feature card gradient border */
+.feature-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #4F46E5, #06B6D4, #7C3AED);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Responsive video container */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Tag styles */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.tag-doc { background: rgba(79, 70, 229, 0.1); color: #4F46E5; }
+.tag-multimodal { background: rgba(236, 72, 153, 0.1); color: #EC4899; }
+.tag-data { background: rgba(6, 182, 212, 0.1); color: #06B6D4; }
+.tag-biz { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+.tag-service { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+.tag-industry { background: rgba(139, 92, 246, 0.1); color: #8B5CF6; }
+
+/* Intersection Observer animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body class="bg-background font-sans antialiased">
+
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-900 to-indigo-900 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:bg-white/30 transition-all">
+          <span class="text-white font-bold text-lg">B</span>
+        </div>
+        <span class="text-xl font-bold text-white group-hover:text-blue-200 transition-colors">智能体广场</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="text-white/80 hover:text-white font-medium transition-colors relative group">
+          首页
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#cases" class="text-white/80 hover:text-white font-medium transition-colors relative group">
+          场景方案
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#features" class="text-white/80 hover:text-white font-medium transition-colors relative group">
+          核心优势
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-blue-900/95 backdrop-blur-sm border-t border-white/10">
+    <div class="px-4 py-3 space-y-2">
+      <a href="#home" class="block px-4 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">首页</a>
+      <a href="#cases" class="block px-4 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">场景方案</a>
+      <a href="#features" class="block px-4 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">核心优势</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+  <!-- Background decorations -->
+  <div class="hero-bg">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <!-- Grid pattern -->
+  <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, #4F46E5 1px, transparent 0); background-size: 40px 40px;"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left content -->
+      <div class="space-y-8">
+        <div class="animate-fade-in-left">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+            <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+            2026 · 企业级 AI 场景方案库
+          </span>
+        </div>
+
+        <h1 class="animate-fade-in-left delay-200 text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+          <span class="gradient-text">AI 赋能</span>
+          <br>
+          <span class="text-gray-900">无限场景</span>
+        </h1>
+
+        <p class="animate-fade-in-left delay-300 text-lg text-gray-600 leading-relaxed max-w-xl">
+          从文档智能到多模态交互，从数据分析到企业业务自动化 —— 每个方案均提供完整源码，即刻商用。
+        </p>
+
+        <div class="animate-fade-in-left delay-400 flex flex-wrap gap-4">
+          <a href="#cases" class="btn-primary inline-flex items-center px-8 py-4 rounded-full text-white font-semibold shadow-xl shadow-primary/30">
+            探索场景方案
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <a href="#features" class="inline-flex items-center px-8 py-4 rounded-full border-2 border-gray-200 text-gray-700 font-semibold hover:border-primary hover:text-primary transition-all">
+            了解更多
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="animate-fade-in-left delay-500 grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+          <div>
+            <div class="stat-number text-4xl font-black text-gray-900">46<span class="text-primary">+</span></div>
+            <div class="text-sm text-gray-500 mt-1">精选场景</div>
+          </div>
+          <div>
+            <div class="stat-number text-4xl font-black text-gray-900">100<span class="text-primary">%</span></div>
+            <div class="text-sm text-gray-500 mt-1">源码交付</div>
+          </div>
+          <div>
+            <div class="stat-number text-4xl font-black text-gray-900">6</div>
+            <div class="text-sm text-gray-500 mt-1">大类别</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right content - Hero visual -->
+      <div class="animate-fade-in-right delay-300 hidden lg:block">
+        <div class="relative">
+          <!-- Main card -->
+          <div class="relative bg-white rounded-3xl shadow-2xl shadow-primary/10 p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl"></div>
+            <div class="relative grid grid-cols-3 gap-4">
+              <div class="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center text-3xl animate-float">
+                📄
+              </div>
+              <div class="aspect-square bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center text-3xl animate-float delay-100">
+                🎨
+              </div>
+              <div class="aspect-square bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-2xl flex items-center justify-center text-3xl animate-float delay-200">
+                📊
+              </div>
+              <div class="aspect-square bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center text-3xl animate-float delay-300">
+                🎙
+              </div>
+              <div class="aspect-square bg-gradient-to-br from-amber-100 to-amber-200 rounded-2xl flex items-center justify-center text-3xl animate-float delay-400">
+                🤖
+              </div>
+              <div class="aspect-square bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center text-3xl animate-float delay-500">
+                🧠
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg px-4 py-3 animate-float delay-200">
+            <div class="flex items-center space-x-2">
+              <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-700">即刻商用</span>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg px-4 py-3 animate-float delay-400">
+            <div class="flex items-center space-x-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-700">开箱即用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <a href="#cases" class="flex flex-col items-center text-gray-400 hover:text-primary transition-colors">
+      <span class="text-xs mb-2">向下探索</span>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- Cases Section -->
+<section id="cases" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16 fade-in-section">
+      <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        AI 场景方案库
+      </span>
+      <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+        精选 <span class="gradient-text">场景方案</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        覆盖 6 大类别 46 个行业场景，每个方案附带完整源码，点击卡片查看视频演示
+      </p>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in-section">
+      <button class="filter-btn active px-6 py-2.5 rounded-full text-sm font-semibold transition-all" data-filter="all">
+        全部
+      </button>
+      <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200" data-filter="doc">
+        📄 文档智能
+      </button>
+      <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200" data-filter="multimodal">
+        🎨 多模态
+      </button>
+      <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200" data-filter="data">
+        📊 数据分析
+      </button>
+      <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200" data-filter="biz">
+        💼 企业业务
+      </button>
+      <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200" data-filter="service">
+        💬 客服交互
+      </button>
+      <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200" data-filter="industry">
+        🏭 行业专用
+      </button>
+    </div>
+
+    <!-- Cases grid -->
+    <div id="casesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Cards will be inserted here by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-24 bg-gradient-to-br from-slate-50 to-indigo-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 fade-in-section">
+      <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        核心优势
+      </span>
+      <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+        为什么选择 <span class="gradient-text">我们</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        专业、高效、可靠的 AI 场景解决方案
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="feature-card p-8 fade-in-section">
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">开箱即用</h3>
+        <p class="text-gray-600 leading-relaxed">每个方案提供完整源码，下载即可运行，无需复杂配置，快速集成到现有系统。</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card p-8 fade-in-section delay-100">
+        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">场景丰富</h3>
+        <p class="text-gray-600 leading-relaxed">覆盖文档智能、多模态、数据分析、企业业务等多个领域，满足不同行业需求。</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card p-8 fade-in-section delay-200">
+        <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">技术领先</h3>
+        <p class="text-gray-600 leading-relaxed">基于最新的 AI 技术栈，包括 RAG、向量数据库、大模型等，保持技术领先优势。</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card p-8 fade-in-section delay-300">
+        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">专业支持</h3>
+        <p class="text-gray-600 leading-relaxed">7×24 小时技术支持团队，提供专业的技术咨询和定制化服务。</p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card p-8 fade-in-section delay-400">
+        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/30">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">持续更新</h3>
+        <p class="text-gray-600 leading-relaxed">定期更新 Demo 库，引入最新技术和场景，保持方案的时效性和竞争力。</p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card p-8 fade-in-section delay-500">
+        <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-pink-500/30">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">灵活定制</h3>
+        <p class="text-gray-600 leading-relaxed">根据企业需求提供深度定制服务，打造专属的 AI 解决方案。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+
+
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal" onclick="closeVideoModal(event)">
+  <button class="absolute top-6 right-6 text-white/80 hover:text-white z-10" onclick="closeVideoModal(event)">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  <video id="modalVideo" controls class="rounded-2xl">
+    <source src="" type="video/mp4">
+    您的浏览器不支持视频播放。
+  </video>
+</div>
+
+<script>
+// Cases data with video URLs - All 46 cases with local video files
+const cases = [
+  {
+    id: 'ND1264', title: '数字人播报（多模态）', desc: '上传人物图和音色，输入文本生成对口型数字人。',
+    detail: '通过面部动画驱动技术让静态图像变为会说话的数字人，口型与语音精准同步。',
+    icon: '👤', iconColor: 'cyan', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['数字人生成', '面部驱动', 'TTS', 'Python'],
+    features: ['单张图片即可生成数字人', '口型语音精准同步', '多音色多语种支持', '实时渲染快速输出'],
+    video: 'videos/01_数字人播报.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND1264.webp'
+  },
+  {
+    id: 'ND1406', title: '配音精灵', desc: '上传视频输入文本，生成与内容高度匹配的语音旁白。',
+    detail: '基于TTS大模型引擎，结合视频内容理解技术，自动匹配语速、语调与背景情绪。支持中英文等多语种和数十种专业音色。',
+    icon: '🎙', iconColor: 'purple', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['TTS', '视频分析', 'SpringBoot', 'FFmpeg'],
+    features: ['多语种多风格语音合成', '视频内容智能语速匹配', '数十种专业级音色库', '语速/停顿/重音精细调节'],
+    video: 'videos/02_配音精灵.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND1406.webp'
+  },
+  {
+    id: 'ND1693', title: '以图搜图（多模态）', desc: '上传图像分析特征，按主体、风格、颜色等维度筛选。',
+    detail: '基于CLIP多模态特征提取模型，对图像提取视觉特征向量进行相似度检索。',
+    icon: '🖼', iconColor: 'blue', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['CLIP', '向量检索', 'SpringBoot', 'Milvus'],
+    features: ['多模态特征提取', '按主体/风格/颜色筛选', '毫秒级相似度检索', '支持百万级图库'],
+    video: 'videos/03_以图搜图.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND1693.webp'
+  },
+  {
+    id: 'ND1766', title: '智能语音笔记', desc: '语音实时转文字，通过AI自动整理优化与总结。',
+    detail: '实时ASR流式识别+AI后处理，自动去除语气词、智能分段、提取摘要。',
+    icon: '🎤', iconColor: 'purple', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['ASR', 'LLM', 'WebSocket', 'SpringBoot'],
+    features: ['实时流式语音转写', '智能去口语化与分段', '待办事项自动提取', '多语种混合识别'],
+    video: 'videos/04_智能语音笔记.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND1766.webp'
+  },
+  {
+    id: 'ND1928', title: '文本结构化', desc: '自动识别提取文本关键信息并转换为结构化数据。',
+    detail: '利用信息抽取技术对非结构化文本进行实体识别与属性填充，输出JSON/XML格式。',
+    icon: '📃', iconColor: 'blue', tag: 'doc', tagLabel: '文档智能',
+    version: 'JFinal', stack: ['信息抽取', 'NLP', 'JFinal', 'JSON'],
+    features: ['非结构化文本解析', '自定义抽取模板', 'JSON/XML结构化输出', '字段映射灵活配置'],
+    video: 'videos/05_文本结构化.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND1928.webp'
+  },
+  {
+    id: 'ND2216', title: '声动人像（多模态）', desc: '保持原始动作不变，口型与语音完全贴合新文本。',
+    detail: '基于Wav2Lip++模型对视频进行口型同步合成，保留原始表情与动作。',
+    icon: '🎭', iconColor: 'purple', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['Wav2Lip', 'TTS', 'Python', 'FFmpeg'],
+    features: ['口型与语音精准同步', '保留原始表情动作', '多音色语音驱动', '批量视频处理'],
+    video: 'videos/06_声动人像.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND2216.webp'
+  },
+  {
+    id: 'ND2369', title: '血常规报告智能分析', desc: '提取检验项目与指标，多维度总结健康分析报告。',
+    detail: '支持血常规、生化等常见检验报告智能识别，从血液系统、免疫功能等多维度分析。',
+    icon: '🩺', iconColor: 'pink', tag: 'industry', tagLabel: '行业专用',
+    version: 'SpringBoot', stack: ['OCR', '医学NLP', '知识图谱', 'SpringBoot'],
+    features: ['检验报告自动识别解析', '异常指标智能标记', '多维度健康分析', '结构化健康报告输出'],
+    video: 'videos/07_血常规报告智能分析.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND2369.webp'
+  },
+  {
+    id: 'ND2437', title: '需求分析大师', desc: '智能解析产品需求，自动补全关键信息并生成专业文档。',
+    detail: '通过LLM对非结构化的需求描述进行智能解析，自动识别角色、功能模块、数据流等关键要素，生成标准PRD文档。',
+    icon: '🧠', iconColor: 'purple', tag: 'doc', tagLabel: '文档智能',
+    version: 'SpringBoot', stack: ['LLM', 'NLP', 'SpringBoot', 'VectorDB'],
+    features: ['自然语言需求解析', '自动补全缺失需求要素', '标准PRD文档智能生成', '多格式导出'],
+    video: 'videos/08_需求分析大师.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND2437.webp'
+  },
+  {
+    id: 'ND2581', title: '智能表单识别', desc: '根据预设表单模板自动匹配文本中的字段信息。',
+    detail: 'AI根据预设模板结构自动匹配字段值，模板可动态配置灵活应对不同表单类型。',
+    icon: '📋', iconColor: 'amber', tag: 'doc', tagLabel: '文档智能',
+    version: 'JFinal', stack: ['NLP', '模板匹配', 'JFinal', '规则引擎'],
+    features: ['表单模板动态配置', '文本与字段智能匹配', '支持复杂表单填充', '自动校验数据完整性'],
+    video: 'videos/09_智能表单识别.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND2581.webp'
+  },
+  {
+    id: 'ND2763', title: '音色克隆（多模态）', desc: '朗读录音后提取音色特征，输入文字生成该音色音频。',
+    detail: '基于Few-shot Voice Cloning，30-60秒录音样本即可提取音色特征构建个性化音色模型。',
+    icon: '🎵', iconColor: 'pink', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['语音克隆', 'TTS', 'Python', '声学模型'],
+    features: ['30-60秒录音快速克隆', '高还原度音色复刻', '情感语调调节', '实时语音合成'],
+    video: 'videos/10_音色克隆.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND2763.webp'
+  },
+  {
+    id: 'ND2917', title: '销售单智能助手', desc: '捕捉分析客户需求，筛选商品并自动计算总金额。',
+    detail: '多轮对话理解客户需求，从商品库中智能匹配推荐商品，自动生成销售单据。',
+    icon: '🧾', iconColor: 'teal', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['对话式推荐', '规则引擎', 'SpringBoot', 'Redis'],
+    features: ['多轮对话需求理解', '商品智能匹配推荐', '库存与价格实时查询', '自动生成销售单据'],
+    video: 'videos/11_销售单智能助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND2917.webp'
+  },
+  {
+    id: 'ND3249', title: '视频重绘（多模态）', desc: '上传视频选择风格自动重绘，支持日漫、国风水墨等。',
+    detail: '基于Stable Diffusion Video模型对上传视频逐帧风格迁移，内置帧连贯性优化算法，画面平滑无闪烁。',
+    icon: '🎨', iconColor: 'pink', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['Stable Diffusion', '视频处理', 'Python', 'FFmpeg'],
+    features: ['多种艺术风格一键重绘', '帧连贯性优化防闪烁', '高清视频输出', 'GPU加速渲染'],
+    video: 'videos/12_视频重绘.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND3249.webp'
+  },
+  {
+    id: 'ND3350', title: '识图阅卷', desc: '自动识图提取题号及手写内容，结构化输出实现智能阅卷。',
+    detail: '通过OCR+目标检测自动识别试卷图片中的题号区域和手写内容，将非结构化图像数据转化为结构化文本。支持批量处理、成绩汇总、错题分析。',
+    icon: '📄', iconColor: 'blue', tag: 'doc', tagLabel: '文档智能',
+    version: 'SpringBoot', stack: ['OCR', '目标检测', 'SpringBoot', 'MySQL'],
+    features: ['自动识别题号分区与手写内容', '结构化数据输出与成绩汇总', '支持批量试卷异步流水线', '错题知识点自动归类分析'],
+    video: 'videos/13_识图阅卷.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND3350.webp'
+  },
+  {
+    id: 'ND3429', title: '智能竞品分析', desc: '按预设多维度对产品进行深入对比分析。',
+    detail: '自动从多源收集信息，按自定义维度结构化对比分析，生成评分与优劣势报告。',
+    icon: '🏆', iconColor: 'amber', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['信息检索', 'LLM', 'NLP', 'SpringBoot'],
+    features: ['多源信息自动采集', '自定义对比维度配置', '评分与优劣势分析', '竞品报告结构化输出'],
+    video: 'videos/14_智能竞品分析.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND3429.webp'
+  },
+  {
+    id: 'ND3590', title: '合同分析风险识别', desc: '识别甲乙双方有利不利条款及需要补充的条款。',
+    detail: '法律领域微调LLM对合同深度语义分析，自动标注权利义务条款，识别潜在风险。',
+    icon: '⚖', iconColor: 'amber', tag: 'doc', tagLabel: '文档智能',
+    version: 'SpringBoot', stack: ['法律NLP', 'LLM', '知识图谱', 'SpringBoot'],
+    features: ['条款级权利义务分析', '不平等条款智能识别', '缺失条款自动检测', '风险等级评估与建议'],
+    video: 'videos/15_合同风险识别.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND3590.webp'
+  },
+  {
+    id: 'ND3621', title: '智能会议纪要', desc: '上传会议录音，自动转录提取关键信息生成文档。',
+    detail: 'ASR转写后经LLM语义分析，识别会议主题、发言要点、决策事项与待办任务。',
+    icon: '📋', iconColor: 'cyan', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['ASR', 'LLM', 'NLP', 'SpringBoot'],
+    features: ['会议录音自动转写', '发言人角色区分', '决策与待办智能提取', '结构化纪要导出'],
+    video: 'videos/16_智能生成会议纪要.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND3621.webp'
+  },
+  {
+    id: 'ND3746', title: '智能发票识别', desc: '快速识别各类发票关键信息并结构化输出。',
+    detail: '支持增值税发票、电子发票、出租车票等数十种票据，OCR提取后自动验真查重。',
+    icon: '🧾', iconColor: 'teal', tag: 'doc', tagLabel: '文档智能',
+    version: 'JFinal', stack: ['OCR', '票据识别', 'JFinal', '财务系统'],
+    features: ['数十种票据类型识别', '全字段结构化提取', '自动验真与查重', '财务系统数据对接'],
+    video: 'videos/17_智能发票识别.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND3746.webp'
+  },
+  {
+    id: 'ND4136', title: '文生视频（多模态）', desc: '精准解析文字场景、角色、动作等要素自动生成视频。',
+    detail: '利用大模型深度语义解析，提取场景与镜头要素，匹配动态素材库合成连贯视频。',
+    icon: '🎬', iconColor: 'purple', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['视频生成', 'LLM', '动态素材库', 'FFmpeg'],
+    features: ['文本深度语义解析', '动态素材智能匹配', '多风格视频渲染', '高清输出'],
+    video: 'videos/18_文生视频.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND4136.webp'
+  },
+  {
+    id: 'ND4284', title: '文生图（多模态）', desc: '根据文本描述、风格、尺寸等配置精准生成图片。',
+    detail: '集成SDXL/FLUX模型，支持ControlNet条件控制和图生图二次编辑。',
+    icon: '🎨', iconColor: 'teal', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['SDXL', 'FLUX', 'ControlNet', 'SpringBoot'],
+    features: ['多模型引擎切换', '多种艺术风格模板', 'ControlNet精准控制', '图生图二次编辑'],
+    video: 'videos/19_文生图.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND4284.webp'
+  },
+  {
+    id: 'ND4483', title: '真爱画像（多模态）', desc: '输入姓名与出生日期，AI分析并生成真爱画像。',
+    detail: '结合占星学、性格分析与机器学习，输出匹配度分析、性格契合图谱、关系发展建议。',
+    icon: '💝', iconColor: 'pink', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['LLM', '大数据分析', 'SpringBoot', 'ECharts'],
+    features: ['多维度性格契合分析', '星座/MBTI交叉匹配', '情感关系趋势预测', '雷达图与报告展示'],
+    video: 'videos/20_真爱画像.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND4483.webp'
+  },
+  {
+    id: 'ND4753', title: '智能会议室预约', desc: '7×24小时在线满足企业日常会议安排需求。',
+    detail: 'AI语音/文本对话式预约会议室，自动查询可用时段与设备，会议邀请自动发送。',
+    icon: '📅', iconColor: 'blue', tag: 'biz', tagLabel: '企业业务',
+    version: 'JFinal', stack: ['对话系统', '日程引擎', 'JFinal', 'Calendar API'],
+    features: ['对话式会议室预约', '智能冲突检测与协调', '自动发送会议邀请', '会前提醒通知'],
+    video: 'videos/21_智能会议室预约.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND4753.webp'
+  },
+  {
+    id: 'ND4952', title: '客服对话质量评估', desc: '从多维度分析客服服务质量并进行评分。',
+    detail: '自动评分模型涵盖专业度、服务态度、解决效率、沟通技巧等多个评估维度。',
+    icon: '⭐', iconColor: 'amber', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['对话分析', '质量评估', 'LLM', 'SpringBoot'],
+    features: ['多维度客服质量评分', '专业度/态度/效率/技巧', '评分趋势追踪与分析', '改进建议自动生成'],
+    video: 'videos/22_客服对话质量评估.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND4952.webp'
+  },
+  {
+    id: 'ND5219', title: '设备智能检测(JFinal)', desc: '快速获取设备信息和异常状态的检测与支持。',
+    detail: '对话方式与设备知识库交互，实时查询运行状态、历史故障记录与维护周期。',
+    icon: '🔧', iconColor: 'amber', tag: 'industry', tagLabel: '行业专用',
+    version: 'JFinal', stack: ['知识库', 'LLM', 'JFinal', 'IoT'],
+    features: ['设备状态实时查询', '故障原因AI分析', '处理步骤与备件清单', '维护周期智能提醒'],
+    video: 'videos/23_设备智能检测_基座版.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND5219.webp'
+  },
+  {
+    id: 'ND5308', title: '视频转文字', desc: '自动识别视频语音/字幕并转文字，生成结构化数据。',
+    detail: '集成ASR语音识别引擎，支持多语种视频的语音提取与转写，自动区分说话人，生成带时间轴的字幕文件和纯文本稿。',
+    icon: '📝', iconColor: 'cyan', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['ASR', 'NLP', 'SpringBoot', 'FFmpeg'],
+    features: ['多语种语音识别', '自动说话人区分', 'SRT/ASS字幕文件生成', '关键词高亮与智能分段'],
+    video: 'videos/24_视频转文字.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND5308.webp'
+  },
+  {
+    id: 'ND5412', title: '智能语音对话助手', desc: '语音输入实时识别，AI理解意图并语音回复。',
+    detail: '完整语音交互闭环：语音→ASR→LLM→TTS。支持上下文记忆与情感识别。',
+    icon: '💬', iconColor: 'purple', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['ASR', 'LLM', 'TTS', 'WebSocket'],
+    features: ['全双工语音实时对话', '上下文记忆与追踪', '用户情感状态识别', '支持打断与追问'],
+    video: 'videos/25_智能语音对话助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND5412.webp'
+  },
+  {
+    id: 'ND5724', title: '智能知识图谱助手', desc: '从文件中提取实体、关系与属性，构建可视化图谱。',
+    detail: '通过信息抽取技术自动识别实体、关系与属性，构建可视化交互知识图谱。',
+    icon: '🔗', iconColor: 'teal', tag: 'data', tagLabel: '数据分析',
+    version: 'SpringBoot', stack: ['信息抽取', '知识图谱', 'LLM', 'D3.js'],
+    features: ['实体关系自动抽取', '多类型关系识别', '可视化图谱交互探索', 'SPARQL查询支持'],
+    video: 'videos/26_智能知识图谱助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND5724.webp'
+  },
+  {
+    id: 'ND5862', title: '简历信息自动提取', desc: '上传简历自动提取20+关键字段，结构化输出。',
+    detail: '融合OCR与NLP技术，支持PDF/Word/图片等格式简历，提取姓名、联系方式、教育经历等。',
+    icon: '📑', iconColor: 'teal', tag: 'doc', tagLabel: '文档智能',
+    version: 'SpringBoot', stack: ['OCR', 'NLP', '信息抽取', 'SpringBoot'],
+    features: ['多格式简历自动解析', '20+关键字段精准提取', '结构化入库与检索', '支持批量简历处理'],
+    video: 'videos/27_简历信息自动提取.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND5862.webp'
+  },
+  {
+    id: 'ND6152', title: 'Excel智能数据筛选', desc: '对表格中的列自动分析，快速筛选出符合标准记录。',
+    detail: '自然语言描述筛选条件，AI自动理解语义并执行多条件组合筛选。',
+    icon: '📗', iconColor: 'teal', tag: 'data', tagLabel: '数据分析',
+    version: 'JFinal', stack: ['NL2Query', 'LLM', 'JFinal', 'POI'],
+    features: ['自然语言描述条件', '多条件组合自动执行', '模糊匹配与范围查询', '结果高亮与导出'],
+    video: 'videos/28_Excel智能数据筛选.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND6152.webp'
+  },
+  {
+    id: 'ND6233', title: '简历生成', desc: '自动识别个人关键字段，智能匹配模板并补全优化。',
+    detail: 'AI提取教育背景、工作经历、技能等关键字段，自动匹配简历模板，补全推荐描述并优化措辞。',
+    icon: '📄', iconColor: 'blue', tag: 'doc', tagLabel: '文档智能',
+    version: 'SpringBoot', stack: ['NLP', '模板引擎', 'SpringBoot', 'PDF'],
+    features: ['关键字段智能提取', '多风格模板匹配', '措辞优化与智能补全', '秒级PDF输出'],
+    video: 'videos/29_简历生成.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND6233.webp'
+  },
+  {
+    id: 'ND6382', title: '智能销售助手', desc: '通过与AI问答互动迅速掌握企业产品详细信息。',
+    detail: '基于RAG知识库架构，将产品手册、FAQ等文档向量化存储，支持自然语言查询与多轮追问。',
+    icon: '🤝', iconColor: 'teal', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['RAG', 'VectorDB', 'LLM', 'SpringBoot'],
+    features: ['产品文档智能问答', '多轮对话上下文理解', '信息溯源引用展示', '支持产品手册持续更新'],
+    video: 'videos/30_智能销售助手_接口版.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND6382.webp'
+  },
+  {
+    id: 'ND6417', title: '智能数据库开发助手', desc: '通过自然语言交流支持表设计，一键生成DDL。',
+    detail: 'AI理解数据存储需求，自动设计表结构、字段类型、索引策略，一键生成创建表的DDL。',
+    icon: '🗄', iconColor: 'cyan', tag: 'industry', tagLabel: '行业专用',
+    version: 'SpringBoot', stack: ['LLM', 'SQL生成', 'SpringBoot', '多数据库'],
+    features: ['自然语言表结构设计', '自动生成DDL语句', '智能索引与关系建议', '多数据库方言支持'],
+    video: 'videos/31_智能数据库开发助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND6417.webp'
+  },
+  {
+    id: 'ND6541', title: '费用报销智能审核', desc: '比对发票信息自动审核报销费用，流程可视化。',
+    detail: 'OCR识别发票全字段信息与报销单交叉核验，自动匹配企业费用政策合规检查。',
+    icon: '💳', iconColor: 'blue', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['OCR', '规则引擎', '工作流', 'SpringBoot'],
+    features: ['发票信息全字段识别', '合规性自动核验', '异常费用智能预警', '全流程可视化审核'],
+    video: 'videos/32_费用报销智能审核.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND6541.webp'
+  },
+  {
+    id: 'ND6738', title: '图像人员检测（多模态）', desc: 'AI图像识别分析，将人数、位置等关键信息精准提取。',
+    detail: '基于YOLOv8实时目标检测模型，对图像/视频中的人物进行精准检测与定位。',
+    icon: '👁', iconColor: 'amber', tag: 'multimodal', tagLabel: '多模态',
+    version: 'SpringBoot', stack: ['YOLOv8', '目标检测', 'Python', 'SpringBoot'],
+    features: ['实时人物检测与定位', '人数统计与超限告警', '热力图区域分析', '视频流实时处理'],
+    video: 'videos/33_图像人员检测.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND6738.webp'
+  },
+  {
+    id: 'ND7186', title: '智能话术助手', desc: '精准理解销售场景，从话术库匹配最优回复。',
+    detail: '基于场景识别与意图理解技术，从话术库中实时检索匹配最佳回复，支持A/B测试。',
+    icon: '💡', iconColor: 'purple', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['场景识别', '向量检索', 'LLM', 'SpringBoot'],
+    features: ['销售场景实时识别', '话术智能匹配推荐', '话术效果A/B测试', '新销售快速赋能'],
+    video: 'videos/34_智能话术助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND7186.webp'
+  },
+  {
+    id: 'ND7261', title: '联网搜索', desc: '调用MCP服务搜索关键词，自动提炼核心要点。',
+    detail: '集成MCP搜索服务，自动抓取多个信源，去重重排序后提炼核心要点并生成精炼摘要。',
+    icon: '🌐', iconColor: 'blue', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['MCP', 'Web Scraping', 'LLM', 'SpringBoot'],
+    features: ['多信源聚合搜索', 'AI自动提炼核心要点', '结果引用溯源', '自定义搜索源配置'],
+    video: 'videos/35_联网搜索.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND7261.webp'
+  },
+  {
+    id: 'ND7394', title: 'ChatPDF', desc: '针对文件提问，AI基于文档内容快速准确回答。',
+    detail: '文档语义理解与索引构建，自由提问获取精准回答，支持多文档联合问答。',
+    icon: '📕', iconColor: 'purple', tag: 'doc', tagLabel: '文档智能',
+    version: 'JFinal', stack: ['RAG', '文档解析', 'LLM', 'VectorDB'],
+    features: ['多文档联合智能问答', '关键信息跨文档对比', '文档摘要自动生成', '回答内容溯源引用'],
+    video: 'videos/36_ChatPDF.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND7394.webp'
+  },
+  {
+    id: 'ND7490', title: '设备智能检测', desc: '上传设备文件，AI自动识别故障代码并精准解答。',
+    detail: '支持设备说明书、维修手册、故障日志等文档，AI自动识别设备型号与故障代码。',
+    icon: '⚙', iconColor: 'amber', tag: 'industry', tagLabel: '行业专用',
+    version: 'SpringBoot', stack: ['OCR', '文档解析', 'LLM', 'SpringBoot'],
+    features: ['设备文档智能解析', '故障代码自动匹配', '诊断建议精准推荐', '覆盖多领域设备库'],
+    video: 'videos/37_设备智能检测_JFinal版.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND7490.webp'
+  },
+  {
+    id: 'ND7851', title: '文件智能分类', desc: '上传文件后AI分析内容，按预设规则自动分类。',
+    detail: '支持PDF/Word/Excel/图片等格式，通过内容理解与元数据提取，自动识别业务归属类别。',
+    icon: '📁', iconColor: 'blue', tag: 'doc', tagLabel: '文档智能',
+    version: 'SpringBoot', stack: ['文档理解', 'NLP', '文件解析', 'SpringBoot'],
+    features: ['多格式文件内容解析', '智能分类与标签标注', '自定义分类体系配置', '自动归档至目录'],
+    video: 'videos/38_文件智能分类助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND7851.webp'
+  },
+  {
+    id: 'ND8237', title: '投诉智能分类', desc: '分析投诉内容自动识别核心问题，分配对应部门。',
+    detail: '基于文本分类与情感分析，识别投诉类别、紧急程度、情感倾向，自动生成工单。',
+    icon: '📮', iconColor: 'amber', tag: 'service', tagLabel: '客服交互',
+    version: 'SpringBoot', stack: ['文本分类', '情感分析', '工作流', 'SpringBoot'],
+    features: ['投诉类别自动识别', '紧急程度智能分级', '客户情感倾向分析', '工单自动分派流转'],
+    video: 'videos/39_投诉智能分类助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND8237.webp'
+  },
+  {
+    id: 'ND8473', title: '智能销售助手(JFinal)', desc: '帮助销售掌握产品信息，提供个性化销售建议。',
+    detail: '整合产品知识库、竞品信息库与历史案例，实时推荐最佳沟通策略与话术。',
+    icon: '🤖', iconColor: 'teal', tag: 'biz', tagLabel: '企业业务',
+    version: 'JFinal', stack: ['RAG', 'LLM', 'JFinal', '销售知识库'],
+    features: ['客户画像智能分析', '场景化话术推荐', '销售模拟训练', '话术效果数据追踪'],
+    video: 'videos/40_智能销售助手_JFinal版.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND8473.webp'
+  },
+  {
+    id: 'ND8593', title: '智能邮件助手', desc: '分析邮件内容自动分类和回复，7×24小时服务。',
+    detail: '接入IMAP/SMTP自动收发，AI分类并根据企业模板自动生成回复草稿，支持人工审核。',
+    icon: '✉', iconColor: 'blue', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['邮件协议', 'LLM', '模板引擎', 'SpringBoot'],
+    features: ['邮件自动收发与分类', '智能生成回复草稿', '支持人工审核后再发送', '7×24小时不间断服务'],
+    video: 'videos/41_智能邮件助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND8593.webp'
+  },
+  {
+    id: 'ND8602', title: '智能问数(Text2SQL)', desc: '自然语言提问实时识别意图，自动生成精准SQL。',
+    detail: '结合Schema Linking与LLM，自动识别查询意图中的业务维度与指标，关联Schema生成精准SQL并执行。',
+    icon: '🔍', iconColor: 'cyan', tag: 'data', tagLabel: '数据分析',
+    version: 'SpringBoot', stack: ['Text2SQL', 'LLM', 'MySQL', 'ECharts'],
+    features: ['自然语言自动生成SQL', '多表关联与聚合分析', 'Schema智能匹配', '结果可视化展示'],
+    video: 'videos/42_智能问数_Text2Sql版.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND8602.webp'
+  },
+  {
+    id: 'ND9381', title: '智能图表(BI)', desc: '根据自然语言描述自动生成多种类型的图表。',
+    detail: 'NL2Chart技术，用户描述数据维度与目标，AI自动选择最佳图表类型并渲染。',
+    icon: '📊', iconColor: 'cyan', tag: 'data', tagLabel: '数据分析',
+    version: 'SpringBoot', stack: ['NL2Chart', 'LLM', 'ECharts', 'SpringBoot'],
+    features: ['自然语言描述需求', '自动匹配最佳图表类型', '支持多维度数据分析', '图表导出与分享'],
+    video: 'videos/43_智能图表BI.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND9381.webp'
+  },
+  {
+    id: 'ND9417', title: '智能问数(接口版)', desc: '以自然语言提问，经function调用转化为数据库查询参数。',
+    detail: '基于LLM+Function Calling架构，将自然语言问题解析为API查询参数，调用业务接口获取实时数据后以自然语言返回。',
+    icon: '📊', iconColor: 'teal', tag: 'data', tagLabel: '数据分析',
+    version: 'SpringBoot', stack: ['LLM', 'Function Calling', 'SpringBoot', 'Redis'],
+    features: ['自然语言转API参数', 'Function Calling精准调用', '多轮对话式数据探索', '结果可视化联动'],
+    video: 'videos/44_智能问数_接口版.mp4',
+    image: 'https://assets.vdata.chat/jboltai/ND9417.webp'
+  },
+  {
+    id: 'ND9638', title: '智能出题助手', desc: '深度剖析文档资料，提炼知识点生成高质量题目。',
+    detail: 'AI对学习资料进行知识图谱构建，生成选择、填空、简答等多种题型，配套答案与解析。',
+    icon: '✏', iconColor: 'pink', tag: 'industry', tagLabel: '行业专用',
+    version: 'JFinal', stack: ['知识图谱', 'NLP', 'LLM', 'JFinal'],
+    features: ['知识要点智能提取', '多题型自动生成', '难度分级与组卷', '答案与解析自动配套'],
+    video: 'videos/45_智能出题助手.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND9638.webp'
+  },
+  {
+    id: 'ND9735', title: '智能客户跟进管理', desc: '分析客户对话信息，自动提取跟进内容并生成任务。',
+    detail: '对销售与客户对话记录语义分析，自动识别需求痛点、购买意向等级，生成跟进任务卡片。',
+    icon: '📈', iconColor: 'teal', tag: 'biz', tagLabel: '企业业务',
+    version: 'SpringBoot', stack: ['对话分析', 'NLP', '任务引擎', 'SpringBoot'],
+    features: ['对话语义深度分析', '客户需求痛点识别', '购买意向等级评估', '跟进任务自动生成'],
+    video: 'videos/46_智能客户跟进管理.mp4',
+    image: 'https://assets.vdata.chat/ndemo/ND9735.webp'
+  }
+];
+
+// Render cases
+function renderCases(filter = 'all') {
+  const grid = document.getElementById('casesGrid');
+  const filtered = filter === 'all' ? cases : cases.filter(c => c.tag === filter);
+
+  grid.innerHTML = filtered.map((c, i) => `
+    <div class="feature-card card-hover cursor-pointer animate-fade-in-up" data-index="${cases.indexOf(c)}" style="animation-delay: ${i * 0.05}s; opacity: 1;">
+      <!-- Image -->
+      <div class="relative h-48 overflow-hidden rounded-t-2xl">
+        <img src="${c.image}" alt="${c.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+             onerror="this.style.display='none'">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        ${c.video ? '<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-semibold text-primary flex items-center"><svg class="w-3.5 h-3.5 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>视频演示</div>' : ''}
+        <div class="absolute bottom-3 left-3">
+          <span class="tag tag-${c.tag}">${c.tagLabel}</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-${c.iconColor}-100 flex items-center justify-center text-lg">
+              ${c.icon}
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg leading-tight">${c.title}</h3>
+              <span class="text-xs text-gray-400 font-mono">${c.id}</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">${c.desc}</p>
+
+        <!-- Tech stack -->
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          ${c.stack.slice(0, 3).map(s => `<span class="px-2.5 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-medium">${s}</span>`).join('')}
+          ${c.stack.length > 3 ? `<span class="px-2.5 py-1 bg-gray-100 text-gray-500 rounded-md text-xs">+${c.stack.length - 3}</span>` : ''}
+        </div>
+
+        <!-- Action -->
+        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+          <span class="text-xs text-gray-400">${c.version}</span>
+          ${c.video ?
+            `<button onclick="openVideoModal('${c.video}', event)" class="text-primary hover:text-primary-dark text-sm font-semibold flex items-center transition-colors">
+              观看演示
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>` :
+            `<span class="text-gray-400 text-sm">暂无视频</span>`
+          }
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Video modal functions
+function openVideoModal(videoSrc, event) {
+  event.stopPropagation();
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.src = videoSrc;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  video.play();
+}
+
+function closeVideoModal(event) {
+  if (event.target === document.getElementById('videoModal') || event.target.closest('button')) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.pause();
+    video.src = '';
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Filter functionality
+document.getElementById('casesGrid').addEventListener('click', (e) => {
+  const card = e.target.closest('.feature-card');
+  if (card && !e.target.closest('button')) {
+    const index = parseInt(card.dataset.index);
+    const c = cases[index];
+    if (c.video) {
+      openVideoModal(c.video, e);
+    }
+  }
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+      b.classList.add('bg-gray-100', 'text-gray-600');
+    });
+    btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+    btn.classList.remove('bg-gray-100', 'text-gray-600');
+    renderCases(btn.dataset.filter);
+  });
+});
+
+// Mobile menu
+document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      entry.target.style.opacity = '1';
+    }
+  });
+}, { threshold: 0.1 });
+
+// Function to observe elements
+function observeFadeElements() {
+  document.querySelectorAll('.fade-in-section').forEach(el => {
+    if (!el.classList.contains('visible')) {
+      observer.observe(el);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCases();
+
+  // Observe all fade-in-section elements
+  observeFadeElements();
+
+  // Set initial active filter button style
+  const activeBtn = document.querySelector('.filter-btn.active');
+  if (activeBtn) {
+    activeBtn.classList.add('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+    activeBtn.classList.remove('bg-gray-100', 'text-gray-600');
+  }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeVideoModal(e);
+  }
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu if open
+      document.getElementById('mobile-menu').classList.add('hidden');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

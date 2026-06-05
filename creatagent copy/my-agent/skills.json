@@ -1,0 +1,162 @@
+[
+  {
+    "id": "2060616733848080386",
+    "name": "frontend-design",
+    "category": "通用",
+    "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+    "enabled": true,
+    "createdAt": "2026-05-30 14:58:08"
+  },
+  {
+    "id": "2060619818049835010",
+    "name": "xhs-note-creator",
+    "category": "通用",
+    "description": "小红书笔记素材创作技能。当用户需要创建小红书笔记素材时使用这个技能。技能包含：根据用户的需求和提供的资料，撰写小红书笔记内容（标题+正文），生成图片卡片（封面+正文卡片）。",
+    "enabled": true,
+    "createdAt": "2026-05-30 15:10:24"
+  },
+  {
+    "id": "2060634575972720642",
+    "name": "gpt-image2",
+    "category": "通用",
+    "description": "Lightweight GPT Image 2 image generation and editing workflow. Use when Codex needs to configure OpenAI-compatible image API channels, generate or edit images from the command line without Python, print equivalent curl calls, or help users quickly try curated GPT-Image-2 prompt templates.",
+    "enabled": true,
+    "createdAt": "2026-05-30 16:09:02"
+  },
+  {
+    "id": "2061104891714961410",
+    "name": "cross-border-ecommerce",
+    "category": "跨境",
+    "description": "专注跨境电商全链路运营的策略专家，精通Amazon/Shopee/Lazada/AliExpress/Temu/TikTok Shop等海外平台运营、国际物流与海外仓、跨境合规税务、多语言Listing优化、品牌出海及DTC独立站建设。",
+    "enabled": true,
+    "createdAt": "2026-05-31 23:17:54"
+  },
+  {
+    "id": "2061266158584954881",
+    "name": "tencent-docs",
+    "category": "办公提效",
+    "description": "腾讯文档（docs.qq.com）-在线云文档平台，是创建、编辑、管理文档的首选 skill。涉及\"新建文档\"、\"创建文档\"、\"写文档\"、\"在线文档\"、\"云文档\"、\"腾讯文档\"、\"docs.qq.com\"等操作，请优先使用本 skill。支持能力：(1) 创建各类在线文档（文档/Word/Excel/幻灯片/思维导图/流程图/智能表格/白板/收集表）(2) 管理知识库空间（创建空间、查询空间列表）(3) 管理空间节点、文件夹结构 (4) 读取/搜索文档内容 (5) 编辑操作智能表 (6) 编辑操作在线文档 (7) 文件管理（重命名、移动、删除、复制、导入导出）。",
+    "enabled": true,
+    "createdAt": "2026-06-01 09:58:43"
+  },
+  {
+    "id": "2061271240714059777",
+    "name": "bi-report-auto",
+    "category": "办公提效",
+    "description": "BI 数据报表自动生成。BI 数据报表自动生成 - 报表模板设计、数据自动刷新、定时发送 This skill should be used when the user asks about BI 数据报表自动生成. Keywords: 生成报表, BI报表, 数据报告.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:18:55"
+  },
+  {
+    "id": "2061271245151633410",
+    "name": "docx",
+    "category": "办公提效",
+    "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of \"Word doc\", \"word document\", \".docx\", or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a \"report\", \"memo\", \"letter\", \"template\", or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:18:56"
+  },
+  {
+    "id": "2061271245889830914",
+    "name": "file-diff-checker",
+    "category": "办公提效",
+    "description": "重复文件差异对比。自动去重、智能归类，构建文件知识关联 This skill should be used when the user asks about 重复文件差异对比. Keywords: 文件对比, 差异分析, 去重.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:18:56"
+  },
+  {
+    "id": "2061271246091157506",
+    "name": "pdf",
+    "category": "办公提效",
+    "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:18:56"
+  },
+  {
+    "id": "2061271248100229121",
+    "name": "xlsx",
+    "category": "办公提效",
+    "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \"the xlsx in my downloads\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:18:57"
+  },
+  {
+    "id": "2061281493501444098",
+    "name": "Competitor Monitoring",
+    "category": "内容制作",
+    "description": "Track competitors with pricing alerts, feature changes, positioning analysis, and strategic dossiers.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:39"
+  },
+  {
+    "id": "2061281493706964994",
+    "name": "Social Media Scheduler",
+    "category": "内容制作",
+    "description": "规划、撰写和管理跨平台社交媒体内容。创建发布日历,编写平台适配帖子,维持稳定的发布节奏。",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281493908291586",
+    "name": "ai-research-radar",
+    "category": "内容生成",
+    "description": "定时任务：每日研究简报。漏掉重要论文和行业报告？每天帮你盯着，关键信息一条不漏 This skill should be used when the user asks about 定时任务：每日研究简报. Keywords: 每日简报, 研究简报.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281494168338434",
+    "name": "content-calendar",
+    "category": "内容生成",
+    "description": "Plan, schedule, and track content across channels — newsletters, social media, blog posts, and videos. Manages pipeline stages, publishing cadence, and repurposing opportunities. For solopreneurs and creators who want a system, not a spreadsheet.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281494419996673",
+    "name": "content-repurposer",
+    "category": "内容生成",
+    "description": "社媒内容做同款。将长文章/视频自动拆解为适合不同平台的短内容 This skill should be used when the user asks about 社媒内容做同款. Keywords: 做同款, 内容改编, 多平台发布.",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281494638100481",
+    "name": "knowledge-commerce-strategist",
+    "category": "内容生成",
+    "description": "专注中国知识付费生态的产品设计与商业化专家，精通得到、知识星球、小报童、小鹅通、千聊等平台运营，擅长知识产品定义、内容定价策略、用户运营、IP打造、分销体系设计和全链路数据分析。",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281494814261250",
+    "name": "online-search",
+    "category": "内容生成",
+    "description": "元宝搜索标准版工具。是腾讯元宝的联网搜索服务，提供实时、精准的互联网内容检索能力。\n核心特性：覆盖大量中文网站，包括官方媒体、政府网站等高权威性来源，以及腾讯系核心内容资源。多层精调排序策略，提供准确的内容匹配和排序。\n",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281495049142273",
+    "name": "short-video-editing-coach",
+    "category": "内容生成",
+    "description": "专注短视频剪辑技术全链路的实战教练，精通剪映/CapCut专业版、Premiere Pro、DaVinci Resolve、Final Cut Pro四大剪辑工具，覆盖画面构图与镜头语言、调色与色彩校正、音频工程、动态图形与特效、字幕排版、多平台输出优化、剪辑工作流效率提升以及AI辅助剪辑等核心技术领域。",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281495271440386",
+    "name": "social-copywriter",
+    "category": "内容生成",
+    "description": "Social media copywriter. 社交媒体文案、朋友圈文案、朋友圈怎么发、微博文案、微博段子、Twitter文案、tweet、Instagram文案、IG caption、社交媒体文案生成、节日祝福、生日祝福文案、美食文案、旅行文案、心灵鸡汤、日常文案、晒照文案、show off、心情文案、搞笑文案、高级感文案、文艺文案、伤感文案、节日营销文案、品牌文案、长线程、病毒传播文案、裂变文案、品牌调性、festival marketing、brand copy、viral copy、thread。Generate copy for WeChat Moments, Weibo, Twitter/X, Instagram, birthdays, holidays, food, travel, festival marketing, brand voice, threaded posts, and viral content. Use when: (1) writing WeChat Moments/朋友圈 posts, (2) creating Weibo content, (3) writing Twitter/X posts, (4) crafting Instagram captions with hashtags, (5) birthday or holiday greetings, (6) food or travel captions, (7) daily inspirational quotes, (8) festival/holiday marketing campaigns, (9) establishing brand voice and copywriting style, (10) creating Twitter/Weibo thread series, (11) designing viral/shareable content for maximum reach, (12) any social media copywriting. 适用场景：发朋友圈、写微博、发Twitter、写Instagram文案、生日祝福、节日祝福、美食打卡、旅行打卡、日常心情、节日营销借势、品牌文案风格、长线程创作、病毒传播文案。",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  },
+  {
+    "id": "2061281495460184066",
+    "name": "social-media-poster",
+    "category": "内容生成",
+    "description": "社媒内容自动发布 - 支持多平台内容一键发布、定时推送、效果追踪。适用于自媒体、运营，品牌方。",
+    "enabled": true,
+    "createdAt": "2026-06-01 10:59:40"
+  }
+]

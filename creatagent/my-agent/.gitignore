@@ -1,0 +1,15 @@
+# 敏感配置文件
+agent-config.properties
+
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# IDE
+.idea/
+*.iml
+
+# 临时文件
+temp_prompts/
+temp*/
+*.zip

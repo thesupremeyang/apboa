@@ -1,0 +1,15 @@
+
+[38;5;102mInstall with[0m npx skills add <owner/repo@skill>
+
+[38;5;145mjamditis/claude-skills-journalism@ai-writing-detox[0m [36m151 installs[0m
+[38;5;102m└ https://skills.sh/jamditis/claude-skills-journalism/ai-writing-detox[0m
+
+[38;5;145medwinhu/workflows@ai-anti-patterns[0m [36m33 installs[0m
+[38;5;102m└ https://skills.sh/edwinhu/workflows/ai-anti-patterns[0m
+
+[38;5;145mwentorai/research-plugins@ai-writing-humanizer[0m [36m29 installs[0m
+[38;5;102m└ https://skills.sh/wentorai/research-plugins/ai-writing-humanizer[0m
+
+[38;5;145mmelodic-software/claude-code-plugins@ai-writing-assistant[0m [36m23 installs[0m
+[38;5;102m└ https://skills.sh/melodic-software/claude-code-plugins/ai-writing-assistant[0m
+

@@ -1,0 +1,97 @@
+Searching for piano-related skills...
+Total skills on platform: 100
+
+Found 9 piano/music-related skills:
+
+1. douyin-hot-trend
+   ID: 2061287250594729986
+   Description: 实时抓取抖音平台热搜/热榜排行数据,覆盖热门视频、挑战赛、音乐等多个内容品类,逐条输出标题、热度指数、跳转链接及封面图（若有）。...
+   Category: 内容运营
+
+2. 37-ai协作教学设计师
+   ID: 2061298477467275265
+   Description: 基于AI三重角色框架，帮教育者设计AI辅助课程...
+   Category: AI教育
+
+3. ai-engineer
+   ID: 2061298477777653761
+   Description: 精通机器学习模型开发与部署的 AI 工程专家，擅长从数据处理到模型上线的全链路工程化，专注构建可靠、可扩展的 AI 系统。...
+   Category: AI应用
+
+4. corporate-training-designer
+   ID: 2061298478016729090
+   Description: 专注企业培训体系搭建与课程开发的专家，精通培训需求分析、教学设计方法论、混合式学习方案设计、内训师培养、领导力发展项目以及培训效果评估与持续优化。...
+   Category: AI教育
+
+5. learning-tracker
+   ID: 2061298480009023489
+   Description: 拆解学习目标与督促打卡。单词背了就忘？每天帮你盯进度，到点就催你学 This skill should be used when the user asks about 拆解学习目标与督促打卡. Keywords: 背单词, 督促学习....
+   Category: AI教育
+
+6. prompt-engineer
+   ID: 2061298489496539138
+   Description: 专注大语言模型提示词设计与优化的专家，精通系统提示词架构、思维链设计、少样本学习策略、以及提示词效果评测和迭代方法论。...
+   Category: AI应用
+
+7. study-planner
+   ID: 2061298489714642945
+   Description: 制定轻量学习规划。一到备考就头大？把你的学习计划烂摊子全甩给我吧 This skill should be used when the user asks about 制定轻量学习规划. Keywords: 制定学习计划, 备考计划....
+   Category: AI教育
+
+8. teachany
+   ID: 2061298492591935490
+   Description: K-12 interactive courseware creation. Use for school-subject lesson pages, animations, AI tutor, TTS, knowledge graph, PBL learning paths, or TeachAny publishing....
+   Category: AI教育
+
+9. piano
+   ID: 2062345604251254785
+   Description: Piano integration. Manage data, records, and automate workflows. Use when the user wants to interact with Piano data.
+...
+   Category: 教育学习
+
+
+--- Education-related skills ---
+Found 10 education-related skills:
+
+1. livestream-commerce-coach
+   ID: 2061287251286790146
+   Category: 内容运营
+
+2. 35-课程设计与培训专家
+   ID: 2061298477324668930
+   Category: AI教育
+
+3. 37-ai协作教学设计师
+   ID: 2061298477467275265
+   Category: AI教育
+
+4. 39-企业培训设计师
+   ID: 2061298477534384130
+   Category: AI教育
+
+5. ai-engineer
+   ID: 2061298477777653761
+   Category: AI应用
+
+6. corporate-training-designer
+   ID: 2061298478016729090
+   Category: AI教育
+
+7. learning-tracker
+   ID: 2061298480009023489
+   Category: AI教育
+
+8. prompt-engineer
+   ID: 2061298489496539138
+   Category: AI应用
+
+9. study-planner
+   ID: 2061298489714642945
+   Category: AI教育
+
+10. teachany
+   ID: 2061298492591935490
+   Category: AI教育
+
+
+Search completed.
