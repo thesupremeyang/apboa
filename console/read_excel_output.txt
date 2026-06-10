@@ -1,0 +1,19 @@
+Script started
+Successfully read simple_test.xlsx
+Shape: (0, 2)
+Columns: ['Hello', 'World']
+Empty DataFrame
+Columns: [Hello, World]
+Index: []
+
+==============================
+
+Successfully read formula_test.xlsx
+Shape: (2, 3)
+Columns: [10, 'Unnamed: 1', '总和']
+   10  Unnamed: 1   总和
+0  20         NaN  平均值
+1  30         NaN  最大值
+
+==============================
+

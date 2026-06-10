@@ -17,4 +17,10 @@ public class FileBase64Wrapper {
     String base64;
     String mediaType;
     ModelType modelType;
+
+    /** 文档文本内容（用于文档类型） */
+    String textContent;
+
+    /** 是否是文档类型 */
+    boolean document;
 }

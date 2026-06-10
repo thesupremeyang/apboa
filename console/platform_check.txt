@@ -1,0 +1,5 @@
+Attempt 1: status=502, len=0
+Attempt 2: status=502, len=0
+Attempt 3: status=502, len=0
+Attempt 4: status=502, len=0
+Attempt 5: status=502, len=0

@@ -90,6 +90,9 @@ export class AgentClient {
   private middlewares: EventMiddleware[] = []
   /** TEXT_MESSAGE_CHUNK 展开时追踪当前消息 ID */
   private chunkCurrentMessageId: string | null = null
+  /** 当前运行的 threadId 和 runId */
+  private currentThreadId: string | null = null
+  private currentRunId: string | null = null
 
   constructor(
     private url: string,
@@ -110,11 +113,11 @@ export class AgentClient {
    * 构建 RunAgentInput，支持 overrides 覆盖
    */
   private buildInput(overrides?: Partial<RunAgentInput>): RunAgentInput {
+    this.currentThreadId = overrides?.threadId ?? `thread_${Date.now()}`
+    this.currentRunId = overrides?.runId ?? `run_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`
     return {
-      threadId: overrides?.threadId ?? `thread_${Date.now()}`,
-      runId:
-        overrides?.runId ??
-        `run_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
+      threadId: this.currentThreadId,
+      runId: this.currentRunId,
       messages: this.messages,
       state: this.state,
       tools: overrides?.tools ?? [],
@@ -264,6 +267,7 @@ export class AgentClient {
   ): Promise<void> {
     const decoder = new TextDecoder()
     let buffer = ''
+    let runFinished = false
 
     try {
       while (true) {
@@ -285,6 +289,10 @@ export class AgentClient {
               }
               const event = parsed as BaseEvent
               if (event?.type) {
+                // 跟踪 RUN_FINISHED 事件
+                if (event.type === 'RUN_FINISHED' || event.type === 'RUN_ERROR') {
+                  runFinished = true
+                }
                 this.handleEvent(event)
               }
             } catch (e) {
@@ -293,6 +301,30 @@ export class AgentClient {
             }
           }
         }
+      }
+
+      // 流结束但未收到 RUN_FINISHED 事件，说明连接意外断开
+      // 为所有未完成的消息触发 TEXT_MESSAGE_END，保存已接收的内容
+      if (!runFinished) {
+        console.warn('SSE stream ended without RUN_FINISHED, saving partial messages')
+        for (const [messageId, content] of Object.entries(this.messageBuffers)) {
+          if (content) {
+            const msg = this.messages.find((m) => m.id === messageId)
+            if (msg) msg.content = content
+            this.handlers.onTextMessageEnd?.(
+              { type: 'TEXT_MESSAGE_END', messageId },
+              content
+            )
+          }
+        }
+        this.messageBuffers = {}
+
+        // 触发 RUN_FINISHED 以确保前端状态正确清理
+        this.handlers.onRunFinished?.({
+          type: 'RUN_FINISHED',
+          threadId: this.currentThreadId || '',
+          runId: this.currentRunId || ''
+        })
       }
     } finally {
       reader.releaseLock()

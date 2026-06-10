@@ -496,7 +496,7 @@ CREATE TABLE `model_config`  (
 `streaming` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否支持流式',
 `thinking` tinyint(1) NULL DEFAULT NULL COMMENT '是否支持思考',
 `context_window` int NULL DEFAULT 2048 COMMENT '上下文窗口大小',
-`max_tokens` int NULL DEFAULT 2000 COMMENT '最大输出token数',
+`max_tokens` int NULL DEFAULT 32768 COMMENT '最大输出token数',
 `temperature` decimal(3, 2) NULL DEFAULT 0.70 COMMENT '温度参数',
 `top_p` decimal(3, 2) NULL DEFAULT 0.90 COMMENT '核采样参数',
 `top_k` int NULL DEFAULT 40 COMMENT 'Top-K采样',

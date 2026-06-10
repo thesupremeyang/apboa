@@ -77,6 +77,7 @@ public class ToolServiceImpl extends ServiceImpl<ToolMapper, ToolConfig> impleme
                 toolConfig.setClassPath(toolInfo.getClassPath());
                 toolConfig.setInputSchema(JsonUtils.toJsonNode(toolInfo.getParams()));
                 toolConfig.setEnabled(true);
+                toolConfig.setNeedConfirm(false);
                 save(toolConfig);
             } else {
                 for (int i = 0; i < list.size(); i++) {

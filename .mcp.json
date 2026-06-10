@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "obscura": {
+      "command": "C:\\JAVA\\apboa\\obscura.exe",
+      "args": ["mcp"]
+    }
+  }
+}

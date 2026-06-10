@@ -82,10 +82,10 @@ export function useChatStream(
           chatMessageQueue.enqueue(sid, () =>
             chatSessionApi.appendMessage(sid, { role: 'assistant', content: contentToSave }),
             (res) => {
-              onMessageSaved?.(res.data.data)
-              // 保存完成后清除流式状态，利用 displayMessages 去重避免闪烁
+              // 先清除流式状态，再推入新消息，避免 displayMessages 计算时出现重复
               streamingContent.value = ''
               streamingMessageId.value = null
+              onMessageSaved?.(res.data.data)
             }
           )
         }
@@ -297,6 +297,9 @@ export function useChatStream(
       message.error('智能体信息未加载完成，请稍后再试')
       return
     }
+
+    // 立即设置为运行中，防止重复发送
+    isRunning.value = true
 
     // 构建 client 需要的消息格式
     client.messages = messagesList

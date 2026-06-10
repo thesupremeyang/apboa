@@ -137,6 +137,33 @@ biz/<module>/
 | Main config | `console/src/main/resources/application.yml` |
 | Dev config | `console/src/main/resources/application-dev.yml` |
 
+## Web Search Tool Configuration
+
+The platform includes a built-in web search tool (`web_search`) that enables agents to search the internet for real-time information.
+
+| Search API | Type | Config |
+|-----------|------|--------|
+| Tavily | Free tier (default) | `apboa.search.tavily-key` |
+| DuckDuckGo | Free | No config needed |
+| SearXNG | Free (self-hosted) | `apboa.search.searxng-url` |
+| SerpAPI | Paid | `apboa.search.serpapi-key` |
+| Google | Paid | `apboa.search.google-api-key` + `apboa.search.google-cx` |
+
+Configuration in `application-dev.yml`:
+```yaml
+apboa:
+  search:
+    api-type: tavily      # tavily | duckduckgo | searxng | serpapi | google
+    tavily-key:           # Tavily API key
+    searxng-url:          # SearXNG instance URL
+    serpapi-key:          # SerpAPI key
+    google-api-key:       # Google API key
+    google-cx:            # Google Custom Search Engine ID
+```
+
+Tool source: `core/src/main/java/com/hxh/apboa/core/tool/builtins/WebSearchTool.java`
+Guide: `docs/web-search-guide.md`
+
 ## Database Conventions
 
 - ORM: MyBatis-Plus 3.5.7 with Druid connection pool
@@ -164,3 +191,99 @@ biz/<module>/
 - Components: `ui/src/components/` (reusable, organized by domain)
 - Dev proxy: `/api` → `http://127.0.0.1:3060`
 - Two build targets: `main` (app) and `doc` (built-in docs site), controlled by `VITE_APP_TARGET`
+
+## Document Upload Feature
+
+The platform supports uploading and parsing common office document formats. When a user uploads a document, the system extracts the text content and sends it to the AI agent for analysis.
+
+### Supported Document Formats
+
+| Format | Extension | Parser Library | Description |
+|--------|-----------|----------------|-------------|
+| Word 97-2003 | `.doc` | Apache POI | Legacy Word format |
+| Word Document | `.docx` | Apache POI | Modern Word format |
+| Excel 97-2003 | `.xls` | Apache POI | Legacy Excel format |
+| Excel Spreadsheet | `.xlsx` | Apache POI | Modern Excel format |
+| PDF Document | `.pdf` | PDFBox 3.0.1 | PDF files |
+| PowerPoint | `.pptx` | Apache POI | Modern PowerPoint format |
+| HTML Webpage | `.html`, `.htm` | Jsoup 1.17.2 | HTML files |
+| Plain Text | `.txt` | Java IO | Text files |
+| CSV | `.csv` | Java IO | Comma-separated values |
+| Markdown | `.md` | Java IO | Markdown files |
+
+### Key Components
+
+- **DocumentParserService**: `biz/resource/src/main/java/com/hxh/apboa/resource/service/DocumentParserService.java`
+  - Parses various document formats and extracts text content
+  - Supports Word, Excel, PDF, PowerPoint, HTML, and plain text formats
+  - Maximum content length: 100,000 characters
+
+- **AttachServiceImpl**: `biz/resource/src/main/java/com/hxh/apboa/resource/service/AttachServiceImpl.java`
+  - Modified to support document type detection and parsing
+  - Uses `DocumentParserService` to extract text from uploaded documents
+
+- **AguiMessageConverter**: `console/src/main/java/io/agentscope/core/agui/converter/AguiMessageConverter.java`
+  - Modified to include document content in messages sent to AI
+  - Formats document content with `[文档内容开始]` and `[文档内容结束]` markers
+
+### Dependencies
+
+```xml
+<!-- Apache POI for Word, Excel, PowerPoint -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.2.5</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.5</version>
+</dependency>
+
+<!-- PDFBox for PDF parsing -->
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>3.0.1</version>
+</dependency>
+
+<!-- Jsoup for HTML parsing -->
+<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.17.2</version>
+</dependency>
+```
+
+### Configuration
+
+Document file types are configured in the `params` database table:
+- Key: `ALLOW_DOCUMENT_FILE_TYPE`
+- Default value: `doc,docx,xls,xlsx,pdf,ppt,pptx,html,htm,txt,csv,md`
+
+### Database Migration
+
+Run the following SQL to add document type support:
+```sql
+-- See docs/2026-06-06-document-support.sql
+INSERT INTO `params` (`id`, `param_name`, `param_key`, `param_value`)
+VALUES (8, '支持的文档文件类型', 'ALLOW_DOCUMENT_FILE_TYPE', 'doc,docx,xls,xlsx,pdf,ppt,pptx,html,htm,txt,csv,md')
+ON DUPLICATE KEY UPDATE `param_value` = 'doc,docx,xls,xlsx,pdf,ppt,pptx,html,htm,txt,csv,md';
+```
+
+### How It Works
+
+1. User uploads a document file in the chat interface
+2. Frontend sends the file to `/api/attach/upload` endpoint
+3. Backend saves the file and returns a file ID
+4. When sending a message, frontend includes the file ID
+5. Backend's `AguiMessageConverter` calls `AttachServiceImpl.getFileBase64()`
+6. For document types, `DocumentParserService.parse()` extracts text content
+7. Document text is wrapped with markers and included in the message
+8. AI agent receives and analyzes the document content
+
+### Related Documentation
+
+- Implementation plan: `docs/document-upload-solution.md`
+- Database migration: `docs/2026-06-06-document-support.sql`

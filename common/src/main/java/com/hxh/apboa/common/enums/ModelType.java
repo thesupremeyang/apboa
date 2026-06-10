@@ -14,7 +14,8 @@ public enum ModelType {
     CHAT("文本"),
     IMAGE("图像"),
     VIDEO("视频"),
-    AUDIO("音频");
+    AUDIO("音频"),
+    DOCUMENT("文档");
 
     private final String description;
 }

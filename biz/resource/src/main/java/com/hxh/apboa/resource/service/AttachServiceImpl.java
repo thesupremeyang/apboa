@@ -52,6 +52,7 @@ public class AttachServiceImpl extends ServiceImpl<AttachMapper, Attach> impleme
     private final StorageProtocolService storageProtocolService;
     private final AttachLogService attachLogService;
     private final AttachChunkMapper attachChunkMapper;
+    private final DocumentParserService documentParserService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -241,9 +242,14 @@ public class AttachServiceImpl extends ServiceImpl<AttachMapper, Attach> impleme
     @Override
     public FileBase64Wrapper getFileBase64(Long fileId) {
         Attach attach = getById(fileId);
-        FileBase64Wrapper wrapper = new FileBase64Wrapper();
+        if (attach == null) {
+            return null;
+        }
 
+        FileBase64Wrapper wrapper = new FileBase64Wrapper();
         String extension = attach.getExtension();
+
+        // 判断文件类型
         String resultType = switch (extension) {
             case String ext when paramsAdapter.getValue("ALLOW_IMAGE_FILE_TYPE").contains(ext) -> "IMAGE";
             case String ext when paramsAdapter.getValue("ALLOW_AUDIO_FILE_TYPE").contains(ext) -> "AUDIO";
@@ -251,33 +257,41 @@ public class AttachServiceImpl extends ServiceImpl<AttachMapper, Attach> impleme
             default -> null;
         };
 
-        if (resultType != null) {
-            wrapper.setModelType(ModelType.valueOf(resultType));
-
-            // 设置正确的mediaType
-            String mediaType = switch (resultType) {
-                case "IMAGE" -> "image/" + extension;
-                case "AUDIO" -> "audio/" + extension;
-                case "VIDEO" -> "video/" + extension;
-                default -> null;
-            };
-            wrapper.setMediaType(mediaType);
-        } else {
-            return null; // 不支持的文件类型
-        }
-
-        //获取文件存储服务
+        // 获取文件存储服务
         FileStorageService storageService = storageProtocolService.getStorageService();
         if (!storageService.getProtocol().equals(attach.getProtocol())) {
             log.warn("当前文件存储协议为{}，与当前启用的存储配置不匹配", attach.getProtocol());
             return null;
         }
 
-        // 下载
         try (InputStream inputStream = storageService.load(genStoragePath(attach))) {
-            byte[] bytes = IOUtils.toByteArray(inputStream);
-            wrapper.setBase64(Base64.getEncoder().encodeToString(bytes));
+            if (resultType != null) {
+                // 多媒体文件处理
+                wrapper.setModelType(ModelType.valueOf(resultType));
+                String mediaType = switch (resultType) {
+                    case "IMAGE" -> "image/" + extension;
+                    case "AUDIO" -> "audio/" + extension;
+                    case "VIDEO" -> "video/" + extension;
+                    default -> null;
+                };
+                wrapper.setMediaType(mediaType);
+                byte[] bytes = IOUtils.toByteArray(inputStream);
+                wrapper.setBase64(Base64.getEncoder().encodeToString(bytes));
+                wrapper.setDocument(false);
+            } else if (DocumentParserService.isDocumentType(extension)) {
+                // 文档文件处理
+                wrapper.setDocument(true);
+                wrapper.setModelType(ModelType.DOCUMENT);
+                String textContent = documentParserService.parse(inputStream, extension, attach.getOriginalName());
+                wrapper.setTextContent(textContent);
+                log.info("解析文档成功: {}, 内容长度: {}", attach.getOriginalName(), textContent.length());
+            } else {
+                // 不支持的文件类型
+                log.warn("不支持的文件类型: {}", extension);
+                return null;
+            }
         } catch (IOException e) {
+            log.error("读取文件失败: {}", fileId, e);
             return null;
         }
 

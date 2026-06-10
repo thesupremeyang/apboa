@@ -60,7 +60,7 @@ const menuItems = computed(() => {
         label: () =>
           h('span', { class: 'menu-item-label' }, [
             h(CompassOutlined, { class: 'menu-item-icon' }),
-            h('span', exploreRoute.meta.title as string),
+            h('span', exploreRoute.meta?.title as string),
           ]),
       })
     }

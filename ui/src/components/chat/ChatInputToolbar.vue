@@ -111,12 +111,12 @@ const toggleToolProcess = () => {
       <ATooltip placement="bottom">
         <template #title>
           <span v-if="allowUploadFileType && allowUploadFileType.length > 0">
-            点击上传文件（{{ allowUploadFileType.join('、') }}）
+            点击上传文件（仅支持: {{ allowUploadFileType.join('、') }}）
           </span>
-          <span v-else>不支持上传文件</span>
+          <span v-else>点击上传文件</span>
         </template>
         <button
-          :disabled="!allowUploadFileType?.length"
+          :disabled="allowUploadFileType === undefined || allowUploadFileType === null"
           type="button"
           class="chat-toolbar-btn chat-toolbar-btn-icon chat-toolbar-btn-circle"
           style="margin-right: 15px"

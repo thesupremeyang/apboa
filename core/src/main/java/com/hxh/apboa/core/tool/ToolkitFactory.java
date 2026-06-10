@@ -15,6 +15,7 @@ import com.hxh.apboa.core.hook.builtins.IConfirmationHook;
 import com.hxh.apboa.core.mcp.McpClientFactory;
 import com.hxh.apboa.core.tool.dynamices.DynamicAgentTool;
 import com.hxh.apboa.core.workspace.tool.SearchReplaceFileTool;
+import io.agentscope.core.tool.file.WriteFileTool;
 import com.hxh.apboa.tool.service.AgentToolService;
 import com.hxh.apboa.tool.service.ToolService;
 import io.agentscope.core.model.ExecutionConfig;
@@ -85,7 +86,7 @@ public class ToolkitFactory {
                             toolkit.registerTool(new DynamicAgentTool(toolConfig));
                         }
 
-                        if (toolConfig.getNeedConfirm()) {
+                        if (Boolean.TRUE.equals(toolConfig.getNeedConfirm())) {
                             IConfirmationHook.setNeedConfirmTool(toolConfig.getToolId());
                         } else {
                             IConfirmationHook.removeNeedConfirmTool(toolConfig.getToolId());
@@ -93,12 +94,14 @@ public class ToolkitFactory {
                     });
         }
 
-        // 注册文件搜索替换工具
+        // 注册文件操作工具（搜索替换、写入文件）
         Long codeExecutionId = agentCodeExecutionService.getCodeExecutionIdByAgentId(agentDefinition.getId());
         if (codeExecutionId != null) {
             CodeExecutionConfig config = codeExecutionConfigService.getById(codeExecutionId);
-            if (config != null && config.getEnabled() && config.getEnableWrite()) {
+            if (config != null && Boolean.TRUE.equals(config.getEnabled()) && config.getEnableWrite()) {
                 toolkit.registerTool(new SearchReplaceFileTool());
+                // 注册 WriteFileTool（提供 write_text_file 和 insert_text_file 功能）
+                toolkit.registerTool(new WriteFileTool());
             }
         }
 
@@ -140,7 +143,7 @@ public class ToolkitFactory {
                             toolkit.registerTool(new DynamicAgentTool(toolConfig));
                         }
 
-                        if (toolConfig.getNeedConfirm() && isMemoryActive) {
+                        if (Boolean.TRUE.equals(toolConfig.getNeedConfirm()) && isMemoryActive) {
                             IConfirmationHook.setNeedConfirmTool(toolConfig.getToolId());
                         } else {
                             IConfirmationHook.removeNeedConfirmTool(toolConfig.getToolId());

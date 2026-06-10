@@ -4,27 +4,35 @@ import com.hxh.apboa.common.util.FuncUtils;
 import com.hxh.apboa.common.wrapper.ModelConfigWrapper;
 import io.agentscope.core.model.GenerateOptions;
 import io.agentscope.core.model.ToolChoice;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 描述：GenerateOptions 生成器
  *
  * @author huxuehao
  **/
+@Slf4j
 public class GenerateOptionsHelper {
     private static final double DEFAULT_TEMPERATURE = 0.7;
     private static final double DEFAULT_TOP_P = 0.9;
     private static final int DEFAULT_TOP_K = 40;
-    private static final int DEFAULT_MAX_TOKENS = 2000;
+    private static final int DEFAULT_MAX_TOKENS = 32768;
     private static final long DEFAULT_SEED = 42L;
     private static final double DEFAULT_REPEAT_PENALTY = 0.5;
     private static final int THINKING_BUDGET = 5000;
 
     public static GenerateOptions create(ModelConfigWrapper config) {
+        int maxTokens = orDefault(config.getMaxTokens(), DEFAULT_MAX_TOKENS);
+        log.info("GenerateOptions maxTokens: {} (config: {}, default: {})", maxTokens, config.getMaxTokens(), DEFAULT_MAX_TOKENS);
+        if (maxTokens < 4096) {
+            log.warn("maxTokens is too small ({}), may cause response truncation! Consider increasing it.", maxTokens);
+        }
+
         GenerateOptions.Builder builder = GenerateOptions.builder()
                 .temperature(orDefault(config.getTemperature(), DEFAULT_TEMPERATURE))
                 .topP(orDefault(config.getTopP(), DEFAULT_TOP_P))
                 .topK(orDefault(config.getTopK(), DEFAULT_TOP_K))
-                .maxTokens(orDefault(config.getMaxTokens(), DEFAULT_MAX_TOKENS))
+                .maxTokens(maxTokens)
                 .seed(orDefault(config.getSeed(), DEFAULT_SEED))
                 .stream(config.getStreaming() != null && config.getStreaming())
                 .presencePenalty(orDefault(config.getRepeatPenalty(), DEFAULT_REPEAT_PENALTY));

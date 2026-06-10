@@ -1,0 +1,66 @@
+
+=== Search: 'personal branding' ===
+Status: 200
+Content length: 33661
+No NEXT_DATA found
+
+=== Search: 'personal brand' ===
+Status: 200
+Content length: 33643
+No NEXT_DATA found
+
+=== Search: 'brand' ===
+Status: 200
+Content length: 33581
+No NEXT_DATA found
+
+=== Search: 'social media' ===
+Status: 200
+Content length: 33631
+No NEXT_DATA found
+
+=== Search: 'content creation' ===
+Status: 200
+Content length: 33655
+No NEXT_DATA found
+
+=== Search: 'marketing' ===
+Status: 200
+Content length: 33605
+No NEXT_DATA found
+
+=== Search: 'influencer' ===
+Status: 200
+Content length: 33611
+No NEXT_DATA found
+
+=== Trying NPM Registry ===
+NPM search status: 200
+- skills: The open agent skills ecosystem
+- postcss-env-function: Use env() variables in CSS
+- rosie-skills: A fast, cross-platform package manager for AI agent skills
+- @brightlayer-ui/colors: Brightlayer UI colors for Eaton applications
+- web3-eth-personal: Web3 module to interact with the Ethereum blockchain accounts stored in the node.
+- skillflag: Skillflag producer CLI reference implementation.
+- clawdbot: WhatsApp gateway CLI (Baileys web) with Pi RPC agent
+- storybook-builder-rsbuild: Rsbuild builder for Storybook
+- @playwright/cli: Playwright CLI
+- agent-install: Install SKILL.md files, MCP servers, and AGENTS.md guidance for any coding agent. Ships both a Node API and a CLI.
+
+=== Trying skills.sh API ===
+
+https://skills.sh/api/search?q=brand
+Status: 200
+Response: {"query": "brand", "searchType": "fuzzy", "skills": [{"id": "anthropics/skills/brand-guidelines", "skillId": "brand-guidelines", "name": "brand-guidelines", "installs": 52670, "source": "anthropics/skills"}, {"id": "leonxlnx/taste-skill/brandkit", "skillId": "brandkit", "name": "brandkit", "installs": 61316, "source": "leonxlnx/taste-skill"}, {"id": "nextlevelbuilder/ui-ux-pro-max-skill/ckm:brand", "skillId": "ckm:brand", "name": "ckm:brand", "installs": 25160, "source": "nextlevelbuilder/ui-ux-pro-max-skill"}, {"id": "anthropics/knowledge-work-plugins/brand-voice-enforcement", "skillId": "brand-voice-enforcement", "name": "brand-voice-enforcement", "installs": 1801, "source": "anthropics/knowledge-work-plugins"}, {"id": "anthropics/knowledge-work-plugins/brand-review", "skillId": "brand-review", "name": "brand-review", "installs": 1567, "source": "anthropics/knowledge-work-plugins"}, {"id": "apify/agent-skills/apify-brand-reputation-monitoring", "skillId": "apify-brand-reputation-monitoring", "name": "apify-brand-reputation-monitoring", "installs": 2525, "source": "apify/agent-skills"}, {"id": "getsentry/skills/brand-guidelines", "skillId": "brand-guidelines", "name": "brand-guidelines", "installs": 1017, "source": "getsentry/skills"}, {"id": "warpdotdev/common-skills/brandalf", "skillId": "brandalf", "name": "brandalf", "installs": 4382, "source": "warpdotdev/common-skills"}, {"id": "anthropics/knowledge-work-plugins/discover-brand", "skillId": "discover-brand", "name": "discover-brand", "installs": 1567, "source": "anthropics/knowledge-work-plugins"}, {"id": "affaan-m/everything-claude-code/brand-voice", "skillId": "brand-voice", "name": "brand-voice", "installs": 3353, "source": "affaan-m/everything-claude-code"}, {"id": "claude-office-skills/skills/brand-guidelines-generator", "skillId": "brand-guidelines-generator", "name": "brand guidelines generator", "installs": 2571, "source": "claude-office-skills/skills"}, {"id": "branding5/social-media-image-sizes/socia
+
+https://skills.sh/api/skills?q=brand
+Status: 404
+
+https://skills.sh/api/v1/skills?q=brand
+Status: 401
+
+https://api.skills.sh/search?q=brand
+Status: 404
+
+https://registry.skills.sh/api/search?q=brand
+Status: 404

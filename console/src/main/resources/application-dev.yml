@@ -8,6 +8,7 @@ agentscope:
     enable-reasoning: true
     server-side-memory: true
     max-thread-sessions: 1000
+    sse-timeout: 1800000  # SSE 超时时间（毫秒），默认 30 分钟
 #  a2a:
 #    server:
 #      enabled: false
@@ -87,6 +88,22 @@ rag:
     scheme: http
     api-key: YOUR_API_KEY
     class-prefix: ApboaRag
+
+# 联网搜索配置
+apboa:
+  search:
+    # 搜索 API 类型：tavily（默认，推荐）、duckduckgo（免费）、searxng（自托管）、serpapi（付费）、google（付费）
+    api-type: tavily
+    # Tavily API Key（仅 tavily 类型需要，申请地址：https://tavily.com）
+    tavily-key: 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
+    # SearXNG 实例地址（仅 searxng 类型需要，推荐自建：docker run -d -p 8888:8080 searxng/searxng）
+    searxng-url:
+    # SerpAPI Key（仅 serpapi 类型需要，申请地址：https://serpapi.com）
+    serpapi-key:
+    # Google Custom Search API Key（仅 google 类型需要）
+    google-api-key:
+    # Google Custom Search Engine ID（仅 google 类型需要）
+    google-cx:
 
 mybatis-plus:
   mapper-locations: classpath*:com/hxh/apboa/**/mapper/**/*.xml

@@ -15,12 +15,12 @@ import java.time.Duration;
 public class HttpTransportHelper {
     public static HttpTransport createJdkHttpTransport() {
         return JdkHttpTransport.builder()
-                .config(getHttpTransportConfig(10, 60))
+                .config(getHttpTransportConfig(30, 300))
                 .build();
     }
 
     public static HttpTransport createOkHttpTransport() {
-        return createOkHttpTransport(10, 60);
+        return createOkHttpTransport(30, 300);
     }
 
     public static HttpTransport createOkHttpTransport(int connectTimeout, int readTimeout) {

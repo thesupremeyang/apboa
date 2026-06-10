@@ -1,0 +1,81 @@
+Found by directory name: C:\Users\Administrator\AppData\Local\Temp\skill-repo\skills\02-账号运营\personal-branding-advanced\SKILL.md
+Found by path: C:\Users\Administrator\AppData\Local\Temp\skill-repo\skills\02-账号运营\personal-branding-advanced\SKILL.md
+Found by directory name: C:\Users\Administrator\AppData\Local\Temp\skill-repo\skills\04-电商转化\personal-branding\SKILL.md
+Found by path: C:\Users\Administrator\AppData\Local\Temp\skill-repo\skills\04-电商转化\personal-branding\SKILL.md
+
+File size: 364 chars
+
+Full content:
+---
+name: personal-branding
+description: Use when building personal brand equity to monetize influence, expertise, or reputation
+---
+
+# 个人品牌 (Personal Branding)
+
+## 概述
+
+**个人品牌 = 专业能力 + 独特风格 + 持续输出 + 社会认同**
+
+## 品牌要素
+
+- 定位
+- 价值观
+- 视觉识别
+- 声音调性
+
+## 变现方式
+
+- 知识付费
+- 咨询服务
+- 品牌代言
+- 产品销售
+
+## 建设步骤
+
+1. 明确定位
+2. 打造内容
+3. 建立信任
+4. 商业化
+
+---
+
+**最后提醒：个人品牌是长期资产。投资建设，持续经营，价值会不断增长。**
+
+
+Saved to: C:\Users\Administrator\AppData\Local\Temp\downloaded-skills\personal-branding/SKILL.md
+
+
+Directory structure (top levels):
+skill-repo/
+  .gitignore
+  README.md
+  skills-guide.md
+  .claude-plugin/
+    marketplace.json
+  .git/
+    config
+    description
+    HEAD
+    index
+    packed-refs
+    hooks/
+    info/
+    logs/
+    objects/
+    refs/
+  docs/
+    installation-guide.md
+    learning-paths.md
+    quick-start.md
+    USER_GUIDE.md
+  skills/
+    01-内容创作/
+    02-账号运营/
+    03-互动运营/
+    03-数据分析/
+    04-电商转化/
+    05-平台规则/
+    06-工具生态/
+    07-营销推广/
+    08-增长策略/

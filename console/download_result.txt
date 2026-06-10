@@ -1,0 +1,6 @@
+Checking: https://api.github.com/repos/vivy-yi/xiaohongshu-skills/contents/personal-branding
+Status: 403
+Not found at personal-branding, trying repo root...
+Root status: 403
+
+SKILL.md not found in downloaded files

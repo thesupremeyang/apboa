@@ -11,6 +11,7 @@ import io.agentscope.spring.boot.agui.mvc.AguiMvcController;
 import io.agentscope.spring.boot.agui.webflux.AguiWebFluxHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,6 +39,13 @@ import java.util.regex.Pattern;
 @Configuration
 @ConditionalOnClass({DataSource.class, MysqlSession.class})
 public class ApboaAgentSessionConfig {
+
+    /**
+     * SSE 超时时间（毫秒），可通过 agentscope.agui.sse-timeout 配置
+     * 默认 600000ms（10分钟），建议根据实际业务场景调整
+     */
+    @Value("${agentscope.agui.sse-timeout:600000}")
+    private long sseTimeout;
 
     /**
      * 创建 MysqlSession Bean
@@ -234,13 +242,14 @@ public class ApboaAgentSessionConfig {
             registry.setSessionManager(sessionManager);
         }
 
+        log.info("Configuring AguiMvcController with SSE timeout: {}ms", sseTimeout);
         return AguiMvcController.builder()
                 .agentRegistry(registry)
                 .sessionManager(sessionManager)
                 .serverSideMemory(props.isServerSideMemory())
                 .session(session)
                 .jdbcTemplate(jdbcTemplate)
-                .sseTimeout(600000L)
+                .sseTimeout(sseTimeout)
                 .config(buildAguiAdapterConfig(props))
                 .build();
     }

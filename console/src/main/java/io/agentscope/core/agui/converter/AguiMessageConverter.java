@@ -169,35 +169,44 @@ public class AguiMessageConverter {
         List<String> fileIds = agentContext.getFileIds();
         if (fileIds != null && !fileIds.isEmpty()) {
 
-            // 基于 附件 构建 多模态 ContentBlock
+            // 基于附件构建多模态 ContentBlock
             List<ContentBlock> blocks = new LinkedList<>();
+            StringBuilder documentContents = new StringBuilder();
+
             fileIds.forEach(fileId -> {
                 FileBase64Wrapper wrapper = attachService.getFileBase64(Long.valueOf(fileId));
                 if (wrapper != null) {
-                    ContentBlock block = switch (wrapper.getModelType()) {
-                        case IMAGE -> ImageBlock.builder()
+                    if (wrapper.isDocument()) {
+                        // 文档类型：收集文本内容
+                        documentContents.append(wrapper.getTextContent()).append("\n\n");
+                        log.info("解析文档内容，长度: {}", wrapper.getTextContent().length());
+                    } else {
+                        // 多媒体类型：构建对应的 ContentBlock
+                        ContentBlock block = switch (wrapper.getModelType()) {
+                            case IMAGE -> ImageBlock.builder()
                                     .source(Base64Source.builder()
                                             .data(wrapper.getBase64())
                                             .mediaType(wrapper.getMediaType())
                                             .build())
                                     .build();
-                        case VIDEO -> VideoBlock.builder()
-                                .source(Base64Source.builder()
-                                        .data(wrapper.getBase64())
-                                        .mediaType(wrapper.getMediaType())
-                                        .build())
-                                .build();
-                        case AUDIO -> AudioBlock.builder()
-                                .source(Base64Source.builder()
-                                        .data(wrapper.getBase64())
-                                        .mediaType(wrapper.getMediaType())
-                                        .build())
-                                .build();
-                        default -> null;
-                    };
+                            case VIDEO -> VideoBlock.builder()
+                                    .source(Base64Source.builder()
+                                            .data(wrapper.getBase64())
+                                            .mediaType(wrapper.getMediaType())
+                                            .build())
+                                    .build();
+                            case AUDIO -> AudioBlock.builder()
+                                    .source(Base64Source.builder()
+                                            .data(wrapper.getBase64())
+                                            .mediaType(wrapper.getMediaType())
+                                            .build())
+                                    .build();
+                            default -> null;
+                        };
 
-                    if (block != null) {
-                        blocks.add(block);
+                        if (block != null) {
+                            blocks.add(block);
+                        }
                     }
                 }
             });
@@ -205,9 +214,16 @@ public class AguiMessageConverter {
             // 移除 message 中最后一条消息，并构建新的文本 ContentBlock
             String content = message.removeLast().getTextContent();
             if (content != null && !content.isEmpty()) {
-                // 去除
+                // 去除文件前缀标记
                 String[] split = content.split("@==##::::##==@", 2);
                 String result = split.length > 1 ? split[1] : split[0];
+
+                // 如果有文档内容，添加到消息中
+                if (documentContents.length() > 0) {
+                    String docContent = documentContents.toString().trim();
+                    result = "[文档内容开始]\n" + docContent + "\n[文档内容结束]\n\n" + result;
+                }
+
                 blocks.add(TextBlock.builder().text(result).build());
             }
 

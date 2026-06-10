@@ -1,0 +1,21 @@
+Step 1: Login...
+Attempt 1: status=502
+Response: 
+Waiting 3 seconds before retry...
+Attempt 2: status=502
+Response: 
+Waiting 3 seconds before retry...
+Attempt 3: status=502
+Response: 
+Waiting 3 seconds before retry...
+Attempt 4: status=502
+Response: 
+Waiting 3 seconds before retry...
+Attempt 5: status=502
+Response: 
+
+❌ Error: Login failed after 5 attempts
+Traceback (most recent call last):
+  File "C:\JAVA\apboa\console\upload_to_apboa3.py", line 51, in <module>
+    raise Exception("Login failed after 5 attempts")
+Exception: Login failed after 5 attempts

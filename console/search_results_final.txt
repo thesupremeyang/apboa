@@ -1,0 +1,3385 @@
+
+============================================================
+🔍 Search: 'personal brand' - Found 39 skills
+============================================================
+
+  📦 brand-voice-enforcement
+     ID: anthropics/knowledge-work-plugins/brand-voice-enforcement
+     Installs: 1,801
+     Source: anthropics/knowledge-work-plugins
+
+  📦 brand-guidelines
+     ID: nexu-io/open-design/brand-guidelines
+     Installs: 771
+     Source: nexu-io/open-design
+
+  📦 entity-seo
+     ID: kostja94/marketing-skills/entity-seo
+     Installs: 914
+     Source: kostja94/marketing-skills
+
+  📦 brand-visual-language
+     ID: dembrandt/dembrandt-skills/brand-visual-language
+     Installs: 105
+     Source: dembrandt/dembrandt-skills
+
+  📦 linkedin-personal-branding
+     ID: schwepps/skills/linkedin-personal-branding
+     Installs: 556
+     Source: schwepps/skills
+
+  📦 brand-consistency
+     ID: dylantarre/animation-principles/brand-consistency
+     Installs: 186
+     Source: dylantarre/animation-principles
+
+  📦 branding
+     ID: omer-metin/skills-for-antigravity/branding
+     Installs: 174
+     Source: omer-metin/skills-for-antigravity
+
+  📦 muapi-brand-kit
+     ID: samuraigpt/generative-media-skills/muapi-brand-kit
+     Installs: 300
+     Source: samuraigpt/generative-media-skills
+
+  📦 personal-branding
+     ID: vivy-yi/xiaohongshu-skills/personal-branding
+     Installs: 120
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 contentful-personalization
+     ID: contentful/skills/contentful-personalization
+     Installs: 48
+     Source: contentful/skills
+
+  📦 branding
+     ID: eyadsibai/ltk/branding
+     Installs: 69
+     Source: eyadsibai/ltk
+
+  📦 brand-typography-systems
+     ID: mike-coulbourn/claude-vibes/brand-typography-systems
+     Installs: 66
+     Source: mike-coulbourn/claude-vibes
+
+  📦 branding
+     ID: igorwarzocha/opencode-workflows/branding
+     Installs: 64
+     Source: igorwarzocha/opencode-workflows
+
+  📦 brand-voice
+     ID: sanky369/vibe-building-skills/brand-voice
+     Installs: 60
+     Source: sanky369/vibe-building-skills
+
+  📦 brand-voice
+     ID: majesticlabs-dev/majestic-marketplace/brand-voice
+     Installs: 57
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 podcast-seo
+     ID: guia-matthieu/clawfu-skills/podcast-seo
+     Installs: 106
+     Source: guia-matthieu/clawfu-skills
+
+  📦 brand-positioning
+     ID: majesticlabs-dev/majestic-marketplace/brand-positioning
+     Installs: 44
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 brand-identity
+     ID: skills.volces.com/brand-identity
+     Installs: 34
+     Source: skills.volces.com
+
+  📦 bootstrap
+     ID: manojbajaj95/claude-gtm-plugin/bootstrap
+     Installs: 64
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 brand-voice
+     ID: smithery.ai/brand-voice
+     Installs: 32
+     Source: smithery.ai
+
+  📦 branding
+     ID: steveclarke/dotfiles/branding
+     Installs: 30
+     Source: steveclarke/dotfiles
+
+  📦 brand-identity
+     ID: jk-0001/skills/brand-identity
+     Installs: 25
+     Source: jk-0001/skills
+
+  📦 brand-voice
+     ID: jgerton/brand-toolkit/brand-voice
+     Installs: 14
+     Source: jgerton/brand-toolkit
+
+  📦 brand-guidelines
+     ID: vamseeachanta/workspace-hub/brand-guidelines
+     Installs: 21
+     Source: vamseeachanta/workspace-hub
+
+  📦 brand-voice-generator
+     ID: kuse-ai/kuse-skills/brand-voice-generator
+     Installs: 18
+     Source: kuse-ai/kuse-skills
+
+  📦 seedance-personal-brand
+     ID: rediumvex/ai-video-generator-claude/seedance-personal-brand
+     Installs: 28
+     Source: rediumvex/ai-video-generator-claude
+
+  📦 biz-brand-positioning
+     ID: asgard-ai-platform/skills/biz-brand-positioning
+     Installs: 28
+     Source: asgard-ai-platform/skills
+
+  📦 25-voice-clone-podcast
+     ID: minhnv0807/fullstack-mkt-skills/25-voice-clone-podcast
+     Installs: 24
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 22-personal-brand-context
+     ID: minhnv0807/fullstack-mkt-skills/22-personal-brand-context
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 27-personal-brand-monetize
+     ID: minhnv0807/fullstack-mkt-skills/27-personal-brand-monetize
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 23-personal-brand-strategy
+     ID: minhnv0807/fullstack-mkt-skills/23-personal-brand-strategy
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 26-thought-leadership-content
+     ID: minhnv0807/fullstack-mkt-skills/26-thought-leadership-content
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 28-community-building
+     ID: minhnv0807/fullstack-mkt-skills/28-community-building
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 22-personal-brand-context-global
+     ID: minhnv0807/fullstack-mkt-skills/22-personal-brand-context-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 28-community-building-global
+     ID: minhnv0807/fullstack-mkt-skills/28-community-building-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 30-design-master-global
+     ID: minhnv0807/fullstack-mkt-skills/30-design-master-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 25-voice-clone-podcast-global
+     ID: minhnv0807/fullstack-mkt-skills/25-voice-clone-podcast-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 gsp-brand-sync
+     ID: jubscodes/get-shit-pretty/gsp-brand-sync
+     Installs: 19
+     Source: jubscodes/get-shit-pretty
+
+  📦 linkedin-personal-branding
+     ID: manojbajaj95/claude-gtm-plugin/linkedin-personal-branding
+     Installs: 97
+     Source: manojbajaj95/claude-gtm-plugin
+
+============================================================
+🔍 Search: 'personal branding' - Found 39 skills
+============================================================
+
+  📦 brand-voice-enforcement
+     ID: anthropics/knowledge-work-plugins/brand-voice-enforcement
+     Installs: 1,801
+     Source: anthropics/knowledge-work-plugins
+
+  📦 entity-seo
+     ID: kostja94/marketing-skills/entity-seo
+     Installs: 914
+     Source: kostja94/marketing-skills
+
+  📦 brand-guidelines
+     ID: nexu-io/open-design/brand-guidelines
+     Installs: 771
+     Source: nexu-io/open-design
+
+  📦 linkedin-personal-branding
+     ID: schwepps/skills/linkedin-personal-branding
+     Installs: 556
+     Source: schwepps/skills
+
+  📦 branding
+     ID: omer-metin/skills-for-antigravity/branding
+     Installs: 174
+     Source: omer-metin/skills-for-antigravity
+
+  📦 muapi-brand-kit
+     ID: samuraigpt/generative-media-skills/muapi-brand-kit
+     Installs: 300
+     Source: samuraigpt/generative-media-skills
+
+  📦 personal-branding
+     ID: vivy-yi/xiaohongshu-skills/personal-branding
+     Installs: 120
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 contentful-personalization
+     ID: contentful/skills/contentful-personalization
+     Installs: 48
+     Source: contentful/skills
+
+  📦 brand-consistency
+     ID: dylantarre/animation-principles/brand-consistency
+     Installs: 186
+     Source: dylantarre/animation-principles
+
+  📦 branding
+     ID: eyadsibai/ltk/branding
+     Installs: 69
+     Source: eyadsibai/ltk
+
+  📦 branding
+     ID: igorwarzocha/opencode-workflows/branding
+     Installs: 64
+     Source: igorwarzocha/opencode-workflows
+
+  📦 podcast-seo
+     ID: guia-matthieu/clawfu-skills/podcast-seo
+     Installs: 106
+     Source: guia-matthieu/clawfu-skills
+
+  📦 brand-visual-language
+     ID: dembrandt/dembrandt-skills/brand-visual-language
+     Installs: 105
+     Source: dembrandt/dembrandt-skills
+
+  📦 brand-typography-systems
+     ID: mike-coulbourn/claude-vibes/brand-typography-systems
+     Installs: 66
+     Source: mike-coulbourn/claude-vibes
+
+  📦 bootstrap
+     ID: manojbajaj95/claude-gtm-plugin/bootstrap
+     Installs: 64
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 brand-voice
+     ID: sanky369/vibe-building-skills/brand-voice
+     Installs: 60
+     Source: sanky369/vibe-building-skills
+
+  📦 branding
+     ID: steveclarke/dotfiles/branding
+     Installs: 30
+     Source: steveclarke/dotfiles
+
+  📦 brand-voice
+     ID: majesticlabs-dev/majestic-marketplace/brand-voice
+     Installs: 57
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 brand-positioning
+     ID: majesticlabs-dev/majestic-marketplace/brand-positioning
+     Installs: 44
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 brand-identity
+     ID: skills.volces.com/brand-identity
+     Installs: 34
+     Source: skills.volces.com
+
+  📦 brand-voice
+     ID: smithery.ai/brand-voice
+     Installs: 32
+     Source: smithery.ai
+
+  📦 seedance-personal-brand
+     ID: rediumvex/ai-video-generator-claude/seedance-personal-brand
+     Installs: 28
+     Source: rediumvex/ai-video-generator-claude
+
+  📦 biz-brand-positioning
+     ID: asgard-ai-platform/skills/biz-brand-positioning
+     Installs: 28
+     Source: asgard-ai-platform/skills
+
+  📦 brand-identity
+     ID: jk-0001/skills/brand-identity
+     Installs: 25
+     Source: jk-0001/skills
+
+  📦 25-voice-clone-podcast
+     ID: minhnv0807/fullstack-mkt-skills/25-voice-clone-podcast
+     Installs: 24
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 22-personal-brand-context
+     ID: minhnv0807/fullstack-mkt-skills/22-personal-brand-context
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 27-personal-brand-monetize
+     ID: minhnv0807/fullstack-mkt-skills/27-personal-brand-monetize
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 23-personal-brand-strategy
+     ID: minhnv0807/fullstack-mkt-skills/23-personal-brand-strategy
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 26-thought-leadership-content
+     ID: minhnv0807/fullstack-mkt-skills/26-thought-leadership-content
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 28-community-building
+     ID: minhnv0807/fullstack-mkt-skills/28-community-building
+     Installs: 23
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 22-personal-brand-context-global
+     ID: minhnv0807/fullstack-mkt-skills/22-personal-brand-context-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 28-community-building-global
+     ID: minhnv0807/fullstack-mkt-skills/28-community-building-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 30-design-master-global
+     ID: minhnv0807/fullstack-mkt-skills/30-design-master-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 brand-guidelines
+     ID: vamseeachanta/workspace-hub/brand-guidelines
+     Installs: 21
+     Source: vamseeachanta/workspace-hub
+
+  📦 25-voice-clone-podcast-global
+     ID: minhnv0807/fullstack-mkt-skills/25-voice-clone-podcast-global
+     Installs: 21
+     Source: minhnv0807/fullstack-mkt-skills
+
+  📦 gsp-brand-sync
+     ID: jubscodes/get-shit-pretty/gsp-brand-sync
+     Installs: 19
+     Source: jubscodes/get-shit-pretty
+
+  📦 brand-voice-generator
+     ID: kuse-ai/kuse-skills/brand-voice-generator
+     Installs: 18
+     Source: kuse-ai/kuse-skills
+
+  📦 brand-voice
+     ID: jgerton/brand-toolkit/brand-voice
+     Installs: 14
+     Source: jgerton/brand-toolkit
+
+  📦 linkedin-personal-branding
+     ID: manojbajaj95/claude-gtm-plugin/linkedin-personal-branding
+     Installs: 97
+     Source: manojbajaj95/claude-gtm-plugin
+
+============================================================
+🔍 Search: 'content creation' - Found 30 skills
+============================================================
+
+  📦 content-creation
+     ID: anthropics/knowledge-work-plugins/content-creation
+     Installs: 2,980
+     Source: anthropics/knowledge-work-plugins
+
+  📦 ce-worktree
+     ID: everyinc/compound-engineering-plugin/ce-worktree
+     Installs: 1,349
+     Source: everyinc/compound-engineering-plugin
+
+  📦 content-creation-and-marketing
+     ID: manojbajaj95/claude-gtm-plugin/content-creation-and-marketing
+     Installs: 211
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 content-creation
+     ID: smithery.ai/content-creation
+     Installs: 149
+     Source: smithery.ai
+
+  📦 content-research
+     ID: nicepkg/ai-workflow/content-research
+     Installs: 86
+     Source: nicepkg/ai-workflow
+
+  📦 content-marketing
+     ID: dengineproblem/agents-monorepo/content-marketing
+     Installs: 63
+     Source: dengineproblem/agents-monorepo
+
+  📦 workflow-automation
+     ID: shipshitdev/library/workflow-automation
+     Installs: 118
+     Source: shipshitdev/library
+
+  📦 neta
+     ID: talesofai/neta-skills/neta
+     Installs: 116
+     Source: talesofai/neta-skills
+
+  📦 content-creation-ai-tools
+     ID: omer-metin/skills-for-antigravity/content-creation-ai-tools
+     Installs: 51
+     Source: omer-metin/skills-for-antigravity
+
+  📦 course-creation
+     ID: omer-metin/skills-for-antigravity/course-creation
+     Installs: 94
+     Source: omer-metin/skills-for-antigravity
+
+  📦 project-management
+     ID: vivy-yi/xiaohongshu-skills/project-management
+     Installs: 89
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 notion
+     ID: rightnow-ai/openfang/notion
+     Installs: 74
+     Source: rightnow-ai/openfang
+
+  📦 content-creation
+     ID: ideola-ai/marketing-ads-skills/content-creation
+     Installs: 35
+     Source: ideola-ai/marketing-ads-skills
+
+  📦 rule-creator
+     ID: oimiragieo/agent-studio/rule-creator
+     Installs: 61
+     Source: oimiragieo/agent-studio
+
+  📦 neta-suggest
+     ID: talesofai/neta-skills/neta-suggest
+     Installs: 54
+     Source: talesofai/neta-skills
+
+  📦 content-strategy
+     ID: omer-metin/skills-for-antigravity/content-strategy
+     Installs: 27
+     Source: omer-metin/skills-for-antigravity
+
+  📦 content-strategy
+     ID: aitytech/agentkits-marketing/content-strategy
+     Installs: 24
+     Source: aitytech/agentkits-marketing
+
+  📦 do-create-tasks
+     ID: fabio-barboza/development-orchestrator/do-create-tasks
+     Installs: 45
+     Source: fabio-barboza/development-orchestrator
+
+  📦 neta-space
+     ID: talesofai/neta-skills/neta-space
+     Installs: 41
+     Source: talesofai/neta-skills
+
+  📦 creating-bookmarklets
+     ID: oaustegard/claude-skills/creating-bookmarklets
+     Installs: 40
+     Source: oaustegard/claude-skills
+
+  📦 content-marketer
+     ID: aaaaqwq/claude-code-skills/content-marketer
+     Installs: 17
+     Source: aaaaqwq/claude-code-skills
+
+  📦 anygen-skill
+     ID: skills.volces.com/anygen-skill
+     Installs: 33
+     Source: skills.volces.com
+
+  📦 content-creation-and-marketing
+     ID: manojbajaj95/gtm-skills/content-creation-and-marketing
+     Installs: 16
+     Source: manojbajaj95/gtm-skills
+
+  📦 content-planning
+     ID: ideola-ai/marketing-ads-skills/content-planning
+     Installs: 16
+     Source: ideola-ai/marketing-ads-skills
+
+  📦 suparank/create
+     ID: egebese/suparank/suparank/create
+     Installs: 29
+     Source: egebese/suparank
+
+  📦 content-create
+     ID: hungv47/marketing-skills/content-create
+     Installs: 14
+     Source: hungv47/marketing-skills
+
+  📦 do-create-pbi
+     ID: fabio-barboza/development-orchestrator/do-create-pbi
+     Installs: 14
+     Source: fabio-barboza/development-orchestrator
+
+  📦 content-creator
+     ID: davila7/claude-code-templates/content-creator
+     Installs: 582
+     Source: davila7/claude-code-templates
+
+  📦 content calendar planner
+     ID: jmsktm/claude-settings/content-calendar-planner
+     Installs: 160
+     Source: jmsktm/claude-settings
+
+  📦 content-creator
+     ID: ovachiever/droid-tings/content-creator
+     Installs: 43
+     Source: ovachiever/droid-tings
+
+============================================================
+🔍 Search: 'social media marketing' - Found 37 skills
+============================================================
+
+  📦 social-media-analyzer
+     ID: alirezarezvani/claude-skills/social-media-analyzer
+     Installs: 1,163
+     Source: alirezarezvani/claude-skills
+
+  📦 social-media-marketing
+     ID: dengineproblem/agents-monorepo/social-media-marketing
+     Installs: 1,159
+     Source: dengineproblem/agents-monorepo
+
+  📦 social-media-manager
+     ID: alirezarezvani/claude-skills/social-media-manager
+     Installs: 742
+     Source: alirezarezvani/claude-skills
+
+  📦 social-media-carousel
+     ID: inference-sh/skills/social-media-carousel
+     Installs: 459
+     Source: inference-sh/skills
+
+  📦 content-marketer
+     ID: sickn33/antigravity-awesome-skills/content-marketer
+     Installs: 577
+     Source: sickn33/antigravity-awesome-skills
+
+  📦 executing-marketing-campaigns
+     ID: davila7/claude-code-templates/executing-marketing-campaigns
+     Installs: 469
+     Source: davila7/claude-code-templates
+
+  📦 social-media
+     ID: aitytech/agentkits-marketing/social-media
+     Installs: 146
+     Source: aitytech/agentkits-marketing
+
+  📦 social-media-marketing
+     ID: jk-0001/skills/social-media-marketing
+     Installs: 208
+     Source: jk-0001/skills
+
+  📦 marketing-social
+     ID: gnoviawan/agentic-marketing/marketing-social
+     Installs: 66
+     Source: gnoviawan/agentic-marketing
+
+  📦 social-strategy
+     ID: indranilbanerjee/digital-marketing-pro/social-strategy
+     Installs: 57
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 social-media
+     ID: nicepkg/ai-workflow/social-media
+     Installs: 73
+     Source: nicepkg/ai-workflow
+
+  📦 go-to-market planner
+     ID: daffy0208/ai-dev-standards/go-to-market-planner
+     Installs: 114
+     Source: daffy0208/ai-dev-standards
+
+  📦 social-media-marketing
+     ID: skills.volces.com/social-media-marketing
+     Installs: 54
+     Source: skills.volces.com
+
+  📦 crisis-response
+     ID: indranilbanerjee/digital-marketing-pro/crisis-response
+     Installs: 54
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 social-media-dashboard
+     ID: nexu-io/html-anything/social-media-dashboard
+     Installs: 29
+     Source: nexu-io/html-anything
+
+  📦 paw-mkt-social
+     ID: pawbytes/skill-suites/paw-mkt-social
+     Installs: 57
+     Source: pawbytes/skill-suites
+
+  📦 content-marketer
+     ID: rmyndharis/antigravity-skills/content-marketer
+     Installs: 47
+     Source: rmyndharis/antigravity-skills
+
+  📦 social-media-analyzer
+     ID: skills.volces.com/social-media-analyzer
+     Installs: 21
+     Source: skills.volces.com
+
+  📦 marketing
+     ID: hack23/riksdagsmonitor/marketing
+     Installs: 18
+     Source: hack23/riksdagsmonitor
+
+  📦 social-media-organic
+     ID: dmend3z/tribo-skills/social-media-organic
+     Installs: 16
+     Source: dmend3z/tribo-skills
+
+  📦 social-media-advertising
+     ID: dmend3z/tribo-skills/social-media-advertising
+     Installs: 16
+     Source: dmend3z/tribo-skills
+
+  📦 bmad-agent-marketing-social
+     ID: gnoviawan/agentic-marketing/bmad-agent-marketing-social
+     Installs: 21
+     Source: gnoviawan/agentic-marketing
+
+  📦 social-media-agent
+     ID: skills.volces.com/social-media-agent
+     Installs: 14
+     Source: skills.volces.com
+
+  📦 cs-social-media-manager
+     ID: skills.volces.com/cs-social-media-manager
+     Installs: 20
+     Source: skills.volces.com
+
+  📦 sales-brandwatch
+     ID: sales-skills/sales/sales-brandwatch
+     Installs: 20
+     Source: sales-skills/sales
+
+  📦 sales-sproutsocial
+     ID: sales-skills/sales/sales-sproutsocial
+     Installs: 20
+     Source: sales-skills/sales
+
+  📦 sales-employee-advocacy
+     ID: sales-skills/sales/sales-employee-advocacy
+     Installs: 20
+     Source: sales-skills/sales
+
+  📦 sales-meltwater
+     ID: sales-skills/sales/sales-meltwater
+     Installs: 19
+     Source: sales-skills/sales
+
+  📦 sales-social-media-management
+     ID: sales-skills/sales/sales-social-media-management
+     Installs: 19
+     Source: sales-skills/sales
+
+  📦 content-marketer
+     ID: aaaaqwq/claude-code-skills/content-marketer
+     Installs: 17
+     Source: aaaaqwq/claude-code-skills
+
+  📦 sales-later
+     ID: sales-skills/sales/sales-later
+     Installs: 17
+     Source: sales-skills/sales
+
+  📦 social-media-content-repurposer
+     ID: onewave-ai/claude-skills/social-media-content-repurposer
+     Installs: 430
+     Source: onewave-ai/claude-skills
+
+  📦 content-creator
+     ID: davila7/claude-code-templates/content-creator
+     Installs: 582
+     Source: davila7/claude-code-templates
+
+  📦 content-creator
+     ID: ovachiever/droid-tings/content-creator
+     Installs: 43
+     Source: ovachiever/droid-tings
+
+  📦 go-to-market-planner
+     ID: nicepkg/ai-workflow/go-to-market-planner
+     Installs: 43
+     Source: nicepkg/ai-workflow
+
+  📦 content-creator
+     ID: aaaaqwq/claude-code-skills/content-creator
+     Installs: 27
+     Source: aaaaqwq/claude-code-skills
+
+  📦 social-media-carousel
+     ID: skills-shell/skills/social-media-carousel
+     Installs: 4
+     Source: skills-shell/skills
+
+============================================================
+🔍 Search: 'influencer' - Found 32 skills
+============================================================
+
+  📦 apify-influencer-discovery
+     ID: apify/agent-skills/apify-influencer-discovery
+     Installs: 2,502
+     Source: apify/agent-skills
+
+  📦 influencer-marketing
+     ID: kostja94/marketing-skills/influencer-marketing
+     Installs: 922
+     Source: kostja94/marketing-skills
+
+  📦 noxinfluencer
+     ID: noxinfluencer/skills/noxinfluencer
+     Installs: 92
+     Source: noxinfluencer/skills
+
+  📦 influencer-finder
+     ID: guia-matthieu/clawfu-skills/influencer-finder
+     Installs: 116
+     Source: guia-matthieu/clawfu-skills
+
+  📦 influencer-outreach-template
+     ID: dengineproblem/agents-monorepo/influencer-outreach-template
+     Installs: 99
+     Source: dengineproblem/agents-monorepo
+
+  📦 influencer-matrix
+     ID: vivy-yi/xiaohongshu-skills/influencer-matrix
+     Installs: 98
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 influencer-outreach
+     ID: vivy-yi/xiaohongshu-skills/influencer-outreach
+     Installs: 92
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 influencer-marketing
+     ID: dengineproblem/agents-monorepo/influencer-marketing
+     Installs: 83
+     Source: dengineproblem/agents-monorepo
+
+  📦 influencer-creator
+     ID: indranilbanerjee/digital-marketing-pro/influencer-creator
+     Installs: 60
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 ai influencer generation
+     ID: eachlabs/skills/ai-influencer-generation
+     Installs: 111
+     Source: eachlabs/skills
+
+  📦 influencer-brief
+     ID: indranilbanerjee/digital-marketing-pro/influencer-brief
+     Installs: 54
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 apify-influencer-brand-collabs
+     ID: apify/awesome-skills/apify-influencer-brand-collabs
+     Installs: 21
+     Source: apify/awesome-skills
+
+  📦 influencer finder
+     ID: eddiebe147/claude-settings/influencer-finder
+     Installs: 49
+     Source: eddiebe147/claude-settings
+
+  📦 influencer-discovery
+     ID: superamped/ai-marketing-skills/influencer-discovery
+     Installs: 48
+     Source: superamped/ai-marketing-skills
+
+  📦 influencer-tracking
+     ID: finsilabs/awesome-ecommerce-skills/influencer-tracking
+     Installs: 41
+     Source: finsilabs/awesome-ecommerce-skills
+
+  📦 influencer-analyzer
+     ID: drshailesh88/integrated_content_os/influencer-analyzer
+     Installs: 41
+     Source: drshailesh88/integrated_content_os
+
+  📦 influencer-marketplace-integration
+     ID: finsilabs/awesome-ecommerce-skills/influencer-marketplace-integration
+     Installs: 40
+     Source: finsilabs/awesome-ecommerce-skills
+
+  📦 influencer-agreement-review
+     ID: skala-io/legal-skills/influencer-agreement-review
+     Installs: 36
+     Source: skala-io/legal-skills
+
+  📦 paw-mkt-influencer
+     ID: pawbytes/skill-suites/paw-mkt-influencer
+     Installs: 56
+     Source: pawbytes/skill-suites
+
+  📦 influencer-evaluator
+     ID: yangliu2060/smith--skills/influencer-evaluator
+     Installs: 26
+     Source: yangliu2060/smith--skills
+
+  📦 marketing-influencer
+     ID: gnoviawan/agentic-marketing/marketing-influencer
+     Installs: 43
+     Source: gnoviawan/agentic-marketing
+
+  📦 afa-influencer
+     ID: afadtc/afa-dtc-skills/afa-influencer
+     Installs: 30
+     Source: afadtc/afa-dtc-skills
+
+  📦 sales-influencer-marketing
+     ID: sales-skills/sales/sales-influencer-marketing
+     Installs: 23
+     Source: sales-skills/sales
+
+  📦 tiktok-influencer-finder
+     ID: gooseworks-ai/goose-skills/tiktok-influencer-finder
+     Installs: 23
+     Source: gooseworks-ai/goose-skills
+
+  📦 linkedin-influencer-discovery
+     ID: gooseworks-ai/goose-skills/linkedin-influencer-discovery
+     Installs: 22
+     Source: gooseworks-ai/goose-skills
+
+  📦 sales-influencer-hero
+     ID: sales-skills/sales/sales-influencer-hero
+     Installs: 18
+     Source: sales-skills/sales
+
+  📦 youtube-influencer-finder-api-skill
+     ID: browser-act/skills/youtube-influencer-finder-api-skill
+     Installs: 18
+     Source: browser-act/skills
+
+  📦 find-twitter-influencers
+     ID: gooseworks-ai/goose-skills/find-twitter-influencers
+     Installs: 17
+     Source: gooseworks-ai/goose-skills
+
+  📦 gentic-influencer
+     ID: gentic-co/agent-skills/gentic-influencer
+     Installs: 15
+     Source: gentic-co/agent-skills
+
+  📦 apify-influencer-discovery
+     ID: apify/awesome-skills/apify-influencer-discovery
+     Installs: 94
+     Source: apify/awesome-skills
+
+  📦 influencer finder
+     ID: jmsktm/claude-settings/influencer-finder
+     Installs: 153
+     Source: jmsktm/claude-settings
+
+  📦 apify-influencer-discovery
+     ID: sickn33/antigravity-awesome-skills/apify-influencer-discovery
+     Installs: 81
+     Source: sickn33/antigravity-awesome-skills
+
+============================================================
+🔍 Search: 'reputation' - Found 10 skills
+============================================================
+
+  📦 apify-brand-reputation-monitoring
+     ID: apify/agent-skills/apify-brand-reputation-monitoring
+     Installs: 2,525
+     Source: apify/agent-skills
+
+  📦 reputation-recovery
+     ID: guia-matthieu/clawfu-skills/reputation-recovery
+     Installs: 118
+     Source: guia-matthieu/clawfu-skills
+
+  📦 reputation
+     ID: aibtcdev/skills/reputation
+     Installs: 117
+     Source: aibtcdev/skills
+
+  📦 reputation-management
+     ID: indranilbanerjee/digital-marketing-pro/reputation-management
+     Installs: 66
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 reputation-lyncs
+     ID: membranedev/application-skills/reputation-lyncs
+     Installs: 63
+     Source: membranedev/application-skills
+
+  📦 performing-ip-reputation-analysis-with-shodan
+     ID: mukul975/anthropic-cybersecurity-skills/performing-ip-reputation-analysis-with-shodan
+     Installs: 23
+     Source: mukul975/anthropic-cybersecurity-skills
+
+  📦 sales-online-reputation
+     ID: sales-skills/sales/sales-online-reputation
+     Installs: 18
+     Source: sales-skills/sales
+
+  📦 wow-api-reputation
+     ID: jburlison/wowaddonapiagents/wow-api-reputation
+     Installs: 16
+     Source: jburlison/wowaddonapiagents
+
+  📦 apify-brand-reputation-monitoring
+     ID: apify/awesome-skills/apify-brand-reputation-monitoring
+     Installs: 92
+     Source: apify/awesome-skills
+
+  📦 apify-brand-reputation-monitoring
+     ID: sickn33/antigravity-awesome-skills/apify-brand-reputation-monitoring
+     Installs: 82
+     Source: sickn33/antigravity-awesome-skills
+
+============================================================
+🔍 Search: 'marketing strategy' - Found 45 skills
+============================================================
+
+  📦 content-marketing
+     ID: kostja94/marketing-skills/content-marketing
+     Installs: 838
+     Source: kostja94/marketing-skills
+
+  📦 gtm-strategy
+     ID: kostja94/marketing-skills/gtm-strategy
+     Installs: 808
+     Source: kostja94/marketing-skills
+
+  📦 product-launch
+     ID: kostja94/marketing-skills/product-launch
+     Installs: 797
+     Source: kostja94/marketing-skills
+
+  📦 integrated-marketing
+     ID: kostja94/marketing-skills/integrated-marketing
+     Installs: 767
+     Source: kostja94/marketing-skills
+
+  📦 pmf-strategy
+     ID: kostja94/marketing-skills/pmf-strategy
+     Installs: 753
+     Source: kostja94/marketing-skills
+
+  📦 discount-marketing-strategy
+     ID: kostja94/marketing-skills/discount-marketing-strategy
+     Installs: 752
+     Source: kostja94/marketing-skills
+
+  📦 gtm-strategy
+     ID: phuryn/pm-skills/gtm-strategy
+     Installs: 1,118
+     Source: phuryn/pm-skills
+
+  📦 ansoff-matrix
+     ID: phuryn/pm-skills/ansoff-matrix
+     Installs: 990
+     Source: phuryn/pm-skills
+
+  📦 strategy-and-competitive-analysis
+     ID: lyndonkl/claude/strategy-and-competitive-analysis
+     Installs: 333
+     Source: lyndonkl/claude
+
+  📦 go-to-market-plan
+     ID: ognjengt/founder-skills/go-to-market-plan
+     Installs: 602
+     Source: ognjengt/founder-skills
+
+  📦 content-marketer
+     ID: sickn33/antigravity-awesome-skills/content-marketer
+     Installs: 577
+     Source: sickn33/antigravity-awesome-skills
+
+  📦 marketing-strategist
+     ID: ncklrs/startup-os-skills/marketing-strategist
+     Installs: 223
+     Source: ncklrs/startup-os-skills
+
+  📦 trade-prediction-markets
+     ID: robonet-tech/skills/trade-prediction-markets
+     Installs: 268
+     Source: robonet-tech/skills
+
+  📦 marketing
+     ID: travisjneuman/.claude/marketing
+     Installs: 125
+     Source: travisjneuman/.claude
+
+  📦 go-to-market-strategy
+     ID: manojbajaj95/claude-gtm-plugin/go-to-market-strategy
+     Installs: 235
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 marketing-strategy
+     ID: manojbajaj95/claude-gtm-plugin/marketing-strategy
+     Installs: 69
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 product-strategist
+     ID: ncklrs/startup-os-skills/product-strategist
+     Installs: 138
+     Source: ncklrs/startup-os-skills
+
+  📦 product-strategy-and-marketing
+     ID: manojbajaj95/claude-gtm-plugin/product-strategy-and-marketing
+     Installs: 121
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 marketing-strategy-pmm
+     ID: ovachiever/droid-tings/marketing-strategy-pmm
+     Installs: 56
+     Source: ovachiever/droid-tings
+
+  📦 marketing-strategy-pmm
+     ID: skills.volces.com/marketing-strategy-pmm
+     Installs: 50
+     Source: skills.volces.com
+
+  📦 marketing-strategy
+     ID: majesticlabs-dev/majestic-marketplace/marketing-strategy
+     Installs: 46
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 retargeting-strategy
+     ID: indranilbanerjee/digital-marketing-pro/retargeting-strategy
+     Installs: 59
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 marketing-strategist
+     ID: cowork-os/cowork-os/marketing-strategist
+     Installs: 44
+     Source: cowork-os/cowork-os
+
+  📦 social-strategy
+     ID: indranilbanerjee/digital-marketing-pro/social-strategy
+     Installs: 57
+     Source: indranilbanerjee/digital-marketing-pro
+
+  📦 marketing-skills-guide
+     ID: gmh5225/awesome-skills/marketing-skills-guide
+     Installs: 38
+     Source: gmh5225/awesome-skills
+
+  📦 content-marketer
+     ID: rmyndharis/antigravity-skills/content-marketer
+     Installs: 47
+     Source: rmyndharis/antigravity-skills
+
+  📦 gtm-strategy
+     ID: majesticlabs-dev/majestic-marketplace/gtm-strategy
+     Installs: 42
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 go-to-market
+     ID: skills.volces.com/go-to-market
+     Installs: 32
+     Source: skills.volces.com
+
+  📦 sales-influencer-marketing
+     ID: sales-skills/sales/sales-influencer-marketing
+     Installs: 23
+     Source: sales-skills/sales
+
+  📦 sales-tiktok-marketing
+     ID: sales-skills/sales/sales-tiktok-marketing
+     Installs: 22
+     Source: sales-skills/sales
+
+  📦 sales-gaming-marketing
+     ID: sales-skills/sales/sales-gaming-marketing
+     Installs: 22
+     Source: sales-skills/sales
+
+  📦 biz-ansoff
+     ID: asgard-ai-platform/skills/biz-ansoff
+     Installs: 19
+     Source: asgard-ai-platform/skills
+
+  📦 go-to-market
+     ID: jk-0001/skills/go-to-market
+     Installs: 19
+     Source: jk-0001/skills
+
+  📦 planning-market-entry
+     ID: jesseotremblay/claude-skills/planning-market-entry
+     Installs: 18
+     Source: jesseotremblay/claude-skills
+
+  📦 sales-houseofmarketers
+     ID: sales-skills/sales/sales-houseofmarketers
+     Installs: 18
+     Source: sales-skills/sales
+
+  📦 content-marketer
+     ID: aaaaqwq/claude-code-skills/content-marketer
+     Installs: 17
+     Source: aaaaqwq/claude-code-skills
+
+  📦 money-strategy
+     ID: iamzifei/show-me-the-money/money-strategy
+     Installs: 17
+     Source: iamzifei/show-me-the-money
+
+  📦 research
+     ID: xbklairith/kisune/research
+     Installs: 16
+     Source: xbklairith/kisune
+
+  📦 design-trading-strategies
+     ID: robonet-tech/skills/design-trading-strategies
+     Installs: 15
+     Source: robonet-tech/skills
+
+  📦 marketing-strategy-pmm
+     ID: davila7/claude-code-templates/marketing-strategy-pmm
+     Installs: 1,002
+     Source: davila7/claude-code-templates
+
+  📦 marketing-strategy-pmm
+     ID: alirezarezvani/claude-skills/marketing-strategy-pmm
+     Installs: 748
+     Source: alirezarezvani/claude-skills
+
+  📦 marketing-strategy-pmm
+     ID: manojbajaj95/claude-gtm-plugin/marketing-strategy-pmm
+     Installs: 105
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 marketing-strategy-pmm
+     ID: nicepkg/ai-workflow/marketing-strategy-pmm
+     Installs: 44
+     Source: nicepkg/ai-workflow
+
+  📦 marketing-strategy-pmm
+     ID: manojbajaj95/gtm-skills/marketing-strategy-pmm
+     Installs: 15
+     Source: manojbajaj95/gtm-skills
+
+  📦 trade-prediction-markets
+     ID: aaaaqwq/claude-code-skills/trade-prediction-markets
+     Installs: 15
+     Source: aaaaqwq/claude-code-skills
+
+============================================================
+🔍 Search: 'copywriting' - Found 66 skills
+============================================================
+
+  📦 copywriting
+     ID: coreyhaines31/marketingskills/copywriting
+     Installs: 119,559
+     Source: coreyhaines31/marketingskills
+
+  📦 copywriting
+     ID: kostja94/marketing-skills/copywriting
+     Installs: 1,737
+     Source: kostja94/marketing-skills
+
+  📦 copywriting
+     ID: sickn33/antigravity-awesome-skills/copywriting
+     Installs: 1,147
+     Source: sickn33/antigravity-awesome-skills
+
+  📦 copywriting
+     ID: skills.volces.com/copywriting
+     Installs: 851
+     Source: skills.volces.com
+
+  📦 copywriting
+     ID: nexu-io/open-design/copywriting
+     Installs: 792
+     Source: nexu-io/open-design
+
+  📦 copywriting-skills
+     ID: vivy-yi/xiaohongshu-skills/copywriting-skills
+     Installs: 340
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 sales-page-copywriting
+     ID: yashaiguy-dev/sales-page-copywriting-skill/sales-page-copywriting
+     Installs: 385
+     Source: yashaiguy-dev/sales-page-copywriting-skill
+
+  📦 copywriting
+     ID: openclaudia/openclaudia-skills/copywriting
+     Installs: 263
+     Source: openclaudia/openclaudia-skills
+
+  📦 copywriting-core
+     ID: manojbajaj95/claude-gtm-plugin/copywriting-core
+     Installs: 260
+     Source: manojbajaj95/claude-gtm-plugin
+
+  📦 copywriting
+     ID: cyrwheelninja/copywriting-skill/copywriting
+     Installs: 134
+     Source: cyrwheelninja/copywriting-skill
+
+  📦 copywriting
+     ID: mblode/agent-skills/copywriting
+     Installs: 181
+     Source: mblode/agent-skills
+
+  📦 japanese-copywriting
+     ID: ronantakizawa/japanese-copywriting/japanese-copywriting
+     Installs: 212
+     Source: ronantakizawa/japanese-copywriting
+
+  📦 conversion-copywriting
+     ID: guia-matthieu/clawfu-skills/conversion-copywriting
+     Installs: 307
+     Source: guia-matthieu/clawfu-skills
+
+  📦 copywriting
+     ID: absolutelyskilled/absolutelyskilled/copywriting
+     Installs: 145
+     Source: absolutelyskilled/absolutelyskilled
+
+  📦 copywriting-classic
+     ID: guia-matthieu/clawfu-skills/copywriting-classic
+     Installs: 136
+     Source: guia-matthieu/clawfu-skills
+
+  📦 copywriting-awareness
+     ID: guia-matthieu/clawfu-skills/copywriting-awareness
+     Installs: 126
+     Source: guia-matthieu/clawfu-skills
+
+  📦 ecommerce-copywriting
+     ID: vos91/agent-skills/ecommerce-copywriting
+     Installs: 224
+     Source: vos91/agent-skills
+
+  📦 copywriting
+     ID: alexwelcing/copy/copywriting
+     Installs: 112
+     Source: alexwelcing/copy
+
+  📦 copywriting
+     ID: smithery.ai/copywriting
+     Installs: 103
+     Source: smithery.ai
+
+  📦 copywriting
+     ID: borghei/claude-skills/copywriting
+     Installs: 99
+     Source: borghei/claude-skills
+
+  📦 copywriting
+     ID: kimny1143/claude-code-template/copywriting
+     Installs: 89
+     Source: kimny1143/claude-code-template
+
+  📦 copywriting
+     ID: louisblythe/salesskills/copywriting
+     Installs: 88
+     Source: louisblythe/salesskills
+
+  📦 copywriting-zh-pro
+     ID: skills.volces.com/copywriting-zh-pro
+     Installs: 70
+     Source: skills.volces.com
+
+  📦 copywriting
+     ID: dengineproblem/agents-monorepo/copywriting
+     Installs: 69
+     Source: dengineproblem/agents-monorepo
+
+  📦 ogilvy-copywriting
+     ID: boraoztunc/skills/ogilvy-copywriting
+     Installs: 112
+     Source: boraoztunc/skills
+
+  📦 copywriting
+     ID: omer-metin/skills-for-antigravity/copywriting
+     Installs: 56
+     Source: omer-metin/skills-for-antigravity
+
+  📦 seeding-copywriting
+     ID: vivy-yi/xiaohongshu-skills/seeding-copywriting
+     Installs: 107
+     Source: vivy-yi/xiaohongshu-skills
+
+  📦 copywriting-pro
+     ID: skills.volces.com/copywriting-pro
+     Installs: 51
+     Source: skills.volces.com
+
+  📦 copywriting-psychologist
+     ID: sickn33/antigravity-awesome-skills/copywriting-psychologist
+     Installs: 48
+     Source: sickn33/antigravity-awesome-skills
+
+  📦 creative-copywriting
+     ID: rfxlamia/claude-skillkit/creative-copywriting
+     Installs: 77
+     Source: rfxlamia/claude-skillkit
+
+  📦 josh-braun-copywriting
+     ID: sachacoldiq/coldiq-s-gtm-skills/josh-braun-copywriting
+     Installs: 65
+     Source: sachacoldiq/coldiq-s-gtm-skills
+
+  📦 copywriting
+     ID: vm0-ai/vm0-skills/copywriting
+     Installs: 32
+     Source: vm0-ai/vm0-skills
+
+  📦 copywriting
+     ID: modelscope.cn/copywriting
+     Installs: 30
+     Source: modelscope.cn
+
+  📦 copywriting
+     ID: jk-0001/skills/copywriting
+     Installs: 29
+     Source: jk-0001/skills
+
+  📦 copywriting-frameworks
+     ID: thatrebeccarae/claude-marketing/copywriting-frameworks
+     Installs: 28
+     Source: thatrebeccarae/claude-marketing
+
+  📦 copywriting
+     ID: hungv47/marketing-skills/copywriting
+     Installs: 26
+     Source: hungv47/marketing-skills
+
+  📦 copywriting
+     ID: duc01226/easyplatform/copywriting
+     Installs: 26
+     Source: duc01226/easyplatform
+
+  📦 copywriting
+     ID: louisblythe/sales-skills/copywriting
+     Installs: 24
+     Source: louisblythe/sales-skills
+
+  📦 pr-social-copywriting
+     ID: asgard-ai-platform/skills/pr-social-copywriting
+     Installs: 44
+     Source: asgard-ai-platform/skills
+
+  📦 copywriting
+     ID: api/git/copywriting
+     Installs: 18
+     Source: api/git
+
+  📦 copywriting
+     ID: whawkinsiv/claude-code-skills/copywriting
+     Installs: 17
+     Source: whawkinsiv/claude-code-skills
+
+  📦 copywriting
+     ID: sebas-aikon-intelligence/antigravity-awesome-skills/copywriting
+     Installs: 16
+     Source: sebas-aikon-intelligence/antigravity-awesome-skills
+
+  📦 copywriting-rewriter
+     ID: skills.volces.com/copywriting-rewriter
+     Installs: 16
+     Source: skills.volces.com
+
+  📦 boring-copywriting
+     ID: mrpaulscrivens/boring-zoo/boring-copywriting
+     Installs: 31
+     Source: mrpaulscrivens/boring-zoo
+
+  📦 copywriting-generator
+     ID: skills.volces.com/copywriting-generator
+     Installs: 15
+     Source: skills.volces.com
+
+  📦 copywriting
+     ID: seb1n/awesome-ai-agent-skills/copywriting
+     Installs: 15
+     Source: seb1n/awesome-ai-agent-skills
+
+  📦 copywriting
+     ID: liuchiawei/agent-skills/copywriting
+     Installs: 14
+     Source: liuchiawei/agent-skills
+
+  📦 copywriting
+     ID: gpttang/skill-atlas/copywriting
+     Installs: 14
+     Source: gpttang/skill-atlas
+
+  📦 mkt-copywriting
+     ID: hungv47/agent-skills/mkt-copywriting
+     Installs: 19
+     Source: hungv47/agent-skills
+
+  📦 copywriting
+     ID: davila7/claude-code-templates/copywriting
+     Installs: 628
+     Source: davila7/claude-code-templates
+
+  📦 copywriting
+     ID: alirezarezvani/claude-skills/copywriting
+     Installs: 570
+     Source: alirezarezvani/claude-skills
+
+  📦 copywriting
+     ID: pedronauck/skills/copywriting
+     Installs: 142
+     Source: pedronauck/skills
+
+  📦 copywriting
+     ID: thecraighewitt/seomachine/copywriting
+     Installs: 93
+     Source: thecraighewitt/seomachine
+
+  📦 copywriting
+     ID: boraoztunc/skills/copywriting
+     Installs: 92
+     Source: boraoztunc/skills
+
+  📦 copywriting
+     ID: openstatushq/openstatus/copywriting
+     Installs: 54
+     Source: openstatushq/openstatus
+
+  📦 copywriting
+     ID: syntax-syndicate/marketing-skills/copywriting
+     Installs: 44
+     Source: syntax-syndicate/marketing-skills
+
+  📦 copywriting
+     ID: jackiexiao/jackie-skills-starter/copywriting
+     Installs: 42
+     Source: jackiexiao/jackie-skills-starter
+
+  📦 copywriting
+     ID: mysticaltech/marketingskills/copywriting
+     Installs: 31
+     Source: mysticaltech/marketingskills
+
+  📦 copywriting
+     ID: ma1orek/replay/copywriting
+     Installs: 29
+     Source: ma1orek/replay
+
+  📦 copywriting
+     ID: derklinke/codex-config/copywriting
+     Installs: 26
+     Source: derklinke/codex-config
+
+  📦 copywriting
+     ID: phrazzld/claude-config/copywriting
+     Installs: 23
+     Source: phrazzld/claude-config
+
+  📦 copywriting
+     ID: aitytech/agentkits-marketing/copywriting
+     Installs: 22
+     Source: aitytech/agentkits-marketing
+
+  📦 copywriting
+     ID: jstarfilms/vibecode-protocol-suite/copywriting
+     Installs: 21
+     Source: jstarfilms/vibecode-protocol-suite
+
+  📦 copywriting
+     ID: freekmurze/dotfiles/copywriting
+     Installs: 21
+     Source: freekmurze/dotfiles
+
+  📦 copywriting
+     ID: jackiexiao/jackie-skills-cn-top50/copywriting
+     Installs: 17
+     Source: jackiexiao/jackie-skills-cn-top50
+
+  📦 copywriting
+     ID: silvainfm/claude-skills/copywriting
+     Installs: 14
+     Source: silvainfm/claude-skills
+
+============================================================
+🔍 Search: 'seo' - Found 100 skills
+============================================================
+
+  📦 seo-audit
+     ID: coreyhaines31/marketingskills/seo-audit
+     Installs: 129,878
+     Source: coreyhaines31/marketingskills
+
+  📦 programmatic-seo
+     ID: coreyhaines31/marketingskills/programmatic-seo
+     Installs: 81,044
+     Source: coreyhaines31/marketingskills
+
+  📦 ai-seo
+     ID: coreyhaines31/marketingskills/ai-seo
+     Installs: 68,123
+     Source: coreyhaines31/marketingskills
+
+  📦 seo-geo
+     ID: resciencelab/opc-skills/seo-geo
+     Installs: 29,071
+     Source: resciencelab/opc-skills
+
+  📦 firecrawl-seo-audit
+     ID: firecrawl/firecrawl-workflows/firecrawl-seo-audit
+     Installs: 10,849
+     Source: firecrawl/firecrawl-workflows
+
+  📦 seo
+     ID: addyosmani/web-quality-skills/seo
+     Installs: 24,330
+     Source: addyosmani/web-quality-skills
+
+  📦 seo-aeo-best-practices
+     ID: sanity-io/agent-toolkit/seo-aeo-best-practices
+     Installs: 3,370
+     Source: sanity-io/agent-toolkit
+
+  📦 backlink-analyzer
+     ID: aaron-he-zhu/seo-geo-claude-skills/backlink-analyzer
+     Installs: 22,160
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-content-writer
+     ID: aaron-he-zhu/seo-geo-claude-skills/seo-content-writer
+     Installs: 6,394
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-audit
+     ID: anthropics/knowledge-work-plugins/seo-audit
+     Installs: 1,690
+     Source: anthropics/knowledge-work-plugins
+
+  📦 find-keywords
+     ID: calm-north/seojuice-skills/find-keywords
+     Installs: 6,626
+     Source: calm-north/seojuice-skills
+
+  📦 optimize-for-ai
+     ID: calm-north/seojuice-skills/optimize-for-ai
+     Installs: 6,424
+     Source: calm-north/seojuice-skills
+
+  📦 build-links
+     ID: calm-north/seojuice-skills/build-links
+     Installs: 6,306
+     Source: calm-north/seojuice-skills
+
+  📦 brief
+     ID: calm-north/seojuice-skills/brief
+     Installs: 6,263
+     Source: calm-north/seojuice-skills
+
+  📦 audit
+     ID: calm-north/seojuice-skills/audit
+     Installs: 6,242
+     Source: calm-north/seojuice-skills
+
+  📦 keyword-research
+     ID: aaron-he-zhu/seo-geo-claude-skills/keyword-research
+     Installs: 5,712
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 competitor-analysis
+     ID: aaron-he-zhu/seo-geo-claude-skills/competitor-analysis
+     Installs: 4,995
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo
+     ID: agricidaniel/claude-seo/seo
+     Installs: 2,342
+     Source: agricidaniel/claude-seo
+
+  📦 technical-seo-checker
+     ID: aaron-he-zhu/seo-geo-claude-skills/technical-seo-checker
+     Installs: 4,672
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo
+     ID: affaan-m/everything-claude-code/seo
+     Installs: 3,389
+     Source: affaan-m/everything-claude-code
+
+  📦 on-page-seo-auditor
+     ID: aaron-he-zhu/seo-geo-claude-skills/on-page-seo-auditor
+     Installs: 4,498
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-sitemap
+     ID: agricidaniel/claude-seo/seo-sitemap
+     Installs: 2,245
+     Source: agricidaniel/claude-seo
+
+  📦 geo-content-optimizer
+     ID: aaron-he-zhu/seo-geo-claude-skills/geo-content-optimizer
+     Installs: 4,452
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 content-quality-auditor
+     ID: aaron-he-zhu/seo-geo-claude-skills/content-quality-auditor
+     Installs: 4,330
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 content-gap-analysis
+     ID: aaron-he-zhu/seo-geo-claude-skills/content-gap-analysis
+     Installs: 4,317
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-geo
+     ID: agricidaniel/claude-seo/seo-geo
+     Installs: 2,145
+     Source: agricidaniel/claude-seo
+
+  📦 seo-audit
+     ID: agricidaniel/claude-seo/seo-audit
+     Installs: 2,124
+     Source: agricidaniel/claude-seo
+
+  📦 meta-tags-optimizer
+     ID: aaron-he-zhu/seo-geo-claude-skills/meta-tags-optimizer
+     Installs: 4,244
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-page
+     ID: agricidaniel/claude-seo/seo-page
+     Installs: 2,117
+     Source: agricidaniel/claude-seo
+
+  📦 internal-linking-optimizer
+     ID: aaron-he-zhu/seo-geo-claude-skills/internal-linking-optimizer
+     Installs: 4,218
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-competitor-pages
+     ID: agricidaniel/claude-seo/seo-competitor-pages
+     Installs: 2,109
+     Source: agricidaniel/claude-seo
+
+  📦 seo-technical
+     ID: agricidaniel/claude-seo/seo-technical
+     Installs: 2,107
+     Source: agricidaniel/claude-seo
+
+  📦 seo-schema
+     ID: agricidaniel/claude-seo/seo-schema
+     Installs: 2,102
+     Source: agricidaniel/claude-seo
+
+  📦 schema-markup-generator
+     ID: aaron-he-zhu/seo-geo-claude-skills/schema-markup-generator
+     Installs: 4,198
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-plan
+     ID: agricidaniel/claude-seo/seo-plan
+     Installs: 2,098
+     Source: agricidaniel/claude-seo
+
+  📦 memory-management
+     ID: aaron-he-zhu/seo-geo-claude-skills/memory-management
+     Installs: 4,179
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-content
+     ID: agricidaniel/claude-seo/seo-content
+     Installs: 2,083
+     Source: agricidaniel/claude-seo
+
+  📦 serp-analysis
+     ID: aaron-he-zhu/seo-geo-claude-skills/serp-analysis
+     Installs: 4,163
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-images
+     ID: agricidaniel/claude-seo/seo-images
+     Installs: 2,055
+     Source: agricidaniel/claude-seo
+
+  📦 seo-hreflang
+     ID: agricidaniel/claude-seo/seo-hreflang
+     Installs: 2,043
+     Source: agricidaniel/claude-seo
+
+  📦 seo-programmatic
+     ID: agricidaniel/claude-seo/seo-programmatic
+     Installs: 2,035
+     Source: agricidaniel/claude-seo
+
+  📦 content-refresher
+     ID: aaron-he-zhu/seo-geo-claude-skills/content-refresher
+     Installs: 4,051
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 performance-reporter
+     ID: aaron-he-zhu/seo-geo-claude-skills/performance-reporter
+     Installs: 4,049
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 alert-manager
+     ID: aaron-he-zhu/seo-geo-claude-skills/alert-manager
+     Installs: 4,015
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 rank-tracker
+     ID: aaron-he-zhu/seo-geo-claude-skills/rank-tracker
+     Installs: 3,989
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 domain-authority-auditor
+     ID: aaron-he-zhu/seo-geo-claude-skills/domain-authority-auditor
+     Installs: 3,982
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 entity-optimizer
+     ID: aaron-he-zhu/seo-geo-claude-skills/entity-optimizer
+     Installs: 3,956
+     Source: aaron-he-zhu/seo-geo-claude-skills
+
+  📦 seo-optimizer
+     ID: claude-office-skills/skills/seo-optimizer
+     Installs: 2,698
+     Source: claude-office-skills/skills
+
+  📦 seoul-subway-arrival
+     ID: nomadamas/k-skill/seoul-subway-arrival
+     Installs: 2,596
+     Source: nomadamas/k-skill
+
+  📦 seo-local
+     ID: agricidaniel/claude-seo/seo-local
+     Installs: 1,722
+     Source: agricidaniel/claude-seo
+
+  📦 seo-google
+     ID: agricidaniel/claude-seo/seo-google
+     Installs: 1,619
+     Source: agricidaniel/claude-seo
+
+  📦 seo-maps
+     ID: agricidaniel/claude-seo/seo-maps
+     Installs: 1,571
+     Source: agricidaniel/claude-seo
+
+  📦 seo-backlinks
+     ID: agricidaniel/claude-seo/seo-backlinks
+     Installs: 1,534
+     Source: agricidaniel/claude-seo
+
+  📦 humanizer
+     ID: daleseo/korean-skills/humanizer
+     Installs: 1,509
+     Source: daleseo/korean-skills
+
+  📦 seo-audit
+     ID: seo-skills/seo-audit-skill/seo-audit
+     Installs: 693
+     Source: seo-skills/seo-audit-skill
+
+  📦 seo-ecommerce
+     ID: agricidaniel/claude-seo/seo-ecommerce
+     Installs: 1,222
+     Source: agricidaniel/claude-seo
+
+  📦 paseo
+     ID: getpaseo/paseo/paseo
+     Installs: 1,197
+     Source: getpaseo/paseo
+
+  📦 paseo-handoff
+     ID: getpaseo/paseo/paseo-handoff
+     Installs: 1,162
+     Source: getpaseo/paseo
+
+  📦 paseo-loop
+     ID: getpaseo/paseo/paseo-loop
+     Installs: 1,158
+     Source: getpaseo/paseo
+
+  📦 seo-cluster
+     ID: agricidaniel/claude-seo/seo-cluster
+     Installs: 1,154
+     Source: agricidaniel/claude-seo
+
+  📦 paseo-committee
+     ID: getpaseo/paseo/paseo-committee
+     Installs: 1,150
+     Source: getpaseo/paseo
+
+  📦 rank-local
+     ID: calm-north/seojuice-skills/rank-local
+     Installs: 2,296
+     Source: calm-north/seojuice-skills
+
+  📦 seo-sxo
+     ID: agricidaniel/claude-seo/seo-sxo
+     Installs: 1,139
+     Source: agricidaniel/claude-seo
+
+  📦 seo-drift
+     ID: agricidaniel/claude-seo/seo-drift
+     Installs: 1,132
+     Source: agricidaniel/claude-seo
+
+  📦 audit-speed
+     ID: calm-north/seojuice-skills/audit-speed
+     Installs: 2,152
+     Source: calm-north/seojuice-skills
+
+  📦 seo-audit
+     ID: brightdata/skills/seo-audit
+     Installs: 1,601
+     Source: brightdata/skills
+
+  📦 diagnose-seo
+     ID: calm-north/seojuice-skills/diagnose-seo
+     Installs: 2,048
+     Source: calm-north/seojuice-skills
+
+  📦 migrate-site
+     ID: calm-north/seojuice-skills/migrate-site
+     Installs: 2,003
+     Source: calm-north/seojuice-skills
+
+  📦 beat-competitors
+     ID: calm-north/seojuice-skills/beat-competitors
+     Installs: 1,992
+     Source: calm-north/seojuice-skills
+
+  📦 recover-content
+     ID: calm-north/seojuice-skills/recover-content
+     Installs: 1,969
+     Source: calm-north/seojuice-skills
+
+  📦 build-clusters
+     ID: calm-north/seojuice-skills/build-clusters
+     Installs: 1,969
+     Source: calm-north/seojuice-skills
+
+  📦 fix-linking
+     ID: calm-north/seojuice-skills/fix-linking
+     Installs: 1,932
+     Source: calm-north/seojuice-skills
+
+  📦 target-serp
+     ID: calm-north/seojuice-skills/target-serp
+     Installs: 1,905
+     Source: calm-north/seojuice-skills
+
+  📦 grammar-checker
+     ID: daleseo/korean-skills/grammar-checker
+     Installs: 941
+     Source: daleseo/korean-skills
+
+  📦 style-guide
+     ID: daleseo/korean-skills/style-guide
+     Installs: 886
+     Source: daleseo/korean-skills
+
+  📦 seo-flow
+     ID: agricidaniel/claude-seo/seo-flow
+     Installs: 871
+     Source: agricidaniel/claude-seo
+
+  📦 seo-local-business
+     ID: jezweb/claude-skills/seo-local-business
+     Installs: 1,191
+     Source: jezweb/claude-skills
+
+  📦 joseon-sillok-search
+     ID: nomadamas/k-skill/joseon-sillok-search
+     Installs: 2,307
+     Source: nomadamas/k-skill
+
+  📦 paseo-orchestrate
+     ID: getpaseo/paseo/paseo-orchestrate
+     Installs: 752
+     Source: getpaseo/paseo
+
+  📦 seo-optimizer
+     ID: ailabs-393/ai-labs-claude-skills/seo-optimizer
+     Installs: 1,042
+     Source: ailabs-393/ai-labs-claude-skills
+
+  📦 seo-content-brief
+     ID: agricidaniel/claude-seo/seo-content-brief
+     Installs: 646
+     Source: agricidaniel/claude-seo
+
+  📦 seo-strategy
+     ID: kostja94/marketing-skills/seo-strategy
+     Installs: 891
+     Source: kostja94/marketing-skills
+
+  📦 nuxt-seo
+     ID: onmax/nuxt-skills/nuxt-seo
+     Installs: 1,778
+     Source: onmax/nuxt-skills
+
+  📦 seo-monitoring
+     ID: kostja94/marketing-skills/seo-monitoring
+     Installs: 863
+     Source: kostja94/marketing-skills
+
+  📦 seo-fundamentals
+     ID: sickn33/antigravity-awesome-skills/seo-fundamentals
+     Installs: 835
+     Source: sickn33/antigravity-awesome-skills
+
+  📦 seo optimizer
+     ID: davila7/claude-code-templates/seo-optimizer
+     Installs: 777
+     Source: davila7/claude-code-templates
+
+  📦 seo-audit
+     ID: kostja94/marketing-skills/seo-audit
+     Installs: 722
+     Source: kostja94/marketing-skills
+
+  📦 seo-audit
+     ID: sickn33/antigravity-awesome-skills/seo-audit
+     Installs: 717
+     Source: sickn33/antigravity-awesome-skills
+
+  📦 youtube-seo
+     ID: kostja94/marketing-skills/youtube-seo
+     Installs: 1,290
+     Source: kostja94/marketing-skills
+
+  📦 nextjs-seo
+     ID: laguagu/claude-code-nextjs-skills/nextjs-seo
+     Installs: 1,241
+     Source: laguagu/claude-code-nextjs-skills
+
+  📦 seo-review
+     ID: leonardomso/33-js-concepts/seo-review
+     Installs: 593
+     Source: leonardomso/33-js-concepts
+
+  📦 seoul-density
+     ID: nomadamas/k-skill/seoul-density
+     Installs: 576
+     Source: nomadamas/k-skill
+
+  📦 seo-meta
+     ID: jezweb/claude-skills/seo-meta
+     Installs: 546
+     Source: jezweb/claude-skills
+
+  📦 seo
+     ID: affaan-m/ecc/seo
+     Installs: 536
+     Source: affaan-m/ecc
+
+  📦 local-seo
+     ID: kostja94/marketing-skills/local-seo
+     Installs: 1,051
+     Source: kostja94/marketing-skills
+
+  📦 seo-fundamentals
+     ID: davila7/claude-code-templates/seo-fundamentals
+     Installs: 521
+     Source: davila7/claude-code-templates
+
+  📦 seo-best-practices
+     ID: mindrally/skills/seo-best-practices
+     Installs: 520
+     Source: mindrally/skills
+
+  📦 ecommerce-seo-audit
+     ID: affilino/ecommerce-seo-audit-skill/ecommerce-seo-audit
+     Installs: 668
+     Source: affilino/ecommerce-seo-audit-skill
+
+  📦 programmatic-seo
+     ID: kostja94/marketing-skills/programmatic-seo
+     Installs: 998
+     Source: kostja94/marketing-skills
+
+  📦 prompt-guard
+     ID: seojoonkim/prompt-guard/prompt-guard
+     Installs: 313
+     Source: seojoonkim/prompt-guard
+
+============================================================
+🔍 Search: 'newsletter' - Found 37 skills
+============================================================
+
+  📦 newsletter-generation
+     ID: bytedance/deer-flow/newsletter-generation
+     Installs: 770
+     Source: bytedance/deer-flow
+
+  📦 newsletter-signup-generator
+     ID: kostja94/marketing-skills/newsletter-signup-generator
+     Installs: 757
+     Source: kostja94/marketing-skills
+
+  📦 newsletter-curation
+     ID: inference-sh/skills/newsletter-curation
+     Installs: 446
+     Source: inference-sh/skills
+
+  📦 newsletter
+     ID: openclaudia/openclaudia-skills/newsletter
+     Installs: 233
+     Source: openclaudia/openclaudia-skills
+
+  📦 newsletter-publishing
+     ID: jamditis/claude-skills-journalism/newsletter-publishing
+     Installs: 154
+     Source: jamditis/claude-skills-journalism
+
+  📦 newsletter-voice
+     ID: charlie947/social-media-skills/newsletter-voice
+     Installs: 146
+     Source: charlie947/social-media-skills
+
+  📦 newsletter
+     ID: membranedev/application-skills/newsletter
+     Installs: 121
+     Source: membranedev/application-skills
+
+  📦 newsletter-creation-curation
+     ID: brianrwagner/ai-marketing-skills/newsletter-creation-curation
+     Installs: 104
+     Source: brianrwagner/ai-marketing-skills
+
+  📦 newsletter-creator
+     ID: travisjneuman/.claude/newsletter-creator
+     Installs: 85
+     Source: travisjneuman/.claude
+
+  📦 newsletter-coach
+     ID: nicepkg/ai-workflow/newsletter-coach
+     Installs: 72
+     Source: nicepkg/ai-workflow
+
+  📦 lennys-podcast-newsletter
+     ID: joeseesun/lennys-podcast-newsletter/lennys-podcast-newsletter
+     Installs: 85
+     Source: joeseesun/lennys-podcast-newsletter
+
+  📦 newsletter writer
+     ID: eddiebe147/claude-settings/newsletter-writer
+     Installs: 53
+     Source: eddiebe147/claude-settings
+
+  📦 newsletter
+     ID: sanky369/vibe-building-skills/newsletter
+     Installs: 47
+     Source: sanky369/vibe-building-skills
+
+  📦 newsletter
+     ID: majesticlabs-dev/majestic-marketplace/newsletter
+     Installs: 37
+     Source: majesticlabs-dev/majestic-marketplace
+
+  📦 newsletter-to-video
+     ID: kenneth-liao/ai-launchpad-marketplace/newsletter-to-video
+     Installs: 32
+     Source: kenneth-liao/ai-launchpad-marketplace
+
+  📦 medical-newsletter-writer
+     ID: drshailesh88/integrated_content_os/medical-newsletter-writer
+     Installs: 61
+     Source: drshailesh88/integrated_content_os
+
+  📦 newsletter-campaign-workflow
+     ID: venture-formations/aiprodaily/newsletter-campaign-workflow
+     Installs: 29
+     Source: venture-formations/aiprodaily
+
+  📦 usecase-newsletter-digest
+     ID: cowork-os/cowork-os/usecase-newsletter-digest
+     Installs: 53
+     Source: cowork-os/cowork-os
+
+  📦 developer-newsletter
+     ID: jonathimer/devmarketing-skills/developer-newsletter
+     Installs: 52
+     Source: jonathimer/devmarketing-skills
+
+  📦 newsletter-monitor
+     ID: gooseworks-ai/goose-skills/newsletter-monitor
+     Installs: 25
+     Source: gooseworks-ai/goose-skills
+
+  📦 spark-recipe-newsletter-cleanup
+     ID: readdle/spark-cli-skills/spark-recipe-newsletter-cleanup
+     Installs: 48
+     Source: readdle/spark-cli-skills
+
+  📦 newsletter-digest
+     ID: maroffo/claude-forge/newsletter-digest
+     Installs: 22
+     Source: maroffo/claude-forge
+
+  📦 newsletter-signal-scanner
+     ID: gooseworks-ai/goose-skills/newsletter-signal-scanner
+     Installs: 22
+     Source: gooseworks-ai/goose-skills
+
+  📦 newsletter-visuals
+     ID: kenneth-liao/ai-launchpad-marketplace/newsletter-visuals
+     Installs: 22
+     Source: kenneth-liao/ai-launchpad-marketplace
+
+  📦 newsletter-subject-lines
+     ID: cdeistopened/opened-vault/newsletter-subject-lines
+     Installs: 22
+     Source: cdeistopened/opened-vault
+
+  📦 newsletter-to-social
+     ID: cdeistopened/opened-vault/newsletter-to-social
+     Installs: 20
+     Source: cdeistopened/opened-vault
+
+  📦 sales-newsletter
+     ID: sales-skills/sales/sales-newsletter
+     Installs: 37
+     Source: sales-skills/sales
+
+  📦 newsletter-sponsorship-finder
+     ID: gooseworks-ai/goose-skills/newsletter-sponsorship-finder
+     Installs: 18
+     Source: gooseworks-ai/goose-skills
+
+  📦 ph-newsletter-pitch
+     ID: yoanbernabeu/producthunt-skills/ph-newsletter-pitch
+     Installs: 29
+     Source: yoanbernabeu/producthunt-skills
+
+  📦 sponsored-newsletter-finder
+     ID: gooseworks-ai/goose-skills/sponsored-newsletter-finder
+     Installs: 22
+     Source: gooseworks-ai/goose-skills
+
+  📦 opened-weekly-newsletter-writer
+     ID: cdeistopened/opened-vault/opened-weekly-newsletter-writer
+     Installs: 20
+     Source: cdeistopened/opened-vault
+
+  📦 cardiology-newsletter-writer
+     ID: drshailesh88/integrated_content_os/cardiology-newsletter-writer
+     Installs: 20
+     Source: drshailesh88/integrated_content_os
+
+  📦 opened-daily-newsletter-writer
+     ID: cdeistopened/opened-vault/opened-daily-newsletter-writer
+     Installs: 19
+     Source: cdeistopened/opened-vault
+
+  📦 ai-newsletters
+     ID: marswang42/orbitos/ai-newsletters
+     Installs: 18
+     Source: marswang42/orbitos
+
+  📦 newsletter-creation-curation
+     ID: brianrwagner/ai-marketing-claude-code-skills/newsletter-creation-curation
+     Installs: 164
+     Source: brianrwagner/ai-marketing-claude-code-skills
+
+  📦 newsletter writer
+     ID: jmsktm/claude-settings/newsletter-writer
+     Installs: 153
+     Source: jmsktm/claude-settings
+
+  📦 newsletter-curation
+     ID: skills-shell/skills/newsletter-curation
+     Installs: 4
+     Source: skills-shell/skills
+
+
+============================================================
+📊 SUMMARY: 388 unique skills found
+============================================================
+
+1. seo-audit (129,878 installs)
+   ID: coreyhaines31/marketingskills/seo-audit
+
+2. copywriting (119,559 installs)
+   ID: coreyhaines31/marketingskills/copywriting
+
+3. programmatic-seo (81,044 installs)
+   ID: coreyhaines31/marketingskills/programmatic-seo
+
+4. ai-seo (68,123 installs)
+   ID: coreyhaines31/marketingskills/ai-seo
+
+5. seo-geo (29,071 installs)
+   ID: resciencelab/opc-skills/seo-geo
+
+6. seo (24,330 installs)
+   ID: addyosmani/web-quality-skills/seo
+
+7. backlink-analyzer (22,160 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/backlink-analyzer
+
+8. firecrawl-seo-audit (10,849 installs)
+   ID: firecrawl/firecrawl-workflows/firecrawl-seo-audit
+
+9. find-keywords (6,626 installs)
+   ID: calm-north/seojuice-skills/find-keywords
+
+10. optimize-for-ai (6,424 installs)
+   ID: calm-north/seojuice-skills/optimize-for-ai
+
+11. seo-content-writer (6,394 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/seo-content-writer
+
+12. build-links (6,306 installs)
+   ID: calm-north/seojuice-skills/build-links
+
+13. brief (6,263 installs)
+   ID: calm-north/seojuice-skills/brief
+
+14. audit (6,242 installs)
+   ID: calm-north/seojuice-skills/audit
+
+15. keyword-research (5,712 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/keyword-research
+
+16. competitor-analysis (4,995 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/competitor-analysis
+
+17. technical-seo-checker (4,672 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/technical-seo-checker
+
+18. on-page-seo-auditor (4,498 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/on-page-seo-auditor
+
+19. geo-content-optimizer (4,452 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/geo-content-optimizer
+
+20. content-quality-auditor (4,330 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/content-quality-auditor
+
+21. content-gap-analysis (4,317 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/content-gap-analysis
+
+22. meta-tags-optimizer (4,244 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/meta-tags-optimizer
+
+23. internal-linking-optimizer (4,218 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/internal-linking-optimizer
+
+24. schema-markup-generator (4,198 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/schema-markup-generator
+
+25. memory-management (4,179 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/memory-management
+
+26. serp-analysis (4,163 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/serp-analysis
+
+27. content-refresher (4,051 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/content-refresher
+
+28. performance-reporter (4,049 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/performance-reporter
+
+29. alert-manager (4,015 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/alert-manager
+
+30. rank-tracker (3,989 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/rank-tracker
+
+31. domain-authority-auditor (3,982 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/domain-authority-auditor
+
+32. entity-optimizer (3,956 installs)
+   ID: aaron-he-zhu/seo-geo-claude-skills/entity-optimizer
+
+33. seo (3,389 installs)
+   ID: affaan-m/everything-claude-code/seo
+
+34. seo-aeo-best-practices (3,370 installs)
+   ID: sanity-io/agent-toolkit/seo-aeo-best-practices
+
+35. content-creation (2,980 installs)
+   ID: anthropics/knowledge-work-plugins/content-creation
+
+36. seo-optimizer (2,698 installs)
+   ID: claude-office-skills/skills/seo-optimizer
+
+37. seoul-subway-arrival (2,596 installs)
+   ID: nomadamas/k-skill/seoul-subway-arrival
+
+38. apify-brand-reputation-monitoring (2,525 installs)
+   ID: apify/agent-skills/apify-brand-reputation-monitoring
+
+39. apify-influencer-discovery (2,502 installs)
+   ID: apify/agent-skills/apify-influencer-discovery
+
+40. seo (2,342 installs)
+   ID: agricidaniel/claude-seo/seo
+
+41. joseon-sillok-search (2,307 installs)
+   ID: nomadamas/k-skill/joseon-sillok-search
+
+42. rank-local (2,296 installs)
+   ID: calm-north/seojuice-skills/rank-local
+
+43. seo-sitemap (2,245 installs)
+   ID: agricidaniel/claude-seo/seo-sitemap
+
+44. audit-speed (2,152 installs)
+   ID: calm-north/seojuice-skills/audit-speed
+
+45. seo-geo (2,145 installs)
+   ID: agricidaniel/claude-seo/seo-geo
+
+46. seo-audit (2,124 installs)
+   ID: agricidaniel/claude-seo/seo-audit
+
+47. seo-page (2,117 installs)
+   ID: agricidaniel/claude-seo/seo-page
+
+48. seo-competitor-pages (2,109 installs)
+   ID: agricidaniel/claude-seo/seo-competitor-pages
+
+49. seo-technical (2,107 installs)
+   ID: agricidaniel/claude-seo/seo-technical
+
+50. seo-schema (2,102 installs)
+   ID: agricidaniel/claude-seo/seo-schema
+
+51. seo-plan (2,098 installs)
+   ID: agricidaniel/claude-seo/seo-plan
+
+52. seo-content (2,083 installs)
+   ID: agricidaniel/claude-seo/seo-content
+
+53. seo-images (2,055 installs)
+   ID: agricidaniel/claude-seo/seo-images
+
+54. diagnose-seo (2,048 installs)
+   ID: calm-north/seojuice-skills/diagnose-seo
+
+55. seo-hreflang (2,043 installs)
+   ID: agricidaniel/claude-seo/seo-hreflang
+
+56. seo-programmatic (2,035 installs)
+   ID: agricidaniel/claude-seo/seo-programmatic
+
+57. migrate-site (2,003 installs)
+   ID: calm-north/seojuice-skills/migrate-site
+
+58. beat-competitors (1,992 installs)
+   ID: calm-north/seojuice-skills/beat-competitors
+
+59. recover-content (1,969 installs)
+   ID: calm-north/seojuice-skills/recover-content
+
+60. build-clusters (1,969 installs)
+   ID: calm-north/seojuice-skills/build-clusters
+
+61. fix-linking (1,932 installs)
+   ID: calm-north/seojuice-skills/fix-linking
+
+62. target-serp (1,905 installs)
+   ID: calm-north/seojuice-skills/target-serp
+
+63. brand-voice-enforcement (1,801 installs)
+   ID: anthropics/knowledge-work-plugins/brand-voice-enforcement
+
+64. nuxt-seo (1,778 installs)
+   ID: onmax/nuxt-skills/nuxt-seo
+
+65. copywriting (1,737 installs)
+   ID: kostja94/marketing-skills/copywriting
+
+66. seo-local (1,722 installs)
+   ID: agricidaniel/claude-seo/seo-local
+
+67. seo-audit (1,690 installs)
+   ID: anthropics/knowledge-work-plugins/seo-audit
+
+68. seo-google (1,619 installs)
+   ID: agricidaniel/claude-seo/seo-google
+
+69. seo-audit (1,601 installs)
+   ID: brightdata/skills/seo-audit
+
+70. seo-maps (1,571 installs)
+   ID: agricidaniel/claude-seo/seo-maps
+
+71. seo-backlinks (1,534 installs)
+   ID: agricidaniel/claude-seo/seo-backlinks
+
+72. humanizer (1,509 installs)
+   ID: daleseo/korean-skills/humanizer
+
+73. ce-worktree (1,349 installs)
+   ID: everyinc/compound-engineering-plugin/ce-worktree
+
+74. youtube-seo (1,290 installs)
+   ID: kostja94/marketing-skills/youtube-seo
+
+75. nextjs-seo (1,241 installs)
+   ID: laguagu/claude-code-nextjs-skills/nextjs-seo
+
+76. seo-ecommerce (1,222 installs)
+   ID: agricidaniel/claude-seo/seo-ecommerce
+
+77. paseo (1,197 installs)
+   ID: getpaseo/paseo/paseo
+
+78. seo-local-business (1,191 installs)
+   ID: jezweb/claude-skills/seo-local-business
+
+79. social-media-analyzer (1,163 installs)
+   ID: alirezarezvani/claude-skills/social-media-analyzer
+
+80. paseo-handoff (1,162 installs)
+   ID: getpaseo/paseo/paseo-handoff
+
+81. social-media-marketing (1,159 installs)
+   ID: dengineproblem/agents-monorepo/social-media-marketing
+
+82. paseo-loop (1,158 installs)
+   ID: getpaseo/paseo/paseo-loop
+
+83. seo-cluster (1,154 installs)
+   ID: agricidaniel/claude-seo/seo-cluster
+
+84. paseo-committee (1,150 installs)
+   ID: getpaseo/paseo/paseo-committee
+
+85. copywriting (1,147 installs)
+   ID: sickn33/antigravity-awesome-skills/copywriting
+
+86. seo-sxo (1,139 installs)
+   ID: agricidaniel/claude-seo/seo-sxo
+
+87. seo-drift (1,132 installs)
+   ID: agricidaniel/claude-seo/seo-drift
+
+88. gtm-strategy (1,118 installs)
+   ID: phuryn/pm-skills/gtm-strategy
+
+89. local-seo (1,051 installs)
+   ID: kostja94/marketing-skills/local-seo
+
+90. seo-optimizer (1,042 installs)
+   ID: ailabs-393/ai-labs-claude-skills/seo-optimizer
+
+91. marketing-strategy-pmm (1,002 installs)
+   ID: davila7/claude-code-templates/marketing-strategy-pmm
+
+92. programmatic-seo (998 installs)
+   ID: kostja94/marketing-skills/programmatic-seo
+
+93. ansoff-matrix (990 installs)
+   ID: phuryn/pm-skills/ansoff-matrix
+
+94. grammar-checker (941 installs)
+   ID: daleseo/korean-skills/grammar-checker
+
+95. influencer-marketing (922 installs)
+   ID: kostja94/marketing-skills/influencer-marketing
+
+96. entity-seo (914 installs)
+   ID: kostja94/marketing-skills/entity-seo
+
+97. seo-strategy (891 installs)
+   ID: kostja94/marketing-skills/seo-strategy
+
+98. style-guide (886 installs)
+   ID: daleseo/korean-skills/style-guide
+
+99. seo-flow (871 installs)
+   ID: agricidaniel/claude-seo/seo-flow
+
+100. seo-monitoring (863 installs)
+   ID: kostja94/marketing-skills/seo-monitoring
+
+101. copywriting (851 installs)
+   ID: skills.volces.com/copywriting
+
+102. content-marketing (838 installs)
+   ID: kostja94/marketing-skills/content-marketing
+
+103. seo-fundamentals (835 installs)
+   ID: sickn33/antigravity-awesome-skills/seo-fundamentals
+
+104. gtm-strategy (808 installs)
+   ID: kostja94/marketing-skills/gtm-strategy
+
+105. product-launch (797 installs)
+   ID: kostja94/marketing-skills/product-launch
+
+106. copywriting (792 installs)
+   ID: nexu-io/open-design/copywriting
+
+107. seo optimizer (777 installs)
+   ID: davila7/claude-code-templates/seo-optimizer
+
+108. brand-guidelines (771 installs)
+   ID: nexu-io/open-design/brand-guidelines
+
+109. newsletter-generation (770 installs)
+   ID: bytedance/deer-flow/newsletter-generation
+
+110. integrated-marketing (767 installs)
+   ID: kostja94/marketing-skills/integrated-marketing
+
+111. newsletter-signup-generator (757 installs)
+   ID: kostja94/marketing-skills/newsletter-signup-generator
+
+112. pmf-strategy (753 installs)
+   ID: kostja94/marketing-skills/pmf-strategy
+
+113. discount-marketing-strategy (752 installs)
+   ID: kostja94/marketing-skills/discount-marketing-strategy
+
+114. paseo-orchestrate (752 installs)
+   ID: getpaseo/paseo/paseo-orchestrate
+
+115. marketing-strategy-pmm (748 installs)
+   ID: alirezarezvani/claude-skills/marketing-strategy-pmm
+
+116. social-media-manager (742 installs)
+   ID: alirezarezvani/claude-skills/social-media-manager
+
+117. seo-audit (722 installs)
+   ID: kostja94/marketing-skills/seo-audit
+
+118. seo-audit (717 installs)
+   ID: sickn33/antigravity-awesome-skills/seo-audit
+
+119. seo-audit (693 installs)
+   ID: seo-skills/seo-audit-skill/seo-audit
+
+120. ecommerce-seo-audit (668 installs)
+   ID: affilino/ecommerce-seo-audit-skill/ecommerce-seo-audit
+
+121. seo-content-brief (646 installs)
+   ID: agricidaniel/claude-seo/seo-content-brief
+
+122. copywriting (628 installs)
+   ID: davila7/claude-code-templates/copywriting
+
+123. go-to-market-plan (602 installs)
+   ID: ognjengt/founder-skills/go-to-market-plan
+
+124. seo-review (593 installs)
+   ID: leonardomso/33-js-concepts/seo-review
+
+125. content-creator (582 installs)
+   ID: davila7/claude-code-templates/content-creator
+
+126. content-marketer (577 installs)
+   ID: sickn33/antigravity-awesome-skills/content-marketer
+
+127. seoul-density (576 installs)
+   ID: nomadamas/k-skill/seoul-density
+
+128. copywriting (570 installs)
+   ID: alirezarezvani/claude-skills/copywriting
+
+129. linkedin-personal-branding (556 installs)
+   ID: schwepps/skills/linkedin-personal-branding
+
+130. seo-meta (546 installs)
+   ID: jezweb/claude-skills/seo-meta
+
+131. seo (536 installs)
+   ID: affaan-m/ecc/seo
+
+132. seo-fundamentals (521 installs)
+   ID: davila7/claude-code-templates/seo-fundamentals
+
+133. seo-best-practices (520 installs)
+   ID: mindrally/skills/seo-best-practices
+
+134. executing-marketing-campaigns (469 installs)
+   ID: davila7/claude-code-templates/executing-marketing-campaigns
+
+135. social-media-carousel (459 installs)
+   ID: inference-sh/skills/social-media-carousel
+
+136. newsletter-curation (446 installs)
+   ID: inference-sh/skills/newsletter-curation
+
+137. social-media-content-repurposer (430 installs)
+   ID: onewave-ai/claude-skills/social-media-content-repurposer
+
+138. sales-page-copywriting (385 installs)
+   ID: yashaiguy-dev/sales-page-copywriting-skill/sales-page-copywriting
+
+139. copywriting-skills (340 installs)
+   ID: vivy-yi/xiaohongshu-skills/copywriting-skills
+
+140. strategy-and-competitive-analysis (333 installs)
+   ID: lyndonkl/claude/strategy-and-competitive-analysis
+
+141. prompt-guard (313 installs)
+   ID: seojoonkim/prompt-guard/prompt-guard
+
+142. conversion-copywriting (307 installs)
+   ID: guia-matthieu/clawfu-skills/conversion-copywriting
+
+143. muapi-brand-kit (300 installs)
+   ID: samuraigpt/generative-media-skills/muapi-brand-kit
+
+144. trade-prediction-markets (268 installs)
+   ID: robonet-tech/skills/trade-prediction-markets
+
+145. copywriting (263 installs)
+   ID: openclaudia/openclaudia-skills/copywriting
+
+146. copywriting-core (260 installs)
+   ID: manojbajaj95/claude-gtm-plugin/copywriting-core
+
+147. go-to-market-strategy (235 installs)
+   ID: manojbajaj95/claude-gtm-plugin/go-to-market-strategy
+
+148. newsletter (233 installs)
+   ID: openclaudia/openclaudia-skills/newsletter
+
+149. ecommerce-copywriting (224 installs)
+   ID: vos91/agent-skills/ecommerce-copywriting
+
+150. marketing-strategist (223 installs)
+   ID: ncklrs/startup-os-skills/marketing-strategist
+
+151. japanese-copywriting (212 installs)
+   ID: ronantakizawa/japanese-copywriting/japanese-copywriting
+
+152. content-creation-and-marketing (211 installs)
+   ID: manojbajaj95/claude-gtm-plugin/content-creation-and-marketing
+
+153. social-media-marketing (208 installs)
+   ID: jk-0001/skills/social-media-marketing
+
+154. brand-consistency (186 installs)
+   ID: dylantarre/animation-principles/brand-consistency
+
+155. copywriting (181 installs)
+   ID: mblode/agent-skills/copywriting
+
+156. branding (174 installs)
+   ID: omer-metin/skills-for-antigravity/branding
+
+157. newsletter-creation-curation (164 installs)
+   ID: brianrwagner/ai-marketing-claude-code-skills/newsletter-creation-curation
+
+158. content calendar planner (160 installs)
+   ID: jmsktm/claude-settings/content-calendar-planner
+
+159. newsletter-publishing (154 installs)
+   ID: jamditis/claude-skills-journalism/newsletter-publishing
+
+160. influencer finder (153 installs)
+   ID: jmsktm/claude-settings/influencer-finder
+
+161. newsletter writer (153 installs)
+   ID: jmsktm/claude-settings/newsletter-writer
+
+162. content-creation (149 installs)
+   ID: smithery.ai/content-creation
+
+163. social-media (146 installs)
+   ID: aitytech/agentkits-marketing/social-media
+
+164. newsletter-voice (146 installs)
+   ID: charlie947/social-media-skills/newsletter-voice
+
+165. copywriting (145 installs)
+   ID: absolutelyskilled/absolutelyskilled/copywriting
+
+166. copywriting (142 installs)
+   ID: pedronauck/skills/copywriting
+
+167. product-strategist (138 installs)
+   ID: ncklrs/startup-os-skills/product-strategist
+
+168. copywriting-classic (136 installs)
+   ID: guia-matthieu/clawfu-skills/copywriting-classic
+
+169. copywriting (134 installs)
+   ID: cyrwheelninja/copywriting-skill/copywriting
+
+170. copywriting-awareness (126 installs)
+   ID: guia-matthieu/clawfu-skills/copywriting-awareness
+
+171. marketing (125 installs)
+   ID: travisjneuman/.claude/marketing
+
+172. product-strategy-and-marketing (121 installs)
+   ID: manojbajaj95/claude-gtm-plugin/product-strategy-and-marketing
+
+173. newsletter (121 installs)
+   ID: membranedev/application-skills/newsletter
+
+174. personal-branding (120 installs)
+   ID: vivy-yi/xiaohongshu-skills/personal-branding
+
+175. workflow-automation (118 installs)
+   ID: shipshitdev/library/workflow-automation
+
+176. reputation-recovery (118 installs)
+   ID: guia-matthieu/clawfu-skills/reputation-recovery
+
+177. reputation (117 installs)
+   ID: aibtcdev/skills/reputation
+
+178. neta (116 installs)
+   ID: talesofai/neta-skills/neta
+
+179. influencer-finder (116 installs)
+   ID: guia-matthieu/clawfu-skills/influencer-finder
+
+180. go-to-market planner (114 installs)
+   ID: daffy0208/ai-dev-standards/go-to-market-planner
+
+181. copywriting (112 installs)
+   ID: alexwelcing/copy/copywriting
+
+182. ogilvy-copywriting (112 installs)
+   ID: boraoztunc/skills/ogilvy-copywriting
+
+183. ai influencer generation (111 installs)
+   ID: eachlabs/skills/ai-influencer-generation
+
+184. seeding-copywriting (107 installs)
+   ID: vivy-yi/xiaohongshu-skills/seeding-copywriting
+
+185. podcast-seo (106 installs)
+   ID: guia-matthieu/clawfu-skills/podcast-seo
+
+186. brand-visual-language (105 installs)
+   ID: dembrandt/dembrandt-skills/brand-visual-language
+
+187. marketing-strategy-pmm (105 installs)
+   ID: manojbajaj95/claude-gtm-plugin/marketing-strategy-pmm
+
+188. newsletter-creation-curation (104 installs)
+   ID: brianrwagner/ai-marketing-skills/newsletter-creation-curation
+
+189. copywriting (103 installs)
+   ID: smithery.ai/copywriting
+
+190. influencer-outreach-template (99 installs)
+   ID: dengineproblem/agents-monorepo/influencer-outreach-template
+
+191. copywriting (99 installs)
+   ID: borghei/claude-skills/copywriting
+
+192. influencer-matrix (98 installs)
+   ID: vivy-yi/xiaohongshu-skills/influencer-matrix
+
+193. linkedin-personal-branding (97 installs)
+   ID: manojbajaj95/claude-gtm-plugin/linkedin-personal-branding
+
+194. course-creation (94 installs)
+   ID: omer-metin/skills-for-antigravity/course-creation
+
+195. apify-influencer-discovery (94 installs)
+   ID: apify/awesome-skills/apify-influencer-discovery
+
+196. copywriting (93 installs)
+   ID: thecraighewitt/seomachine/copywriting
+
+197. noxinfluencer (92 installs)
+   ID: noxinfluencer/skills/noxinfluencer
+
+198. influencer-outreach (92 installs)
+   ID: vivy-yi/xiaohongshu-skills/influencer-outreach
+
+199. apify-brand-reputation-monitoring (92 installs)
+   ID: apify/awesome-skills/apify-brand-reputation-monitoring
+
+200. copywriting (92 installs)
+   ID: boraoztunc/skills/copywriting
+
+201. project-management (89 installs)
+   ID: vivy-yi/xiaohongshu-skills/project-management
+
+202. copywriting (89 installs)
+   ID: kimny1143/claude-code-template/copywriting
+
+203. copywriting (88 installs)
+   ID: louisblythe/salesskills/copywriting
+
+204. content-research (86 installs)
+   ID: nicepkg/ai-workflow/content-research
+
+205. newsletter-creator (85 installs)
+   ID: travisjneuman/.claude/newsletter-creator
+
+206. lennys-podcast-newsletter (85 installs)
+   ID: joeseesun/lennys-podcast-newsletter/lennys-podcast-newsletter
+
+207. influencer-marketing (83 installs)
+   ID: dengineproblem/agents-monorepo/influencer-marketing
+
+208. apify-brand-reputation-monitoring (82 installs)
+   ID: sickn33/antigravity-awesome-skills/apify-brand-reputation-monitoring
+
+209. apify-influencer-discovery (81 installs)
+   ID: sickn33/antigravity-awesome-skills/apify-influencer-discovery
+
+210. creative-copywriting (77 installs)
+   ID: rfxlamia/claude-skillkit/creative-copywriting
+
+211. notion (74 installs)
+   ID: rightnow-ai/openfang/notion
+
+212. social-media (73 installs)
+   ID: nicepkg/ai-workflow/social-media
+
+213. newsletter-coach (72 installs)
+   ID: nicepkg/ai-workflow/newsletter-coach
+
+214. copywriting-zh-pro (70 installs)
+   ID: skills.volces.com/copywriting-zh-pro
+
+215. branding (69 installs)
+   ID: eyadsibai/ltk/branding
+
+216. marketing-strategy (69 installs)
+   ID: manojbajaj95/claude-gtm-plugin/marketing-strategy
+
+217. copywriting (69 installs)
+   ID: dengineproblem/agents-monorepo/copywriting
+
+218. brand-typography-systems (66 installs)
+   ID: mike-coulbourn/claude-vibes/brand-typography-systems
+
+219. marketing-social (66 installs)
+   ID: gnoviawan/agentic-marketing/marketing-social
+
+220. reputation-management (66 installs)
+   ID: indranilbanerjee/digital-marketing-pro/reputation-management
+
+221. josh-braun-copywriting (65 installs)
+   ID: sachacoldiq/coldiq-s-gtm-skills/josh-braun-copywriting
+
+222. branding (64 installs)
+   ID: igorwarzocha/opencode-workflows/branding
+
+223. bootstrap (64 installs)
+   ID: manojbajaj95/claude-gtm-plugin/bootstrap
+
+224. content-marketing (63 installs)
+   ID: dengineproblem/agents-monorepo/content-marketing
+
+225. reputation-lyncs (63 installs)
+   ID: membranedev/application-skills/reputation-lyncs
+
+226. rule-creator (61 installs)
+   ID: oimiragieo/agent-studio/rule-creator
+
+227. medical-newsletter-writer (61 installs)
+   ID: drshailesh88/integrated_content_os/medical-newsletter-writer
+
+228. brand-voice (60 installs)
+   ID: sanky369/vibe-building-skills/brand-voice
+
+229. influencer-creator (60 installs)
+   ID: indranilbanerjee/digital-marketing-pro/influencer-creator
+
+230. retargeting-strategy (59 installs)
+   ID: indranilbanerjee/digital-marketing-pro/retargeting-strategy
+
+231. brand-voice (57 installs)
+   ID: majesticlabs-dev/majestic-marketplace/brand-voice
+
+232. social-strategy (57 installs)
+   ID: indranilbanerjee/digital-marketing-pro/social-strategy
+
+233. paw-mkt-social (57 installs)
+   ID: pawbytes/skill-suites/paw-mkt-social
+
+234. paw-mkt-influencer (56 installs)
+   ID: pawbytes/skill-suites/paw-mkt-influencer
+
+235. marketing-strategy-pmm (56 installs)
+   ID: ovachiever/droid-tings/marketing-strategy-pmm
+
+236. copywriting (56 installs)
+   ID: omer-metin/skills-for-antigravity/copywriting
+
+237. neta-suggest (54 installs)
+   ID: talesofai/neta-skills/neta-suggest
+
+238. social-media-marketing (54 installs)
+   ID: skills.volces.com/social-media-marketing
+
+239. crisis-response (54 installs)
+   ID: indranilbanerjee/digital-marketing-pro/crisis-response
+
+240. influencer-brief (54 installs)
+   ID: indranilbanerjee/digital-marketing-pro/influencer-brief
+
+241. copywriting (54 installs)
+   ID: openstatushq/openstatus/copywriting
+
+242. newsletter writer (53 installs)
+   ID: eddiebe147/claude-settings/newsletter-writer
+
+243. usecase-newsletter-digest (53 installs)
+   ID: cowork-os/cowork-os/usecase-newsletter-digest
+
+244. developer-newsletter (52 installs)
+   ID: jonathimer/devmarketing-skills/developer-newsletter
+
+245. content-creation-ai-tools (51 installs)
+   ID: omer-metin/skills-for-antigravity/content-creation-ai-tools
+
+246. copywriting-pro (51 installs)
+   ID: skills.volces.com/copywriting-pro
+
+247. marketing-strategy-pmm (50 installs)
+   ID: skills.volces.com/marketing-strategy-pmm
+
+248. influencer finder (49 installs)
+   ID: eddiebe147/claude-settings/influencer-finder
+
+249. contentful-personalization (48 installs)
+   ID: contentful/skills/contentful-personalization
+
+250. influencer-discovery (48 installs)
+   ID: superamped/ai-marketing-skills/influencer-discovery
+
+251. copywriting-psychologist (48 installs)
+   ID: sickn33/antigravity-awesome-skills/copywriting-psychologist
+
+252. spark-recipe-newsletter-cleanup (48 installs)
+   ID: readdle/spark-cli-skills/spark-recipe-newsletter-cleanup
+
+253. content-marketer (47 installs)
+   ID: rmyndharis/antigravity-skills/content-marketer
+
+254. newsletter (47 installs)
+   ID: sanky369/vibe-building-skills/newsletter
+
+255. marketing-strategy (46 installs)
+   ID: majesticlabs-dev/majestic-marketplace/marketing-strategy
+
+256. do-create-tasks (45 installs)
+   ID: fabio-barboza/development-orchestrator/do-create-tasks
+
+257. brand-positioning (44 installs)
+   ID: majesticlabs-dev/majestic-marketplace/brand-positioning
+
+258. marketing-strategist (44 installs)
+   ID: cowork-os/cowork-os/marketing-strategist
+
+259. marketing-strategy-pmm (44 installs)
+   ID: nicepkg/ai-workflow/marketing-strategy-pmm
+
+260. pr-social-copywriting (44 installs)
+   ID: asgard-ai-platform/skills/pr-social-copywriting
+
+261. copywriting (44 installs)
+   ID: syntax-syndicate/marketing-skills/copywriting
+
+262. content-creator (43 installs)
+   ID: ovachiever/droid-tings/content-creator
+
+263. go-to-market-planner (43 installs)
+   ID: nicepkg/ai-workflow/go-to-market-planner
+
+264. marketing-influencer (43 installs)
+   ID: gnoviawan/agentic-marketing/marketing-influencer
+
+265. gtm-strategy (42 installs)
+   ID: majesticlabs-dev/majestic-marketplace/gtm-strategy
+
+266. copywriting (42 installs)
+   ID: jackiexiao/jackie-skills-starter/copywriting
+
+267. neta-space (41 installs)
+   ID: talesofai/neta-skills/neta-space
+
+268. influencer-tracking (41 installs)
+   ID: finsilabs/awesome-ecommerce-skills/influencer-tracking
+
+269. influencer-analyzer (41 installs)
+   ID: drshailesh88/integrated_content_os/influencer-analyzer
+
+270. creating-bookmarklets (40 installs)
+   ID: oaustegard/claude-skills/creating-bookmarklets
+
+271. influencer-marketplace-integration (40 installs)
+   ID: finsilabs/awesome-ecommerce-skills/influencer-marketplace-integration
+
+272. marketing-skills-guide (38 installs)
+   ID: gmh5225/awesome-skills/marketing-skills-guide
+
+273. newsletter (37 installs)
+   ID: majesticlabs-dev/majestic-marketplace/newsletter
+
+274. sales-newsletter (37 installs)
+   ID: sales-skills/sales/sales-newsletter
+
+275. influencer-agreement-review (36 installs)
+   ID: skala-io/legal-skills/influencer-agreement-review
+
+276. content-creation (35 installs)
+   ID: ideola-ai/marketing-ads-skills/content-creation
+
+277. brand-identity (34 installs)
+   ID: skills.volces.com/brand-identity
+
+278. anygen-skill (33 installs)
+   ID: skills.volces.com/anygen-skill
+
+279. brand-voice (32 installs)
+   ID: smithery.ai/brand-voice
+
+280. go-to-market (32 installs)
+   ID: skills.volces.com/go-to-market
+
+281. copywriting (32 installs)
+   ID: vm0-ai/vm0-skills/copywriting
+
+282. newsletter-to-video (32 installs)
+   ID: kenneth-liao/ai-launchpad-marketplace/newsletter-to-video
+
+283. boring-copywriting (31 installs)
+   ID: mrpaulscrivens/boring-zoo/boring-copywriting
+
+284. copywriting (31 installs)
+   ID: mysticaltech/marketingskills/copywriting
+
+285. branding (30 installs)
+   ID: steveclarke/dotfiles/branding
+
+286. afa-influencer (30 installs)
+   ID: afadtc/afa-dtc-skills/afa-influencer
+
+287. copywriting (30 installs)
+   ID: modelscope.cn/copywriting
+
+288. suparank/create (29 installs)
+   ID: egebese/suparank/suparank/create
+
+289. social-media-dashboard (29 installs)
+   ID: nexu-io/html-anything/social-media-dashboard
+
+290. copywriting (29 installs)
+   ID: jk-0001/skills/copywriting
+
+291. copywriting (29 installs)
+   ID: ma1orek/replay/copywriting
+
+292. newsletter-campaign-workflow (29 installs)
+   ID: venture-formations/aiprodaily/newsletter-campaign-workflow
+
+293. ph-newsletter-pitch (29 installs)
+   ID: yoanbernabeu/producthunt-skills/ph-newsletter-pitch
+
+294. seedance-personal-brand (28 installs)
+   ID: rediumvex/ai-video-generator-claude/seedance-personal-brand
+
+295. biz-brand-positioning (28 installs)
+   ID: asgard-ai-platform/skills/biz-brand-positioning
+
+296. copywriting-frameworks (28 installs)
+   ID: thatrebeccarae/claude-marketing/copywriting-frameworks
+
+297. content-strategy (27 installs)
+   ID: omer-metin/skills-for-antigravity/content-strategy
+
+298. content-creator (27 installs)
+   ID: aaaaqwq/claude-code-skills/content-creator
+
+299. influencer-evaluator (26 installs)
+   ID: yangliu2060/smith--skills/influencer-evaluator
+
+300. copywriting (26 installs)
+   ID: hungv47/marketing-skills/copywriting
+
+301. copywriting (26 installs)
+   ID: duc01226/easyplatform/copywriting
+
+302. copywriting (26 installs)
+   ID: derklinke/codex-config/copywriting
+
+303. brand-identity (25 installs)
+   ID: jk-0001/skills/brand-identity
+
+304. newsletter-monitor (25 installs)
+   ID: gooseworks-ai/goose-skills/newsletter-monitor
+
+305. 25-voice-clone-podcast (24 installs)
+   ID: minhnv0807/fullstack-mkt-skills/25-voice-clone-podcast
+
+306. content-strategy (24 installs)
+   ID: aitytech/agentkits-marketing/content-strategy
+
+307. copywriting (24 installs)
+   ID: louisblythe/sales-skills/copywriting
+
+308. 22-personal-brand-context (23 installs)
+   ID: minhnv0807/fullstack-mkt-skills/22-personal-brand-context
+
+309. 27-personal-brand-monetize (23 installs)
+   ID: minhnv0807/fullstack-mkt-skills/27-personal-brand-monetize
+
+310. 23-personal-brand-strategy (23 installs)
+   ID: minhnv0807/fullstack-mkt-skills/23-personal-brand-strategy
+
+311. 26-thought-leadership-content (23 installs)
+   ID: minhnv0807/fullstack-mkt-skills/26-thought-leadership-content
+
+312. 28-community-building (23 installs)
+   ID: minhnv0807/fullstack-mkt-skills/28-community-building
+
+313. sales-influencer-marketing (23 installs)
+   ID: sales-skills/sales/sales-influencer-marketing
+
+314. tiktok-influencer-finder (23 installs)
+   ID: gooseworks-ai/goose-skills/tiktok-influencer-finder
+
+315. performing-ip-reputation-analysis-with-shodan (23 installs)
+   ID: mukul975/anthropic-cybersecurity-skills/performing-ip-reputation-analysis-with-shodan
+
+316. copywriting (23 installs)
+   ID: phrazzld/claude-config/copywriting
+
+317. linkedin-influencer-discovery (22 installs)
+   ID: gooseworks-ai/goose-skills/linkedin-influencer-discovery
+
+318. sales-tiktok-marketing (22 installs)
+   ID: sales-skills/sales/sales-tiktok-marketing
+
+319. sales-gaming-marketing (22 installs)
+   ID: sales-skills/sales/sales-gaming-marketing
+
+320. copywriting (22 installs)
+   ID: aitytech/agentkits-marketing/copywriting
+
+321. newsletter-digest (22 installs)
+   ID: maroffo/claude-forge/newsletter-digest
+
+322. newsletter-signal-scanner (22 installs)
+   ID: gooseworks-ai/goose-skills/newsletter-signal-scanner
+
+323. newsletter-visuals (22 installs)
+   ID: kenneth-liao/ai-launchpad-marketplace/newsletter-visuals
+
+324. newsletter-subject-lines (22 installs)
+   ID: cdeistopened/opened-vault/newsletter-subject-lines
+
+325. sponsored-newsletter-finder (22 installs)
+   ID: gooseworks-ai/goose-skills/sponsored-newsletter-finder
+
+326. brand-guidelines (21 installs)
+   ID: vamseeachanta/workspace-hub/brand-guidelines
+
+327. 22-personal-brand-context-global (21 installs)
+   ID: minhnv0807/fullstack-mkt-skills/22-personal-brand-context-global
+
+328. 28-community-building-global (21 installs)
+   ID: minhnv0807/fullstack-mkt-skills/28-community-building-global
+
+329. 30-design-master-global (21 installs)
+   ID: minhnv0807/fullstack-mkt-skills/30-design-master-global
+
+330. 25-voice-clone-podcast-global (21 installs)
+   ID: minhnv0807/fullstack-mkt-skills/25-voice-clone-podcast-global
+
+331. social-media-analyzer (21 installs)
+   ID: skills.volces.com/social-media-analyzer
+
+332. bmad-agent-marketing-social (21 installs)
+   ID: gnoviawan/agentic-marketing/bmad-agent-marketing-social
+
+333. apify-influencer-brand-collabs (21 installs)
+   ID: apify/awesome-skills/apify-influencer-brand-collabs
+
+334. copywriting (21 installs)
+   ID: jstarfilms/vibecode-protocol-suite/copywriting
+
+335. copywriting (21 installs)
+   ID: freekmurze/dotfiles/copywriting
+
+336. cs-social-media-manager (20 installs)
+   ID: skills.volces.com/cs-social-media-manager
+
+337. sales-brandwatch (20 installs)
+   ID: sales-skills/sales/sales-brandwatch
+
+338. sales-sproutsocial (20 installs)
+   ID: sales-skills/sales/sales-sproutsocial
+
+339. sales-employee-advocacy (20 installs)
+   ID: sales-skills/sales/sales-employee-advocacy
+
+340. newsletter-to-social (20 installs)
+   ID: cdeistopened/opened-vault/newsletter-to-social
+
+341. opened-weekly-newsletter-writer (20 installs)
+   ID: cdeistopened/opened-vault/opened-weekly-newsletter-writer
+
+342. cardiology-newsletter-writer (20 installs)
+   ID: drshailesh88/integrated_content_os/cardiology-newsletter-writer
+
+343. gsp-brand-sync (19 installs)
+   ID: jubscodes/get-shit-pretty/gsp-brand-sync
+
+344. sales-meltwater (19 installs)
+   ID: sales-skills/sales/sales-meltwater
+
+345. sales-social-media-management (19 installs)
+   ID: sales-skills/sales/sales-social-media-management
+
+346. biz-ansoff (19 installs)
+   ID: asgard-ai-platform/skills/biz-ansoff
+
+347. go-to-market (19 installs)
+   ID: jk-0001/skills/go-to-market
+
+348. mkt-copywriting (19 installs)
+   ID: hungv47/agent-skills/mkt-copywriting
+
+349. opened-daily-newsletter-writer (19 installs)
+   ID: cdeistopened/opened-vault/opened-daily-newsletter-writer
+
+350. brand-voice-generator (18 installs)
+   ID: kuse-ai/kuse-skills/brand-voice-generator
+
+351. marketing (18 installs)
+   ID: hack23/riksdagsmonitor/marketing
+
+352. sales-influencer-hero (18 installs)
+   ID: sales-skills/sales/sales-influencer-hero
+
+353. youtube-influencer-finder-api-skill (18 installs)
+   ID: browser-act/skills/youtube-influencer-finder-api-skill
+
+354. sales-online-reputation (18 installs)
+   ID: sales-skills/sales/sales-online-reputation
+
+355. planning-market-entry (18 installs)
+   ID: jesseotremblay/claude-skills/planning-market-entry
+
+356. sales-houseofmarketers (18 installs)
+   ID: sales-skills/sales/sales-houseofmarketers
+
+357. copywriting (18 installs)
+   ID: api/git/copywriting
+
+358. newsletter-sponsorship-finder (18 installs)
+   ID: gooseworks-ai/goose-skills/newsletter-sponsorship-finder
+
+359. ai-newsletters (18 installs)
+   ID: marswang42/orbitos/ai-newsletters
+
+360. content-marketer (17 installs)
+   ID: aaaaqwq/claude-code-skills/content-marketer
+
+361. sales-later (17 installs)
+   ID: sales-skills/sales/sales-later
+
+362. find-twitter-influencers (17 installs)
+   ID: gooseworks-ai/goose-skills/find-twitter-influencers
+
+363. money-strategy (17 installs)
+   ID: iamzifei/show-me-the-money/money-strategy
+
+364. copywriting (17 installs)
+   ID: whawkinsiv/claude-code-skills/copywriting
+
+365. copywriting (17 installs)
+   ID: jackiexiao/jackie-skills-cn-top50/copywriting
+
+366. content-creation-and-marketing (16 installs)
+   ID: manojbajaj95/gtm-skills/content-creation-and-marketing
+
+367. content-planning (16 installs)
+   ID: ideola-ai/marketing-ads-skills/content-planning
+
+368. social-media-organic (16 installs)
+   ID: dmend3z/tribo-skills/social-media-organic
+
+369. social-media-advertising (16 installs)
+   ID: dmend3z/tribo-skills/social-media-advertising
+
+370. wow-api-reputation (16 installs)
+   ID: jburlison/wowaddonapiagents/wow-api-reputation
+
+371. research (16 installs)
+   ID: xbklairith/kisune/research
+
+372. copywriting (16 installs)
+   ID: sebas-aikon-intelligence/antigravity-awesome-skills/copywriting
+
+373. copywriting-rewriter (16 installs)
+   ID: skills.volces.com/copywriting-rewriter
+
+374. gentic-influencer (15 installs)
+   ID: gentic-co/agent-skills/gentic-influencer
+
+375. design-trading-strategies (15 installs)
+   ID: robonet-tech/skills/design-trading-strategies
+
+376. marketing-strategy-pmm (15 installs)
+   ID: manojbajaj95/gtm-skills/marketing-strategy-pmm
+
+377. trade-prediction-markets (15 installs)
+   ID: aaaaqwq/claude-code-skills/trade-prediction-markets
+
+378. copywriting-generator (15 installs)
+   ID: skills.volces.com/copywriting-generator
+
+379. copywriting (15 installs)
+   ID: seb1n/awesome-ai-agent-skills/copywriting
+
+380. brand-voice (14 installs)
+   ID: jgerton/brand-toolkit/brand-voice
+
+381. content-create (14 installs)
+   ID: hungv47/marketing-skills/content-create
+
+382. do-create-pbi (14 installs)
+   ID: fabio-barboza/development-orchestrator/do-create-pbi
+
+383. social-media-agent (14 installs)
+   ID: skills.volces.com/social-media-agent
+
+384. copywriting (14 installs)
+   ID: liuchiawei/agent-skills/copywriting
+
+385. copywriting (14 installs)
+   ID: gpttang/skill-atlas/copywriting
+
+386. copywriting (14 installs)
+   ID: silvainfm/claude-skills/copywriting
+
+387. social-media-carousel (4 installs)
+   ID: skills-shell/skills/social-media-carousel
+
+388. newsletter-curation (4 installs)
+   ID: skills-shell/skills/newsletter-curation
+

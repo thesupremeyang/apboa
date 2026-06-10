@@ -112,15 +112,36 @@ public class AguiAgentAdapter {
                         Flux.defer(() -> finishRun(state)))
                 .onErrorResume(
                         error -> {
-                            // On error, emit RawEvent with error info followed by RunFinished
+                            // On error, first emit any pending end events to preserve partial content
+                            // Then emit error info and RunFinished
                             String errorMessage =
                                     error.getMessage() != null
                                             ? error.getMessage()
                                             : error.getClass().getSimpleName();
-                            return Flux.just(
-                                    new AguiEvent.Raw(
-                                            threadId, runId, Map.of("error", errorMessage)),
-                                    new AguiEvent.RunFinished(threadId, runId));
+                            List<AguiEvent> errorEvents = new ArrayList<>();
+
+                            // Emit pending end events (TextMessageEnd, ToolCallEnd, etc.)
+                            for (String messageId : state.getStartedMessages()) {
+                                if (!state.hasEndedMessage(messageId)) {
+                                    errorEvents.add(new AguiEvent.TextMessageEnd(state.threadId, state.runId, messageId));
+                                }
+                            }
+                            for (String toolCallId : state.getStartedToolCalls()) {
+                                if (!state.hasEndedToolCall(toolCallId)) {
+                                    errorEvents.add(new AguiEvent.ToolCallEnd(state.threadId, state.runId, toolCallId));
+                                }
+                            }
+                            for (String messageId : state.getStartedReasoningMessages()) {
+                                if (!state.hasEndedReasoningMessage(messageId)) {
+                                    errorEvents.add(new AguiEvent.ReasoningMessageEnd(state.threadId, state.runId, messageId));
+                                }
+                            }
+
+                            // Emit error and run finished
+                            errorEvents.add(new AguiEvent.Raw(threadId, runId, Map.of("error", errorMessage)));
+                            errorEvents.add(new AguiEvent.RunFinished(threadId, runId));
+
+                            return Flux.fromIterable(errorEvents);
                         });
     }
 
