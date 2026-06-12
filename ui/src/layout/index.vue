@@ -10,7 +10,8 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 import { useAccountStore } from "@/stores";
 import { AppLogo, AppMenu, UserSection } from '@/components/layout'
-const { getRefresh } =  useAccountStore()
+const accountStore = useAccountStore()
+const { getRefresh } = accountStore
 
 let isRefresh = computed(() => {
   return getRefresh()
@@ -18,11 +19,14 @@ let isRefresh = computed(() => {
 
 /** 路由 meta.hideLogo 为 true 时隐藏Logo */
 const showLogo = computed(() => !route.meta.hideLogo)
+
+/** 是否显示导航栏（仅管理员显示） */
+const showHeader = computed(() => accountStore.isAdmin)
 </script>
 
 <template>
-  <div class="app-layout flex flex-col">
-    <header :class="['layout-header', 'flex', 'items-center', { 'no-logo': !showLogo }]">
+  <div :class="['app-layout', 'flex', 'flex-col', { 'no-header': !showHeader }]">
+    <header v-if="showHeader" :class="['layout-header', 'flex', 'items-center', { 'no-logo': !showLogo }]">
       <AppLogo v-if="showLogo" />
       <AppMenu />
       <UserSection />
@@ -45,4 +49,9 @@ const showLogo = computed(() => !route.meta.hideLogo)
 
 <style scoped lang="scss">
 @use '@/styles/modules/layout' as *;
+
+.app-layout.no-header .layout-content {
+  margin-top: 0;
+  min-height: 100vh;
+}
 </style>

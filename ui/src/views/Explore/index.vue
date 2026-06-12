@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import * as agentApi from '@/api/agent'
 
@@ -10,42 +10,150 @@ const query = ref('')
 const category = ref('全部智能体')
 const tab = ref('综合推荐')
 const view = ref<'grid' | 'list'>('grid')
-const enterprise = ref(false)
+const showSortDropdown = ref(false)
+const SORT_OPTIONS = ['综合推荐', '最新发布', '最多使用', '最高评分']
 const selectedAgent = ref<any>(null)
 const toastText = ref('')
 const agents = ref<any[]>([])
 const loading = ref(false)
 const total = ref(0)
 const currentPage = ref(1)
-const pageSize = ref(20)
+const pageSize = ref(12)
 const hasMore = ref(true)
 const tags = ref<string[]>([])
-const showMoreCategories = ref(false)
+const overallTotal = ref(0) // 智能体总数（不受筛选影响）
+
+// ========== 伪装筛选状态 ==========
+const selectedCapability = ref('')
+const selectedIndustry = ref('')
+const selectedApp = ref('')
+const showIndustryDropdown = ref(false)
+const showAppDropdown = ref(false)
+
+// 能力标签选项（映射到标签）
+const capabilityOptions = [
+  { label: '文本生成', tag: '文案写作' },
+  { label: '数据分析', tag: 'AI应用' },
+  { label: '内容创作', tag: '内容生成' },
+  { label: '营销策划', tag: '营销增长' },
+  { label: '教育培训', tag: 'AI教育' },
+  { label: '办公自动化', tag: '办公提效' },
+  { label: '视频制作', tag: 'AI视频' },
+  { label: '客户管理', tag: '私域运营' },
+]
+
+// 适用行业选项（映射到标签）
+const industryOptions = [
+  { label: '教育行业', tag: 'AI教育' },
+  { label: '电商行业', tag: '营销增长' },
+  { label: '金融行业', tag: 'AI应用' },
+  { label: '医疗行业', tag: 'AI应用' },
+  { label: '制造行业', tag: '办公提效' },
+  { label: '传媒行业', tag: '内容运营' },
+  { label: '零售行业', tag: '私域运营' },
+  { label: '科技行业', tag: 'AIP' },
+]
+
+// 连接应用选项（映射到标签）
+const appOptions = [
+  { label: '飞书', tag: '办公提效' },
+  { label: '钉钉', tag: '办公提效' },
+  { label: '企业微信', tag: '私域运营' },
+  { label: '抖音', tag: 'AI视频' },
+  { label: '小红书', tag: '内容运营' },
+  { label: '微信公众号', tag: '内容运营' },
+  { label: '淘宝', tag: '营销增长' },
+  { label: '京东', tag: '营销增长' },
+]
+
+// 筛选处理函数
+function handleCapabilitySelect(item: { label: string; tag: string }) {
+  if (selectedCapability.value === item.label) {
+    selectedCapability.value = ''
+    category.value = '全部智能体'
+  } else {
+    selectedCapability.value = item.label
+    category.value = item.tag
+  }
+}
+
+function handleIndustryClick() {
+  showIndustryDropdown.value = !showIndustryDropdown.value
+  showAppDropdown.value = false
+}
+
+function handleIndustrySelect(item: { label: string; tag: string }) {
+  selectedIndustry.value = item.label
+  category.value = item.tag
+  showIndustryDropdown.value = false
+}
+
+function handleAppClick() {
+  showAppDropdown.value = !showAppDropdown.value
+  showIndustryDropdown.value = false
+}
+
+function handleAppSelect(item: { label: string; tag: string }) {
+  selectedApp.value = item.label
+  category.value = item.tag
+  showAppDropdown.value = false
+}
+
+function handleMobileCategorySelect(name: string) {
+  category.value = name
+  selectedCapability.value = ''
+  selectedIndustry.value = ''
+  selectedApp.value = ''
+}
 
 let searchTimer: ReturnType<typeof setTimeout> | null = null
 let toastTimer: ReturnType<typeof setTimeout> | null = null
 
-// ========== 静态数据（未对接后端，保留） ==========
-const categories = [
-  { name: '全部智能体', count: '128', icon: 'grid' },
-  { name: '文档智能', count: '24', icon: 'file' },
-  { name: '数据分析', count: '28', icon: 'chart' },
-  { name: '内容运营', count: '32', icon: 'sparkle' },
-  { name: '办公效率', count: '27', icon: 'window' },
+// ========== 动态分类数据（对接后端） ==========
+const tagCounts = ref<Record<string, number>>({})
+
+// 固定的10个标签分类
+const FIXED_TAGS = [
+  'AI应用',
+  '文案写作',
+  '内容生成',
+  'AI教育',
+  '内容运营',
+  '办公提效',
+  '营销增长',
+  'AI视频',
+  '私域运营',
+  'AIP',
 ]
 
-// 固定分类名称集合，用于过滤后端标签中已有的分类
-const fixedCategoryNames = new Set(categories.map(c => c.name))
-
-// 后端标签中不属于固定分类的额外分类
-const extraCategories = computed(() => {
-  return tags.value.filter(t => !fixedCategoryNames.has(t))
+const categories = computed(() => {
+  const fixed = [
+    { name: '全部智能体', count: String(overallTotal.value || 0), icon: 'grid' },
+  ]
+  // 使用固定标签列表，从tagCounts获取数量
+  const tagEntries = FIXED_TAGS.map(tag => ({
+    name: tag,
+    count: String(tagCounts.value[tag] || 0),
+    icon: getTagIcon(tag),
+  }))
+  return [...fixed, ...tagEntries]
 })
 
 // 额外分类的图标映射（按关键词匹配）
 const tagIconMap: Record<string, string> = {
   'A2A': 'link',
   '多模态': 'multimodal',
+  '办公提效': 'window',
+  '内容运营': 'chart',
+  '文案写作': 'sparkle',
+  '内容生成': 'sparkle',
+  'AI教育': 'book',
+  'AI应用': 'cube',
+  'AI视频': 'video',
+  '营销增长': 'chart',
+  '私域运营': 'people',
+  'AIP': 'cube',
+  // 兼容旧标签
   '创意': 'sparkle',
   '创作': 'sparkle',
   '写作': 'sparkle',
@@ -72,13 +180,6 @@ function getTagIcon(tag: string): string {
   return 'tag'
 }
 
-const stats = [
-  { label: '智能体总数', value: '128', delta: '较上周  +8', icon: 'cube' },
-  { label: '使用总次数', value: '32,847', delta: '较上周  +12.5%', icon: 'trend' },
-  { label: '解决任务数', value: '18,629', delta: '较上周  +9.3%', icon: 'check' },
-  { label: '用户满意度', value: '4.8/5', delta: '较上周  +0.2', icon: 'star' },
-]
-
 const hotCapabilities = [
   { name: '数据处理', pct: 32.1 },
   { name: '内容创作', pct: 26.7 },
@@ -87,12 +188,61 @@ const hotCapabilities = [
   { name: '流程自动化', pct: 9.7 },
 ]
 
-const latestPublished = [
-  { name: '合同审查助手', tag: '文档智能', time: '1小时前' },
-  { name: '财务报表分析师', tag: '数据分析', time: '3小时前' },
-  { name: '招聘需求分析师', tag: '办公效率', time: '5小时前' },
-  { name: '市场竞品分析师', tag: '数据分析', time: '昨天' },
-]
+const latestPublished = ref<any[]>([])
+
+// 加载最新发布的智能体
+async function loadLatestPublished() {
+  try {
+    const res = await agentApi.page({ page: 1, size: 4, enabled: true })
+    const data = res.data?.data
+    if (data?.records) {
+      // 按创建时间倒序排序
+      const sorted = [...data.records].sort((a: any, b: any) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      })
+      latestPublished.value = sorted.slice(0, 4).map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        tag: item.tag || '未分类',
+        time: formatTime(item.createdAt),
+      }))
+    }
+  } catch (e) {
+    console.error('加载最新发布失败:', e)
+    // 使用默认数据
+    latestPublished.value = [
+      { id: '', name: '合同审查助手', tag: '办公提效', time: '1小时前' },
+      { id: '', name: '财务报表分析师', tag: 'AI应用', time: '3小时前' },
+      { id: '', name: '招聘需求分析师', tag: '办公提效', time: '5小时前' },
+      { id: '', name: '市场竞品分析师', tag: '营销增长', time: '昨天' },
+    ]
+  }
+}
+
+// 格式化时间为相对时间
+function formatTime(dateStr: string): string {
+  if (!dateStr) return ''
+  const date = new Date(dateStr)
+  const now = new Date()
+  const diff = now.getTime() - date.getTime()
+  const minutes = Math.floor(diff / 60000)
+  const hours = Math.floor(diff / 3600000)
+  const days = Math.floor(diff / 86400000)
+
+  if (minutes < 1) return '刚刚'
+  if (minutes < 60) return `${minutes}分钟前`
+  if (hours < 24) return `${hours}小时前`
+  if (days === 1) return '昨天'
+  if (days < 30) return `${days}天前`
+  return `${Math.floor(days / 30)}个月前`
+}
+
+// 跳转到对话页面
+function goToChat(agentId: string) {
+  if (agentId) {
+    router.push(`/chat/${agentId}`)
+  }
+}
 
 const trendDates = ['05-11', '05-13', '05-15', '05-17']
 
@@ -136,10 +286,26 @@ const ownerMap: Record<string, string> = {
   '数据分析': '数据工场团队',
   '内容运营': '新媒体研究所',
   '办公效率': '效率办公团队',
+  '办公提效': '效率办公团队',
+  '文案写作': '内容创作团队',
+  '内容生成': 'AI创作团队',
+  'AI教育': '教育科技团队',
+  'AI应用': 'AI技术团队',
+  'AI视频': '视频技术团队',
+  '营销增长': '营销增长团队',
+  '私域运营': '私域运营团队',
+  'AIP': 'AI技术团队',
 }
 
 function toCardData(a: any) {
   const caps = (a.tool?.length || 0) + (a.skill?.length || 0) + (a.knowledgeBase?.length || 0) + (a.mcp?.length || 0)
+  // 优先使用后端 avatar，否则根据名称匹配本地头像
+  let avatarUrl = ''
+  if (a.avatar && a.avatar.startsWith('http')) {
+    avatarUrl = a.avatar
+  } else if (a.name) {
+    avatarUrl = `/avatars/${encodeURIComponent(a.name)}.png`
+  }
   return {
     id: a.id,
     name: a.name,
@@ -148,7 +314,7 @@ function toCardData(a: any) {
     uses: formatNumber(computeUses(a)),
     score: computeScore(a) + '%',
     owner: ownerMap[a.tag || ''] || (a.agentType === 'A2A' ? 'A2A生态' : '平台官方'),
-    image: a.avatar && a.avatar.startsWith('http') ? a.avatar : '',
+    image: avatarUrl,
     desc: a.description || '暂无描述',
     _raw: a,
   }
@@ -190,27 +356,20 @@ const filteredAgents = computed(() => {
 const cardAgents = computed(() => filteredAgents.value.map(toCardData))
 
 // ========== 已对接后端：API 调用 ==========
-async function loadAgents(page = 1, append = false) {
+async function loadAgents(page = 1) {
   if (loading.value) return
   loading.value = true
   try {
     const params: any = { page, size: pageSize.value, enabled: true }
-    // 服务端搜索：当有搜索关键词时传给后端
     if (query.value) params.name = query.value
-    // 服务端标签筛选
     if (category.value !== '全部智能体') {
       params.tag = category.value
     }
     const res = await agentApi.page(params)
     const data = res.data?.data
     if (data) {
-      if (append) {
-        agents.value = [...agents.value, ...(data.records || [])]
-      } else {
-        agents.value = data.records || []
-      }
+      agents.value = data.records || []
       total.value = data.total || 0
-      hasMore.value = data.current < data.pages
       currentPage.value = page
     }
   } catch (e) {
@@ -229,6 +388,19 @@ async function loadTags() {
   }
 }
 
+async function loadExploreStats() {
+  try {
+    const res = await agentApi.getExploreStats()
+    const data = res.data?.data
+    if (data) {
+      overallTotal.value = data.totalAgents || 0
+      tagCounts.value = data.tagCounts || {}
+    }
+  } catch (e) {
+    console.error('加载广场统计失败:', e)
+  }
+}
+
 function debounceSearch() {
   if (searchTimer) clearTimeout(searchTimer)
   searchTimer = setTimeout(() => {
@@ -237,10 +409,50 @@ function debounceSearch() {
   }, 300)
 }
 
-function handleLoadMore() {
-  if (hasMore.value && !loading.value) {
-    loadAgents(currentPage.value + 1, true)
+function doSearch() {
+  if (searchTimer) clearTimeout(searchTimer)
+  loadAgents(1)
+}
+
+// 分类切换时重新从后端加载（带 tag 筛选）
+watch(category, () => {
+  loadAgents(1)
+})
+
+// 点击外部关闭排序下拉
+function handleSortDropdownOutside(e: MouseEvent) {
+  const target = e.target as HTMLElement
+  if (!target.closest('.sort-wrapper')) {
+    showSortDropdown.value = false
   }
+}
+
+// 排序下拉显示时监听全局点击
+watch(showSortDropdown, (val) => {
+  if (val) {
+    setTimeout(() => document.addEventListener('mousedown', handleSortDropdownOutside), 0)
+  } else {
+    document.removeEventListener('mousedown', handleSortDropdownOutside)
+  }
+})
+
+const totalPages = computed(() => Math.ceil(total.value / pageSize.value) || 1)
+
+const visiblePages = computed(() => {
+  const pages: number[] = []
+  const tp = totalPages.value
+  const cp = currentPage.value
+  let start = Math.max(1, cp - 2)
+  let end = Math.min(tp, start + 4)
+  if (end - start < 4) start = Math.max(1, end - 4)
+  for (let i = start; i <= end; i++) pages.push(i)
+  return pages
+})
+
+function goToPage(page: number) {
+  if (page < 1 || page > totalPages.value || page === currentPage.value) return
+  loadAgents(page)
+  document.querySelector('.main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 // ========== 已对接后端：智能体体验 ==========
@@ -265,14 +477,6 @@ function handleNav(item: string) {
   notify(`${item}功能即将开放`)
 }
 
-function handlePublish() {
-  notify('发布智能体入口已打开')
-}
-
-function handleSubmitRequest() {
-  notify('需求提交入口已打开')
-}
-
 function handleCustomAgent() {
   notify('定制顾问将尽快联系你')
 }
@@ -281,11 +485,14 @@ function handleCustomAgent() {
 onMounted(() => {
   loadTags()
   loadAgents(1)
+  loadExploreStats()
+  loadLatestPublished()
 })
 
 onUnmounted(() => {
   if (searchTimer) clearTimeout(searchTimer)
   if (toastTimer) clearTimeout(toastTimer)
+  document.removeEventListener('mousedown', handleSortDropdownOutside)
 })
 </script>
 
@@ -309,115 +516,107 @@ onUnmounted(() => {
             <svg v-else-if="cat.icon === 'chart'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             <svg v-else-if="cat.icon === 'sparkle'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
             <svg v-else-if="cat.icon === 'window'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <svg v-else-if="cat.icon === 'video'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            <svg v-else-if="cat.icon === 'cube'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <svg v-else-if="cat.icon === 'book'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <svg v-else-if="cat.icon === 'people'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             <span>{{ cat.name }}</span>
-            <em v-if="cat.count">{{ cat.count }}</em>
-          </button>
-
-          <!-- 更多分类：展开/收起按钮 -->
-          <button
-            v-if="extraCategories.length > 0"
-            class="more-categories-btn"
-            @click="showMoreCategories = !showMoreCategories"
-          >
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-            <span>更多分类</span>
-            <svg
-              width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              :style="{ transform: showMoreCategories ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.25s' }"
-            ><polyline points="6 9 12 15 18 9"/></svg>
+            <em :data-count="cat.count">{{ cat.count }}</em>
           </button>
         </div>
 
-        <!-- 更多分类展开区域 -->
-        <div v-if="showMoreCategories && extraCategories.length > 0" class="extra-categories">
-          <button
-            v-for="tag in extraCategories"
-            :key="tag"
-            :class="{ selected: category === tag }"
-            @click="category = category === tag ? '全部智能体' : tag"
-          >
-            <svg v-if="getTagIcon(tag) === 'link'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'multimodal'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'sparkle'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'globe'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'code'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'heart'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'book'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'shield'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'people'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <svg v-else-if="getTagIcon(tag) === 'check'" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <svg v-else width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-            <span>{{ tag }}</span>
-          </button>
-        </div>
-
-        <!-- 静态筛选条件（保留） -->
+        <!-- 伪装筛选条件（映射到标签） -->
         <div class="filter-title">
           <strong>筛选条件</strong>
-          <button @click="category = '全部智能体'; enterprise = false; showMoreCategories = false">清空</button>
+          <button @click="category = '全部智能体'; selectedCapability = ''; selectedIndustry = ''; selectedApp = ''">清空</button>
         </div>
         <div class="filter-group">
           <div class="filter-group-header">
-            <strong>场景</strong>
+            <strong>能力标签</strong>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
-          <label v-for="(item, i) in ['全部场景', '数据处理', '内容创作', '分析洞察', '流程自动化', '知识管理']" :key="item">
-            <input type="checkbox" :checked="i === 0" readonly />
-            <span>{{ item }}</span>
-          </label>
+          <div class="capability-tags">
+            <button
+              v-for="item in capabilityOptions"
+              :key="item.label"
+              :class="{ selected: selectedCapability === item.label }"
+              @click="handleCapabilitySelect(item)"
+            >
+              {{ item.label }}
+            </button>
+          </div>
         </div>
-        <div v-for="item in ['能力标签', '适用行业', '连接应用']" :key="item" class="filter-group">
+        <div class="filter-group">
           <div class="filter-group-header">
-            <strong>{{ item }}</strong>
+            <strong>适用行业</strong>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
-          <button class="select-btn">
-            请选择{{ item }}
+          <button class="select-btn" @click="handleIndustryClick">
+            {{ selectedIndustry || '请选择适用行业' }}
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
+          <div v-if="showIndustryDropdown" class="dropdown-list">
+            <div
+              v-for="item in industryOptions"
+              :key="item.label"
+              class="dropdown-item"
+              @click="handleIndustrySelect(item)"
+            >
+              {{ item.label }}
+            </div>
+          </div>
         </div>
-        <div class="enterprise-toggle">
-          <span>仅看企业可用 <i>i</i></span>
-          <button :class="{ on: enterprise }" @click="enterprise = !enterprise">
-            <svg v-if="enterprise" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="5" width="22" height="14" rx="7" fill="#1768f2"/><circle cx="17" cy="12" r="4" fill="#fff"/></svg>
-            <svg v-else width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="5" width="22" height="14" rx="7" fill="#aeb7c5"/><circle cx="7" cy="12" r="4" fill="#fff"/></svg>
+        <div class="filter-group">
+          <div class="filter-group-header">
+            <strong>连接应用</strong>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <button class="select-btn" @click="handleAppClick">
+            {{ selectedApp || '请选择连接应用' }}
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
+          <div v-if="showAppDropdown" class="dropdown-list">
+            <div
+              v-for="item in appOptions"
+              :key="item.label"
+              class="dropdown-item"
+              @click="handleAppSelect(item)"
+            >
+              {{ item.label }}
+            </div>
+          </div>
         </div>
       </aside>
 
       <!-- ========== 主内容区 ========== -->
       <main class="main-content">
-        <!-- 搜索栏 -->
-        <div class="search-row">
-          <label class="search-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            <input
-              v-model="query"
-              placeholder="搜索智能体，例如：Excel数据处理、文档总结、市场分析"
-              @input="debounceSearch"
-            />
-            <kbd>⌘ K</kbd>
-          </label>
-          <button class="publish-btn" @click="handlePublish">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            发布智能体
-          </button>
-        </div>
-
-        <!-- 仪表盘统计（静态保留） -->
-        <section class="stats-row">
-          <div v-for="s in stats" :key="s.label" class="stat-card">
-            <div>
-              <span>{{ s.label }}</span>
-              <strong>{{ s.value }}</strong>
-              <small>{{ s.delta }} ↑</small>
+        <!-- 探索 Hero -->
+        <section class="market-hero">
+          <div class="hero-content">
+            <span class="hero-eyebrow">智能体广场</span>
+            <h1>探索并使用适合你工作场景的智能体</h1>
+            <div class="search-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input
+                v-model="query"
+                placeholder="搜索：文档总结、数据分析、PPT 制作、会议纪要……"
+                @input="debounceSearch"
+                @keydown.enter="doSearch"
+              />
+              <button class="search-btn" @click="doSearch" title="搜索">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              </button>
             </div>
-            <i>
-              <svg v-if="s.icon === 'cube'" width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-              <svg v-else-if="s.icon === 'trend'" width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-              <svg v-else-if="s.icon === 'check'" width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <svg v-else width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </i>
+          </div>
+          <div class="publish-btn custom-cta">
+            <div class="custom-cta-text">
+              <h3>定制智能体</h3>
+              <p>满足个性化业务需求</p>
+              <button @click.stop="handleCustomAgent">立即定制</button>
+            </div>
+            <div class="custom-cube">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
           </div>
         </section>
 
@@ -438,9 +637,37 @@ onUnmounted(() => {
             <button :class="{ active: view === 'list' }" @click="view = 'list'">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
             </button>
-            <button class="sort-btn">
-              默认排序
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <div class="sort-wrapper" style="position:relative">
+              <button class="sort-btn" @click.stop="showSortDropdown = !showSortDropdown">
+                {{ tab }}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div v-if="showSortDropdown" class="sort-dropdown">
+                <div
+                  v-for="opt in SORT_OPTIONS"
+                  :key="opt"
+                  :class="['sort-option', { active: tab === opt }]"
+                  @click="tab = opt; showSortDropdown = false"
+                >{{ opt }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 移动端快捷筛选 -->
+        <div class="mobile-filters" aria-label="智能体分类筛选">
+          <span class="mobile-filter-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M7 12h10M10 19h4"/></svg>
+            筛选
+          </span>
+          <div class="mobile-filter-scroll">
+            <button
+              v-for="cat in categories"
+              :key="cat.name"
+              :class="{ active: category === cat.name }"
+              @click="handleMobileCategorySelect(cat.name)"
+            >
+              {{ cat.name === '全部智能体' ? '全部' : cat.name }}
             </button>
           </div>
         </div>
@@ -461,7 +688,8 @@ onUnmounted(() => {
           >
             <div class="agent-head">
               <div class="agent-avatar" :style="{ background: `hsl(${stableHash(card.name) % 360}, 60%, 55%)` }">
-                <span>{{ card.name.slice(0, 1) }}</span>
+                <img v-if="card.image" :src="card.image" :alt="card.name" @error="($event.target as HTMLImageElement).style.display='none'" />
+                <span v-else>{{ card.name.slice(0, 1) }}</span>
               </div>
               <div>
                 <h3>{{ card.name }}</h3>
@@ -487,16 +715,6 @@ onUnmounted(() => {
             </div>
           </article>
 
-          <!-- 提交需求卡片（静态保留） -->
-          <button v-if="filteredAgents.length > 0" class="request-card" @click="handleSubmitRequest">
-            <span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
-            <strong>提交需求</strong>
-            <small>告诉我们你需要的智能体</small>
-            <em>去提交</em>
-          </button>
-
           <!-- 空状态 -->
           <div v-if="filteredAgents.length === 0 && !loading" class="empty-state">
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -505,21 +723,28 @@ onUnmounted(() => {
           </div>
         </section>
 
-        <!-- 加载更多（已对接后端） -->
-        <div v-if="hasMore && agents.length > 0" class="load-more">
-          <button :class="{ loading }" @click="handleLoadMore">
-            <span v-if="loading" class="btn-loader"></span>
-            {{ loading ? '加载中...' : '加载更多' }}
+        <!-- 分页控件 -->
+        <div v-if="total > pageSize" class="pagination">
+          <button class="page-btn" :disabled="currentPage <= 1" @click="goToPage(currentPage - 1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            上一页
           </button>
-        </div>
-        <div v-if="!hasMore && agents.length > 0" class="end-line">
-          ✓ 已展示全部 {{ total }} 个智能体
+          <button
+            v-for="p in visiblePages"
+            :key="p"
+            :class="['page-num', { active: p === currentPage }]"
+            @click="goToPage(p)"
+          >{{ p }}</button>
+          <button class="page-btn" :disabled="currentPage >= totalPages" @click="goToPage(currentPage + 1)">
+            下一页
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <span class="page-info">共 {{ total }} 个智能体</span>
         </div>
       </main>
 
-      <!-- ========== 右侧栏（静态保留） ========== -->
-      <aside class="right-panel">
-        <!-- 市场洞察 -->
+      <!-- ========== 底部面板（已注释，后期需要可取消注释恢复） ==========
+      <div class="bottom-panels">
         <section class="panel insight">
           <div class="section-heading">
             <h2>市场洞察</h2>
@@ -535,8 +760,6 @@ onUnmounted(() => {
             <small>{{ item.pct }}%</small>
           </div>
         </section>
-
-        <!-- 使用趋势 -->
         <section class="panel trend-card">
           <h3>使用趋势（近7天）</h3>
           <div class="chart">
@@ -550,14 +773,12 @@ onUnmounted(() => {
             </div>
           </div>
         </section>
-
-        <!-- 最新发布 -->
         <section class="panel latest">
           <div class="section-heading">
             <h3>最新发布</h3>
             <button>更多 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
           </div>
-          <div v-for="(item, i) in latestPublished" :key="item.name" class="latest-row">
+          <div v-for="(item, i) in latestPublished" :key="item.name" class="latest-row" @click="goToChat(item.id)">
             <i :class="['mini', `c${i}`]">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
             </i>
@@ -566,19 +787,8 @@ onUnmounted(() => {
             <small>{{ item.time }}</small>
           </div>
         </section>
-
-        <!-- 定制智能体 -->
-        <section class="panel custom-cta">
-          <div>
-            <h3>定制智能体</h3>
-            <p>满足个性化业务需求</p>
-            <button @click="handleCustomAgent">立即定制</button>
-          </div>
-          <div class="custom-cube">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </div>
-        </section>
-      </aside>
+      </div>
+      ========== 底部面板结束 ========== -->
     </div>
 
     <!-- ========== 智能体详情弹窗 ========== -->
@@ -588,7 +798,8 @@ onUnmounted(() => {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-avatar" :style="{ background: `hsl(${stableHash(selectedAgent.name) % 360}, 60%, 55%)` }">
-          <span>{{ selectedAgent.name.slice(0, 1) }}</span>
+          <img v-if="selectedAgent.image" :src="selectedAgent.image" :alt="selectedAgent.name" @error="($event.target as HTMLImageElement).style.display='none'" />
+          <span v-else>{{ selectedAgent.name.slice(0, 1) }}</span>
         </div>
         <div>
           <span class="modal-tag">{{ selectedAgent.category }}</span>
@@ -641,11 +852,19 @@ onUnmounted(() => {
    ======================================== */
 .workspace {
   display: grid;
-  grid-template-columns: 218px minmax(600px, 1fr) 274px;
+  grid-template-columns: 218px minmax(600px, 1fr);
+  grid-template-rows: 1fr auto;
   gap: 14px;
   padding: 16px;
   height: 100%;
   min-height: calc(100vh - 120px);
+}
+
+.bottom-panels {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
 }
 
 .panel {
@@ -661,6 +880,7 @@ onUnmounted(() => {
 .left-panel {
   padding: 18px 10px;
   overflow: auto;
+  grid-row: span 2;
 }
 
 .left-panel h2 {
@@ -693,6 +913,14 @@ onUnmounted(() => {
   color: #6e7d94;
 }
 
+.category-list button em:empty {
+  display: none;
+}
+
+.category-list button em[data-count="0"] {
+  color: #b0b8c9;
+}
+
 .category-list button.selected {
   background: #edf4ff;
   color: #1261e9;
@@ -704,69 +932,6 @@ onUnmounted(() => {
   color: #1261e9;
   border-radius: 8px;
   padding: 1px 5px;
-}
-
-.category-list .more-categories-btn {
-  height: 41px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 10px;
-  color: #657087;
-}
-
-.category-list .more-categories-btn:hover {
-  background: #f4f6f9;
-  color: var(--blue);
-}
-
-.extra-categories {
-  display: grid;
-  gap: 2px;
-  padding: 4px 0 8px;
-  margin: 0 0 4px;
-  border-top: 1px dashed var(--line);
-  animation: fadeInDown 0.25s ease;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.extra-categories button {
-  height: 38px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 10px 0 14px;
-  font-size: 13px;
-  color: #4a5568;
-  transition: all 0.15s;
-}
-
-.extra-categories button:hover {
-  background: #f4f6f9;
-  color: var(--blue);
-}
-
-.extra-categories button.selected {
-  background: #edf4ff;
-  color: #1261e9;
-  font-weight: 600;
-}
-
-.extra-categories button span {
-  flex: 1;
-  text-align: left;
 }
 
 .tag-list {
@@ -854,37 +1019,76 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: 0 9px;
+  cursor: pointer;
+  position: relative;
 }
 
-.enterprise-toggle {
+.select-btn:hover {
+  border-color: #1768f2;
+  color: #1768f2;
+}
+
+.capability-tags {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 7px;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 0;
 }
 
-.enterprise-toggle span {
-  font-weight: 600;
+.capability-tags button {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #dce4f0;
+  background: #fff;
+  border-radius: 14px;
+  font-size: 12px;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.enterprise-toggle i {
-  display: inline-grid;
-  place-items: center;
-  border: 1px solid #9aa6b8;
-  color: #8b97a9;
-  font-style: normal;
-  border-radius: 50%;
-  font-size: 9px;
-  width: 13px;
-  height: 13px;
+.capability-tags button:hover {
+  border-color: #1768f2;
+  color: #1768f2;
+  background: #edf4ff;
 }
 
-.enterprise-toggle button {
-  color: #aeb7c5;
+.capability-tags button.selected {
+  border-color: #1768f2;
+  background: #1768f2;
+  color: #fff;
 }
 
-.enterprise-toggle button.on {
-  color: var(--blue);
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #dce4f0;
+  border-radius: 6px;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.dropdown-item:hover {
+  background: #edf4ff;
+  color: #1768f2;
+}
+
+.filter-group {
+  position: relative;
 }
 
 /* ========================================
@@ -901,23 +1105,72 @@ onUnmounted(() => {
   display: none;
 }
 
-.search-row {
+.market-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 164px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 24px 26px;
+  border: 1px solid #dce7f7;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(88, 160, 255, .16), transparent 31%),
+    linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+  box-shadow: 0 9px 28px rgba(49, 93, 170, .08);
+}
+
+.market-hero::after {
+  content: "";
+  position: absolute;
+  right: 252px;
+  bottom: -62px;
+  width: 168px;
+  height: 168px;
+  border: 28px solid rgba(75, 139, 242, .07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-content {
   display: flex;
-  gap: 30px;
-  margin-bottom: 26px;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.hero-content h1 {
+  margin: 0 0 4px;
+  color: #17233b;
+  font-size: clamp(22px, 2vw, 29px);
+  line-height: 1.25;
+  letter-spacing: -.02em;
 }
 
 .search-box {
-  height: 43px;
-  border: 1px solid #d9e4f3;
-  box-shadow: 0 7px 19px rgba(40, 100, 190, .1);
-  border-radius: 8px;
+  height: 48px;
+  width: 100%;
+  max-width: 760px;
+  border: 1px solid #cfdef3;
+  box-shadow: 0 8px 22px rgba(40, 100, 190, .12);
+  border-radius: 10px;
   background: #fff;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 0 13px;
-  flex: 1;
   color: #65738a;
 }
 
@@ -942,73 +1195,127 @@ onUnmounted(() => {
   font-size: 11px;
 }
 
-.publish-btn {
-  width: 150px;
-  border: 1px solid #cbdcf8;
-  background: #f9fbff;
-  color: var(--blue);
-  border-radius: 9px;
-  box-shadow: 0 6px 20px rgba(41, 105, 211, .15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  font-weight: 600;
-}
-
-/* 仪表盘统计 */
-.stats-row {
-  height: 119px;
-  background: rgba(255, 255, 255, .9);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 21px;
-}
-
-.stat-card {
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-right: 1px solid var(--line);
-}
-
-.stat-card:last-child {
-  border: 0;
-}
-
-.stat-card div {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.stat-card span {
-  color: #768298;
-}
-
-.stat-card strong {
-  font-size: 25px;
-  line-height: 1.1;
-  color: #111827;
-}
-
-.stat-card small {
-  color: #158f5f;
-}
-
-.stat-card i {
-  width: 58px;
-  height: 58px;
+.search-box .search-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
   display: grid;
   place-items: center;
-  background: linear-gradient(145deg, #f4f9ff, #e8f3ff);
-  border-radius: 50%;
-  color: #2384f4;
-  font-style: normal;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.search-box .search-btn:hover {
+  opacity: 0.85;
+}
+
+.publish-btn {
+  height: 119px;
+  width: 180px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--blue);
+  background: #f0f7ff;
+  color: var(--blue);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.publish-btn:hover {
+  background: #e0efff;
+}
+
+.publish-btn svg {
+  color: var(--blue);
+}
+
+.publish-btn span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.publish-btn p {
+  margin: 0;
+  font-size: 11px;
+  color: #6b8ab8;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 10px;
+}
+
+/* 定制智能体（在 publish-btn 蓝框内） */
+.custom-cta {
+  position: relative;
+  z-index: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0 20px;
+  height: 112px;
+  width: 100%;
+  min-width: 0;
+  background: rgba(255, 255, 255, .64);
+  box-shadow: none;
+}
+
+.custom-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.custom-cta-text h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--blue);
+}
+
+.custom-cta-text p {
+  margin: 0;
+  font-size: 12px;
+  color: #6b8ab8;
+  text-align: left;
+  padding: 0;
+}
+
+.custom-cta-text button {
+  border: 1px solid #bcd2f7;
+  background: #eef5ff;
+  color: var(--blue);
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.custom-cta-text button:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+.custom-cube {
+  color: #4a9cf5;
+  background: #edf6ff;
+  width: 90px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  transform: rotate(-8deg);
+  flex-shrink: 0;
 }
 
 /* 工具栏 */
@@ -1061,6 +1368,43 @@ onUnmounted(() => {
   width: 132px;
   justify-content: space-between;
   padding: 0 12px;
+}
+
+.sort-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 132px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.sort-option {
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #475467;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sort-option:hover {
+  background: #f5f8ff;
+  color: var(--blue);
+}
+
+.sort-option.active {
+  color: var(--blue);
+  font-weight: 600;
+  background: #f0f7ff;
+}
+
+.mobile-filters {
+  display: none;
 }
 
 /* 加载状态 */
@@ -1137,6 +1481,13 @@ onUnmounted(() => {
   font-size: 18px;
   font-weight: 700;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.agent-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .agent-head h3 {
@@ -1253,43 +1604,6 @@ onUnmounted(() => {
   color: #fff;
 }
 
-/* 提交需求卡片 */
-.request-card {
-  height: 222px;
-  border: 1px dashed #d4deec;
-  border-radius: 13px;
-  background: rgba(255, 255, 255, .5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #40506a;
-}
-
-.request-card span {
-  width: 32px;
-  height: 32px;
-  border: 2px solid #aab8cc;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #8190a5;
-}
-
-.request-card small {
-  color: #9aa5b6;
-}
-
-.request-card em {
-  font-style: normal;
-  color: var(--blue);
-  background: #edf4ff;
-  border: 1px solid #d3e2f9;
-  border-radius: 5px;
-  padding: 5px 25px;
-}
-
 /* 空状态 */
 .empty-state {
   grid-column: 1 / -1;
@@ -1306,65 +1620,75 @@ onUnmounted(() => {
   color: #56647a;
 }
 
-/* 加载更多 */
-.load-more {
-  text-align: center;
-  padding: 20px;
+/* 分页控件 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px 0 8px;
 }
 
-.load-more button {
-  padding: 10px 40px;
+.page-btn {
+  height: 32px;
+  padding: 0 12px;
   border: 1px solid #d9e4f3;
-  border-radius: 8px;
+  border-radius: 6px;
   background: #fff;
-  color: #273247;
-  font-weight: 500;
+  color: #4a5568;
+  font-size: 13px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.load-more button:hover {
+.page-btn:hover:not(:disabled) {
   border-color: var(--blue);
   color: var(--blue);
 }
 
-.load-more button.loading {
-  opacity: 0.7;
+.page-btn:disabled {
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
-.btn-loader {
-  width: 14px;
-  height: 14px;
-  border: 2px solid #e5ebf5;
-  border-top-color: var(--blue);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  display: inline-block;
+.page-num {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d9e4f3;
+  border-radius: 6px;
+  background: #fff;
+  color: #4a5568;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.end-line {
-  text-align: center;
-  padding: 20px;
-  color: #7b879d;
+.page-num:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.page-num.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  font-weight: 600;
+}
+
+.page-info {
+  margin-left: 10px;
   font-size: 12px;
+  color: #9aa6b8;
 }
 
 /* ========================================
-   右侧栏
+   底部面板 & 通用
    ======================================== */
-.right-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  overflow: auto;
-}
-
-.right-panel .panel {
-  padding: 16px;
-}
-
 .section-heading {
   display: flex;
   justify-content: space-between;
@@ -1386,7 +1710,7 @@ onUnmounted(() => {
 
 /* 市场洞察 */
 .insight {
-  height: 310px;
+  min-height: 280px;
 }
 
 .insight h2 {
@@ -1395,8 +1719,7 @@ onUnmounted(() => {
 
 .insight h3,
 .trend-card h3,
-.latest h3,
-.custom-cta h3 {
+.latest h3 {
   font-size: 14px;
   margin: 22px 0 14px;
 }
@@ -1531,6 +1854,18 @@ onUnmounted(() => {
   align-items: center;
   gap: 7px;
   margin: 13px 0;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.latest-row:hover {
+  background: #f4f6f9;
+}
+
+.latest-row:hover strong {
+  color: #1768f2;
 }
 
 .latest-row .mini {
@@ -1567,43 +1902,6 @@ onUnmounted(() => {
   color: #9aa4b4;
 }
 
-/* 定制智能体 */
-.custom-cta {
-  height: 165px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-.custom-cta h3 {
-  margin: 0 0 7px;
-}
-
-.custom-cta p {
-  margin: 0 0 14px;
-  color: #8b97aa;
-}
-
-.custom-cta button {
-  border: 1px solid #bcd2f7;
-  background: #eef5ff;
-  color: var(--blue);
-  padding: 6px 14px;
-  border-radius: 6px;
-}
-
-.custom-cube {
-  color: #4a9cf5;
-  background: #edf6ff;
-  width: 105px;
-  height: 105px;
-  display: grid;
-  place-items: center;
-  border-radius: 28px;
-  transform: rotate(-8deg);
-}
-
 /* ========================================
    弹窗
    ======================================== */
@@ -1638,6 +1936,13 @@ onUnmounted(() => {
   font-size: 42px;
   font-weight: 700;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.modal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .close-btn {
@@ -1715,9 +2020,10 @@ onUnmounted(() => {
 @media (max-width: 1350px) {
   .workspace {
     grid-template-columns: 200px minmax(500px, 1fr);
+    grid-template-rows: 1fr auto;
   }
-  .right-panel {
-    display: none;
+  .bottom-panels {
+    grid-column: 2 / 3;
   }
   .agent-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1727,10 +2033,15 @@ onUnmounted(() => {
 @media (max-width: 1050px) {
   .workspace {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     height: auto;
   }
   .left-panel {
     display: none;
+  }
+  .bottom-panels {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
   }
   .agent-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1738,12 +2049,8 @@ onUnmounted(() => {
   .main-content {
     overflow: visible;
   }
-  .stats-row {
-    grid-template-columns: repeat(2, 1fr);
-    height: auto;
-  }
-  .stat-card:nth-child(2) {
-    border-right: 0;
+  .market-hero {
+    grid-template-columns: minmax(0, 1fr) 280px;
   }
 }
 
@@ -1765,30 +2072,162 @@ onUnmounted(() => {
 
 @media (max-width: 680px) {
   .workspace {
-    padding: 10px;
+    padding: 8px;
   }
-  .search-row {
+  .market-hero {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: auto;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .market-hero::after {
+    right: -65px;
+    bottom: -95px;
+  }
+  .hero-content {
     gap: 8px;
   }
-  .publish-btn {
-    width: 48px;
-    font-size: 0;
+  .hero-content h1 {
+    font-size: 20px;
+  }
+  .search-box {
+    height: 44px;
+  }
+  .search-box input {
+    min-width: 0;
+    font-size: 11px;
+  }
+  .search-box input::placeholder {
+    font-size: 11px;
+  }
+  .market-hero .publish-btn {
+    width: 100%;
+    height: auto;
+    min-height: 82px;
+    flex-direction: row;
+    padding: 12px 14px 12px 16px;
+    border-width: 1px;
+    border-radius: 12px;
+  }
+  .market-hero .custom-cta-text {
+    gap: 4px;
+  }
+  .market-hero .custom-cta-text h3 {
+    font-size: 14px;
+  }
+  .market-hero .custom-cta-text p {
+    font-size: 11px;
+  }
+  .market-hero .custom-cta-text button {
+    margin-top: 2px;
+    padding: 4px 12px;
+  }
+  .market-hero .custom-cube {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+  }
+  .market-hero .custom-cube svg {
+    width: 36px;
+    height: 36px;
   }
   .agent-grid {
     grid-template-columns: 1fr;
   }
-  .stats-row {
-    grid-template-columns: 1fr;
-  }
-  .stat-card {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
   .tabs {
     gap: 0;
   }
+  .toolbar {
+    height: 48px;
+    width: 100%;
+  }
+  .tabs {
+    width: 100%;
+  }
+  .tabs button {
+    flex: 1;
+    min-width: 0;
+    padding: 7px 4px;
+    font-size: 12px;
+    text-align: center;
+  }
   .view-controls {
     display: none;
+  }
+  .mobile-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 10px;
+    overflow: hidden;
+  }
+  .mobile-filter-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .mobile-filter-scroll {
+    flex: 1;
+    display: flex;
+    gap: 6px;
+    width: 0;
+    min-width: 0;
+    overflow-x: auto;
+    padding: 2px 1px 4px;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .mobile-filter-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-filter-scroll button {
+    flex-shrink: 0;
+    height: 28px;
+    padding: 0 10px;
+    border: 1px solid #dce6f3;
+    border-radius: 14px;
+    background: #fff;
+    color: #64748b;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .mobile-filter-scroll button.active {
+    border-color: #b9d3fb;
+    background: #edf5ff;
+    color: var(--blue);
+    font-weight: 600;
+  }
+  .pagination {
+    justify-content: center;
+    gap: 4px;
+    margin: 12px 0 2px;
+    padding: 12px 6px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+  }
+  .page-btn {
+    width: 52px;
+    padding: 0 4px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .page-num {
+    width: 30px;
+    height: 30px;
+  }
+  .page-info {
+    display: none;
+  }
+  .bottom-panels {
+    grid-template-columns: 1fr;
   }
 }
 </style>
